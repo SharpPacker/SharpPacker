@@ -2,7 +2,7 @@
 
 namespace SharpPacker
 {
-    public class Class1
+    public class Packer
     {
     }
 }
