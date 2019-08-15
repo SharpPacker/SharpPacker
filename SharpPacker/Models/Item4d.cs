@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Model
+namespace SharpPacker.Models
 {
     public class Item4d : IComparable<Item4d>
     {

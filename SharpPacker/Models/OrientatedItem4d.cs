@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Model
+namespace SharpPacker.Models
 {
     internal class OrientatedItem4d
     {

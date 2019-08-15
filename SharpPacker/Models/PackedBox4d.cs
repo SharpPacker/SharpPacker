@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SharpPacker.Model
+namespace SharpPacker.Models
 {
     public class PackedBox4d
     {
