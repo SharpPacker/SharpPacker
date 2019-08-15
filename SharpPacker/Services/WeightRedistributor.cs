@@ -50,7 +50,7 @@ namespace SharpPacker.Services
                 var overWeightItem = overWeightBoxItems[i];
                 i--;
 
-                throw new Exception("check algorithm logic - why there is direct boxB using instead of over/underWeightBox?");
+                //TODO: check algorithm logic - why there is direct boxB using instead of over/underWeightBox?
                 if(overWeightItem.Weight + boxB.TotalWeight > targetWeight)
                 {
                     continue;
