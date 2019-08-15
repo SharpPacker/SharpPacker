@@ -17,7 +17,7 @@ namespace SharpPacker
         /// Set a list of items all at once.
         /// </summary>
         /// <param name="itemCollection"></param>
-        void SetItems(ICollection<TItem> itemCollection);
+        void SetItems(IEnumerable<TItem> itemCollection);
 
         /// <summary>
         /// Add box size.
@@ -29,7 +29,7 @@ namespace SharpPacker
         /// Add a pre-prepared set of boxes all at once.
         /// </summary>
         /// <param name="boxCollection"></param>
-        void SetBoxes(ICollection<TBox> boxCollection);
+        void SetBoxes(IEnumerable<TBox> boxCollection);
 
         /// <summary>
         /// Number of boxes at which balancing weight is deemed not worth the extra computation time.
