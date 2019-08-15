@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SharpPacker.Model
 {
-    class PackedBox4d
+    public class PackedBox4d
     {
         public Box4d Box { get; set; }
         public List<PackedItem4d> PackedItems { get; set; }
@@ -37,4 +37,5 @@ namespace SharpPacker.Model
                 }
             }
         }
+    }
 }

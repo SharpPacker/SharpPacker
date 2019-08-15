@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Model
 {
-    class OrientatedItem4d
+    internal class OrientatedItem4d
     {
         private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
 

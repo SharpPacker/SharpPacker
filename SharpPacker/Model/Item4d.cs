@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Model
 {
-    class Item4d : IComparable<Item4d>
+    public class Item4d : IComparable<Item4d>
     {
         public string Description { get; set; }
 

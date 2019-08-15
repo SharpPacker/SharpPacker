@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SharpPacker.Model
 {
-    class PackedItem4d
+    public class PackedItem4d
     {
-        public static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
+        internal static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
         {
             return new PackedItem4d
             {
