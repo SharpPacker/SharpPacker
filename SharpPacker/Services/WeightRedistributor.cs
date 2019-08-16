@@ -18,13 +18,77 @@ namespace SharpPacker.Services
         }
 
         /// <summary>
+        /// Given a solution set of packed boxes, repack them to achieve optimum weight distribution.
+        /// </summary>
+        /// <param name="originalBoxes"></param>
+        /// <returns></returns>
+        public List<PackedBox4d> RedistributeWeight(IEnumerable<PackedBox4d> originalBoxes)
+        {
+            var targetWeight = PackedBoxListHelpers.GetMeanWeight(originalBoxes);
+
+            var redistrebutedBoxes = originalBoxes.ToList();
+
+            var iterationSuccessful = false;
+
+            do {
+                EqualiseWeightsIteration(ref redistrebutedBoxes, targetWeight);
+            } while (iterationSuccessful);
+
+            return redistrebutedBoxes;
+        }
+
+        /// <summary>
+        /// Helper method for RedistributeWeight()
+        /// </summary>
+        /// <param name="boxesList"></param>
+        /// <param name="targetWeight"></param>
+        /// <returns></returns>
+        private bool EqualiseWeightsIteration(ref List<PackedBox4d> boxesList, double targetWeight)
+        {
+            SortBoxesListByWeight(ref boxesList);
+
+            var maxIndex = boxesList.Count - 1;
+
+            for (var i = 0; i <= maxIndex; i++)
+            {
+                for (var j = 0; j <= maxIndex; j++)
+                {
+                    var boxA = boxesList[i];
+                    var boxB = boxesList[j];
+
+                    if (j <= i || boxA.TotalWeight == boxB.TotalWeight)
+                    {
+                        continue; //no need to evaluate
+                    }
+
+                    if (EqualiseWeight(ref boxA, ref boxB, targetWeight))
+                    {
+                        //remove any now-empty boxes from the list
+                        if (boxesList.Any(box => box == null))
+                        {
+                            boxesList = boxesList.Where(box => (box != null)).ToList();
+                        }
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void SortBoxesListByWeight(ref List<PackedBox4d> listToSort)
+        {
+            listToSort.Sort((a, b) => b.TotalWeight.CompareTo(a.TotalWeight));
+        }
+
+        /// <summary>
         /// Attempt to equalise weight distribution between 2 boxes
         /// </summary>
         /// <param name="boxA"></param>
         /// <param name="boxB"></param>
         /// <param name="targetWeight"></param>
         /// <returns>was the weight rebalanced?</returns>
-        private bool EqualiseWeight(ref PackedBox4d boxA, ref PackedBox4d boxB, float targetWeight)
+        private bool EqualiseWeight(ref PackedBox4d boxA, ref PackedBox4d boxB, double targetWeight)
         {
             var anyIterationSuccessful = false;
 
