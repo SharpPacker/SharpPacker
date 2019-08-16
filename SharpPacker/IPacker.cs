@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace SharpPacker
 {
-    interface IPacker<TItem, TBox, TPackedBox>
+    internal interface IPacker<TItem, TBox, TPackedBox>
     {
         /// <summary>
         /// Add item to be packed.

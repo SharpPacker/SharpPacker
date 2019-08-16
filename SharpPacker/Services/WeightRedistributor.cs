@@ -1,13 +1,11 @@
 ﻿using SharpPacker.Helpers;
 using SharpPacker.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace SharpPacker.Services
 {
-    class WeightRedistributor
+    internal class WeightRedistributor
     {
         private readonly List<Box4d> boxes;
 
@@ -30,7 +28,8 @@ namespace SharpPacker.Services
 
             var iterationSuccessful = false;
 
-            do {
+            do
+            {
                 EqualiseWeightsIteration(ref redistrebutedBoxes, targetWeight);
             } while (iterationSuccessful);
 
@@ -95,11 +94,12 @@ namespace SharpPacker.Services
             PackedBox4d overWeightBox;
             PackedBox4d underWeightBox;
 
-            if(boxA.TotalWeight > boxB.TotalWeight)
+            if (boxA.TotalWeight > boxB.TotalWeight)
             {
                 overWeightBox = boxA;
                 underWeightBox = boxB;
-            } else
+            }
+            else
             {
                 overWeightBox = boxB;
                 underWeightBox = boxA;
@@ -109,34 +109,35 @@ namespace SharpPacker.Services
             var underWeightBoxItems = underWeightBox.PackedItems.ToList();
 
             var i = overWeightBoxItems.Count - 1;
-            while(i >= 0)
+            while (i >= 0)
             {
                 var overWeightItem = overWeightBoxItems[i];
                 i--;
 
                 //TODO: check algorithm logic - why there is direct boxB using instead of over/underWeightBox?
-                if(overWeightItem.Weight + boxB.TotalWeight > targetWeight)
+                if (overWeightItem.Weight + boxB.TotalWeight > targetWeight)
                 {
                     continue;
                 }
 
                 var newLighterBoxes = DoVolumeRepack(underWeightBoxItems, overWeightItem);
-                if(newLighterBoxes.Count != 1)
+                if (newLighterBoxes.Count != 1)
                 {
                     continue; //only want to move this item if it still fits in a single box
                 }
 
                 underWeightBoxItems.Add(overWeightItem);
 
-                if(overWeightBoxItems.Count == 1)
+                if (overWeightBoxItems.Count == 1)
                 { //sometimes a repack can be efficient enough to eliminate a box
                     boxB = newLighterBoxes[0];
                     boxA = null;
 
                     return true;
-                } else
+                }
+                else
                 {
-                    overWeightBoxItems.RemoveAt(i+1);
+                    overWeightBoxItems.RemoveAt(i + 1);
                     var newHeavierBoxes = DoVolumeRepack(overWeightBoxItems, null);
                     if (newHeavierBoxes.Count != 1)
                     {
@@ -150,7 +151,6 @@ namespace SharpPacker.Services
                         anyIterationSuccessful = true;
                     }
                 }
-
             }
             return anyIterationSuccessful;
         }
@@ -176,14 +176,14 @@ namespace SharpPacker.Services
             var packer = new Packer();
             packer.SetBoxes(this.boxes);
             packer.SetItems(originalItems);
-            if(plusOneItem != null)
+            if (plusOneItem != null)
             {
                 packer.AddItem(plusOneItem);
             }
 
             return packer.DoVolumePacking();
         }
-        
+
         /// <summary>
         /// Do a volume repack of a set of items.
         /// </summary>
@@ -194,7 +194,6 @@ namespace SharpPacker.Services
         {
             return DoVolumeRepack(originalPackedItems.Select(pi => pi.Item), plusOnePackedItem?.Item);
         }
-
 
         /// <summary>
         /// Not every attempted repack is actually helpful - sometimes moving an item between two otherwise identical

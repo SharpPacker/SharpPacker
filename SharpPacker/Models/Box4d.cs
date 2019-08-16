@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SharpPacker.Models
 {
@@ -18,11 +16,14 @@ namespace SharpPacker.Models
 
         public int EmptyWeight { get; set; }
         public int MaxWeight { get; set; }
-        public int WeightCapacity { get {
+
+        public int WeightCapacity {
+            get {
                 if (MaxWeight <= 0)
                 {
                     return 0;
-                } else
+                }
+                else
                 {
                     return MaxWeight - EmptyWeight;
                 }
@@ -43,7 +44,7 @@ namespace SharpPacker.Models
             {
                 return -1;
             }
- 
+
             // with smallest empty weight
             if (this.EmptyWeight < other.EmptyWeight)
             {

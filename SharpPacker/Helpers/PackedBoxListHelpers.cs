@@ -1,12 +1,11 @@
 ﻿using SharpPacker.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace SharpPacker.Helpers
 {
-    static class PackedBoxListHelpers
+    internal static class PackedBoxListHelpers
     {
         /// <summary>
         /// Calculate the average (mean) weight of the boxes.
@@ -50,16 +49,16 @@ namespace SharpPacker.Helpers
             var itemsVolume = 0;
             var boxesVolume = 0;
 
-            foreach(var pBox in pBoxList)
+            foreach (var pBox in pBoxList)
             {
                 boxesVolume += pBox.InnerVolume;
-                foreach(var pItem in pBox.PackedItems)
+                foreach (var pItem in pBox.PackedItems)
                 {
                     itemsVolume += pItem.Volume;
                 }
             }
 
-            if(boxesVolume == 0)
+            if (boxesVolume == 0)
             {
                 return 0;
             }

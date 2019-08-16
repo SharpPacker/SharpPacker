@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SharpPacker.Models
 {
@@ -20,7 +18,7 @@ namespace SharpPacker.Models
 
         public int CompareTo(Item4d other)
         {
-            if(this.Volume > other.Volume)
+            if (this.Volume > other.Volume)
             {
                 return 1;
             }
@@ -29,7 +27,7 @@ namespace SharpPacker.Models
                 return -1;
             }
 
-            if(this.Weight > other.Weight)
+            if (this.Weight > other.Weight)
             {
                 return 1;
             }
