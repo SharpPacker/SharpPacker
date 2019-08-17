@@ -6,6 +6,7 @@ namespace SharpPacker.Models
     internal class OrientatedItem4d
     {
         private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
+        private const double degree15inRadians = 0.261799;
 
         public Item4d Item { get; set; }
 
@@ -21,9 +22,7 @@ namespace SharpPacker.Models
 
         public bool IsStable()
         {
-            var degree15inRadians = 0.261799;
             var tp = GetTippingPoint();
-
             return tp > degree15inRadians;
         }
 

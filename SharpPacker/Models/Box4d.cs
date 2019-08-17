@@ -4,18 +4,18 @@ namespace SharpPacker.Models
 {
     public class Box4d : IComparable<Box4d>
     {
-        public string Reference { get; set; }
+        public virtual string Reference { get; set; }
 
-        public int OuterWidth { get; set; }
-        public int OuterLength { get; set; }
-        public int OuterDepth { get; set; }
+        public virtual int OuterWidth { get; set; }
+        public virtual int OuterLength { get; set; }
+        public virtual int OuterDepth { get; set; }
 
-        public int InnerWidth { get; set; }
-        public int InnerLength { get; set; }
-        public int InnerDepth { get; set; }
+        public virtual int InnerWidth { get; set; }
+        public virtual int InnerLength { get; set; }
+        public virtual int InnerDepth { get; set; }
 
-        public int EmptyWeight { get; set; }
-        public int MaxWeight { get; set; }
+        public virtual int EmptyWeight { get; set; }
+        public virtual int MaxWeight { get; set; }
 
         public int WeightCapacity {
             get {
