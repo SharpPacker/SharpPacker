@@ -124,7 +124,7 @@ namespace SharpPacker.Services
         }
 
         private void TryAndStackItemsIntoSpace(
-                        PackedLevel layer,
+                        PackedLayer layer,
                         PackedItem4d prevItem,
                         IEnumerable<Item4d> nextItems,
                         int maxWidth,

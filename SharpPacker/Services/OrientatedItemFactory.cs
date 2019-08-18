@@ -35,11 +35,9 @@ namespace SharpPacker.Services
 
             var remainigRowPacked = tempPacker.Pack();
 
-            itemsToPack = itemsToPack.Except(remainigRowPacked.Items.Select(x => x.Item));
+            itemsToPack = itemsToPack.Except(remainigRowPacked.PackedItems.Select(x => x.Item));
 
             return nextItems.Count() - itemsToPack.Count();
         }
     }
 }
-
-l
