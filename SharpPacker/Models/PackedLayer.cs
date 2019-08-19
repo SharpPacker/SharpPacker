@@ -7,7 +7,7 @@ namespace SharpPacker.Models
 {
     internal class PackedLayer
     {
-        private List<PackedItem4d> Items { get; set; } = new List<PackedItem4d>();
+        public List<PackedItem4d> Items { get; set; } = new List<PackedItem4d>();
 
         /// <summary>
         /// Add a packed item to this layer.

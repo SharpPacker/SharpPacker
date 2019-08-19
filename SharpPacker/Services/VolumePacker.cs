@@ -76,6 +76,109 @@ namespace SharpPacker.Services
         }
 
         /// <summary>
+        /// Pack items into an individual vertical layer.
+        /// </summary>
+        /// <param name="startDepth"></param>
+        /// <param name="widthLeft"></param>
+        /// <param name="lengthLeft"></param>
+        /// <param name="depthLeft"></param>
+        protected void PackLayer(int startDepth, int widthLeft, int lengthLeft, int depthLeft)
+        {
+            var newLayer = new PackedLayer();
+            layers.Add(newLayer);
+
+            int x, y, rowWidth, rowLength, layerDepth;
+            x = y = rowWidth = rowLength = layerDepth = 0;
+
+            PackedItem4d prevItem = null;
+
+            items.Sort();
+            while (layers.Count > 0)
+            {
+                var itemToPack = items.Last();
+                items.Remove(itemToPack);
+
+                //skip items that are simply too heavy or too large
+                if (!CheckConstrains(itemToPack))
+                {
+                    RebuildItemList();
+                    continue;
+                }
+
+                var orientedItem = GetOrientationForItem(itemToPack,
+                                                            prevItem,
+                                                            items,
+                                                            HasItemsLeftToPack(),
+                                                            widthLeft,
+                                                            lengthLeft,
+                                                            depthLeft,
+                                                            rowLength,
+                                                            x,
+                                                            y,
+                                                            startDepth
+                                                        );
+
+                if (orientedItem != null)
+                {
+                    var packedItem = PackedItem4d.FromOrientatedItem(orientedItem, x, y, startDepth);
+                    newLayer.Insert(packedItem);
+                    remainingWeight -= orientedItem.Item.Weight;
+                    widthLeft -= orientedItem.Item.Width;
+
+                    rowWidth += orientedItem.Width;
+                    rowLength = Math.Max(rowLength, orientedItem.Length);
+                    layerDepth = Math.Max(layerDepth, orientedItem.Depth);
+
+                    //allow items to be stacked in place within the same footprint up to current layer depth
+                    var stackableDepth = layerDepth - orientedItem.Depth;
+                    TryAndStackItemsIntoSpace(newLayer,
+                                                prevItem,
+                                                items,
+                                                orientedItem.Width,
+                                                orientedItem.Length,
+                                                stackableDepth,
+                                                x,
+                                                y,
+                                                startDepth + orientedItem.Depth,
+                                                rowLength
+                                            );
+                    x += orientedItem.Width;
+
+                    prevItem = packedItem;
+                    RebuildItemList();
+                }
+                else if (newLayer.Items.Count == 0)
+                {
+                    // zero items on layer
+                    // doesn't fit on layer even when empty, skipping for good
+                    continue;
+                }
+                else if (widthLeft > 0 && items.Count > 0)
+                {
+                    // skip for now, move on to the next item
+                    skippedItems.Add(itemToPack);
+                }
+                else if (x > 0 && lengthLeft >= Math.Min(Math.Min(itemToPack.Width, itemToPack.Length), itemToPack.Depth))
+                {
+                    // No more fit in width wise, resetting for new row
+                    widthLeft += rowWidth;
+                    lengthLeft -= rowLength;
+                    y += rowLength;
+                    x = rowWidth = rowLength = 0;
+                    RebuildItemList(itemToPack);
+                    prevItem = null;
+                    continue;
+                }
+                else
+                {
+                    // no items fit, so starting next vertical layer
+                    RebuildItemList(itemToPack);
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
         /// During packing, it is quite possible that layers have been created that aren't physically stable i.e.they overhang the ones below.
         /// This function reorders them so that the ones with the greatest surface area are placed at the bottom
         /// </summary>
@@ -136,17 +239,18 @@ namespace SharpPacker.Services
                         int rowLength
                     )
         {
+            items.Sort();
             while (items.Count() > 0)
             {
-                var firstItem = items.First();
+                var lastItem = items.Last();
                 var thisIsLastItem = (items.Count() == 1);
-                if (CheckNonDimensionalConstrains(firstItem))
+                if (!CheckNonDimensionalConstrains(lastItem))
                 {
                     break;
                 }
 
                 var stackedItem = GetOrientationForItem(
-                                        firstItem,
+                                        lastItem,
                                         prevItem,
                                         nextItems,
                                         thisIsLastItem,
@@ -163,11 +267,11 @@ namespace SharpPacker.Services
                 {
                     layer.Insert(PackedItem4d.FromOrientatedItem(stackedItem, x, y, z));
 
-                    remainingWeight -= firstItem.Weight;
+                    remainingWeight -= lastItem.Weight;
                     maxDepth -= stackedItem.Depth;
                     z += stackedItem.Depth;
 
-                    items.Remove(firstItem);
+                    items.Remove(lastItem);
                 }
                 else
                 {
