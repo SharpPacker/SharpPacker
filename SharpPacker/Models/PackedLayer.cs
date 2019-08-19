@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SharpPacker.Models
 {
-    internal class PackedLayer
+    internal class PackedLayer : IComparable<PackedLayer>
     {
         public List<PackedItem4d> Items { get; set; } = new List<PackedItem4d>();
 
@@ -41,10 +41,7 @@ namespace SharpPacker.Models
             return startDepth;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+
         public int GetDepth()
         {
             var layerDepth = Items.Max(i => i.Z + i.Depth);
@@ -52,5 +49,15 @@ namespace SharpPacker.Models
             return layerDepth - GetStartDepth();
         }
 
+        public int CompareTo(PackedLayer other)
+        {
+            var result = other.GetFootprint().CompareTo(this.GetFootprint());
+            if(result == 0)
+            {
+                result = other.GetDepth().CompareTo(this.GetDepth());
+            }
+
+            return result;
+        }
     }
 }
