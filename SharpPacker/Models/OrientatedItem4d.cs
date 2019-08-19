@@ -3,20 +3,25 @@ using System.Collections.Generic;
 
 namespace SharpPacker.Models
 {
-    internal class OrientatedItem4d
+    public class OrientatedItem4d
     {
         private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
         private const double degree15inRadians = 0.261799;
 
         public Item4d Item { get; set; }
 
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        //public int X { get; set; }
+        //public int Y { get; set; }
+        //public int Z { get; set; }
 
-        public int Width => Item.Width;
-        public int Length => Item.Length;
-        public int Depth => Item.Depth;
+        public int Width { get; set; }
+        public int Length { get; set; }
+        public int Depth { get; set; }
+
+
+        //public int Width => Item.Width;
+        //public int Length => Item.Length;
+        //public int Depth => Item.Depth;
 
         public int SurfaceFootprint => (Width * Length);
 

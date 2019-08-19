@@ -29,6 +29,9 @@ namespace SharpPacker.Services
                     var newZItem = new PackedItem4d()
                     {
                         Item = oldZItem.Item,
+                        Width = oldZItem.Width,
+                        Length = oldZItem.Length,
+                        Depth = oldZItem.Depth,
                         X = oldZItem.X,
                         Y = oldZItem.Y,
                         Z = oldZItem.Z,

@@ -185,7 +185,7 @@ namespace SharpPacker.Services
         public void StabiliseLayers()
         {
             var stabeliser = new LayerStabiliser();
-            layers = stabeliser.stabilise(layers);
+            layers = stabeliser.Stabilise(layers);
         }
 
         private OrientatedItem4d GetOrientationForItem(
@@ -386,7 +386,7 @@ namespace SharpPacker.Services
         /// <returns></returns>
         private int GetCurrentPackedDepth()
         {
-            var depth = layers.Sum(l => l.Depth);
+            var depth = layers.Sum(l => l.GetDepth());
             return depth;
         }
     }
