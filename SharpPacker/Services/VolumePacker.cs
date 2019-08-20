@@ -288,7 +288,7 @@ namespace SharpPacker.Services
         private bool CheckConstrains(Item4d itemToPack)
         {
             return CheckNonDimensionalConstrains(itemToPack) &&
-                CheckDimensionalConstrains(itemToPack);
+                CheckDimensionalConstraints(itemToPack);
         }
 
         /// <summary>
@@ -310,10 +310,10 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="itemToPack"></param>
         /// <returns></returns>
-        private bool CheckDimensionalConstrains(Item4d itemToPack)
+        private bool CheckDimensionalConstraints(Item4d itemToPack)
         {
             var oif = new OrientatedItemFactory(box);
-            return oif.getPossibleOrientationsInEmptyBox(itemToPack);
+            return oif.GetPossibleOrientationsInEmptyBox(itemToPack).Count() != 0;
         }
 
         /// <summary>
@@ -389,5 +389,6 @@ namespace SharpPacker.Services
             var depth = layers.Sum(l => l.GetDepth());
             return depth;
         }
+
     }
 }
