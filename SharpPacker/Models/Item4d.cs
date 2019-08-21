@@ -14,7 +14,7 @@ namespace SharpPacker.Models
 
         public bool KeepFlat { get; set; }
 
-        public int Volume => (Width * Length * Depth);
+        public float Volume => ((float)Width * Length * Depth);
 
         public int CompareTo(Item4d other)
         {

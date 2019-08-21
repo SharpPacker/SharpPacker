@@ -46,8 +46,8 @@ namespace SharpPacker.Helpers
         /// <returns></returns>
         public static double GetVolumeUtilizationPercent(IEnumerable<PackedBox4d> pBoxList)
         {
-            var itemsVolume = 0;
-            var boxesVolume = 0;
+            var itemsVolume = 0f;
+            var boxesVolume = 0f;
 
             foreach (var pBox in pBoxList)
             {

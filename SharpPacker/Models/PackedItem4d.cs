@@ -28,7 +28,7 @@
 
         public int Weight => Item.Weight;
 
-        public int Volume => Item.Volume;
+        public float Volume => Item.Volume;
 
         public static PackedItem4d FromOrienteditem(OrientatedItem4d oi, int x, int y, int z)
         {

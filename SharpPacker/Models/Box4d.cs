@@ -30,8 +30,8 @@ namespace SharpPacker.Models
             }
         }
 
-        public int InnerVolume => (InnerWidth * InnerLength * InnerDepth);
-        public int OuterVolume => (OuterWidth * OuterLength * OuterDepth);
+        public float InnerVolume => ((float)InnerWidth * InnerLength * InnerDepth);
+        public float OuterVolume => ((float)OuterWidth * OuterLength * OuterDepth);
 
         public int CompareTo(Box4d other)
         {

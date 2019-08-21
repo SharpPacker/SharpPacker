@@ -20,9 +20,9 @@ namespace SharpPacker.Models
         public int RemainingLength => Box.InnerLength - UsedLength;
         public int RemainingDepth => Box.InnerDepth - UsedDepth;
 
-        public int InnerVolume => (Box.InnerVolume);
-        public int UsedVolume => PackedItems.Sum(item => item.Volume);
-        public int UnusedVolume => InnerVolume - UsedVolume;
+        public float InnerVolume => (Box.InnerVolume);
+        public float UsedVolume => PackedItems.Sum(item => item.Volume);
+        public float UnusedVolume => InnerVolume - UsedVolume;
 
         public float VolumeUtilizationPercent {
             get {
