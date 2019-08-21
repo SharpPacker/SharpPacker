@@ -30,5 +30,23 @@ namespace SharpPacker.Tests.BoxPackerTests
                 MaxWeight = maxWeight,
             };
         }
+
+        public static Item4d CreateItem(string description,
+                                        int width,
+                                        int length,
+                                        int depth,
+                                        int weight,
+                                        bool keepFlat)
+        {
+            return new Item4d()
+            {
+                Description = description,
+                Width = width,
+                Length = length,
+                Depth = depth,
+                Weight = weight,
+                KeepFlat = keepFlat
+            };
+        }
     }
 }

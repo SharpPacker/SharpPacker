@@ -27,16 +27,13 @@ namespace SharpPacker.Models
                 return -1;
             }
 
-            if (this.Weight > other.Weight)
+            var weightDecider = this.Weight - other.Weight;
+            if (weightDecider != 0)
             {
-                return 1;
-            }
-            if (this.Weight < other.Weight)
-            {
-                return -1;
+                return weightDecider;
             }
 
-            return this.Description.CompareTo(other.Description);
+            return other.Description.CompareTo(.Description);
         }
     }
 }
