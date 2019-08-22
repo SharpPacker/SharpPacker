@@ -33,7 +33,7 @@ namespace SharpPacker.Models
                 return weightDecider;
             }
 
-            return other.Description.CompareTo(.Description);
+            return other.Description.CompareTo(this.Description);
         }
     }
 }

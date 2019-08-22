@@ -6,11 +6,22 @@ namespace SharpPacker.Models
 {
     public class PackedBox4d
     {
+        public PackedBox4d()
+        {
+            this.PackedItems = new List<PackedItem4d>();
+        }
+
+        public PackedBox4d(Box4d box, IEnumerable<PackedItem4d> pItems)
+        {
+            this.Box = box;
+            this.PackedItems = pItems.ToList();
+        }
         public Box4d Box { get; set; }
         public List<PackedItem4d> PackedItems { get; set; }
 
         public int ItemsWeight => PackedItems.Sum(item => item.Weight);
         public int TotalWeight => Box.EmptyWeight + ItemsWeight;
+        public int RemainingWeight => Box.MaxWeight - TotalWeight;
 
         public int UsedWidth => PackedItems.Max(item => (item.X + item.Width));
         public int UsedLength => PackedItems.Max(item => (item.Y + item.Length));

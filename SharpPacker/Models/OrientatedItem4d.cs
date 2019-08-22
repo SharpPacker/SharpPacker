@@ -16,13 +16,26 @@ namespace SharpPacker.Models
 
         public int SurfaceFootprint => (Width * Length);
 
+        public OrientatedItem4d()
+        {
+
+        }
+
+        public OrientatedItem4d(Item4d item, int width, int length, int depth)
+        {
+            this.Item = item;
+            this.Width = width;
+            this.Length = length;
+            this.Depth = depth;
+        }
+
         public bool IsStable()
         {
             var tp = GetTippingPoint();
             return tp > degree15inRadians;
         }
 
-        private float GetTippingPoint()
+        public float GetTippingPoint()
         {
             var key = this.ToString();
             if (tippingPointCache.ContainsKey(key))

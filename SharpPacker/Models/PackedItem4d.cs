@@ -2,18 +2,27 @@
 {
     public class PackedItem4d
     {
-        internal static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
+        public PackedItem4d()
         {
-            return new PackedItem4d
-            {
-                Item = oi.Item,
-                Width = oi.Width,
-                Length = oi.Length,
-                Depth = oi.Depth,
-                X = x,
-                Y = y,
-                Z = z,
-            };
+
+        }
+
+        public PackedItem4d(Item4d item,
+                int x,
+                int y,
+                int z,
+                int width,
+                int length,
+                int depth
+            )
+        {
+            this.Item = item;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+            this.Width = width;
+            this.Length = length;
+            this.Depth = depth;
         }
 
         public Item4d Item;
@@ -22,15 +31,15 @@
         public int Y { get; set; }
         public int Z { get; set; }
 
-        public int Width { get; set; } // => Item.Width;
-        public int Length { get; set; } // => Item.Length;
-        public int Depth { get; set; }  // => Item.Depth;
+        public int Width { get; set; }
+        public int Length { get; set; }
+        public int Depth { get; set; }
 
         public int Weight => Item.Weight;
 
-        public float Volume => Item.Volume;
+        public float Volume => ((float)Width * Length * Depth);
 
-        public static PackedItem4d FromOrienteditem(OrientatedItem4d oi, int x, int y, int z)
+        public static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
         {
             return new PackedItem4d()
             {
