@@ -107,7 +107,7 @@ namespace SharpPacker.Services
             PackedItem4d prevItem = null;
 
             items.Sort();
-            while (layers.Count > 0)
+            while (items.Count > 0)
             {
                 var itemToPack = items.Last();
                 items.Remove(itemToPack);

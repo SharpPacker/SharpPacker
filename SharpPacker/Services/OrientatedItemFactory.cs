@@ -88,18 +88,18 @@ namespace SharpPacker.Services
                     new OrientatedItem4d()
                     {
                         Item = item,
-                        Width = prevItem.Width,
-                        Length = prevItem.Length,
-                        Depth = prevItem.Depth
+                        Width = item.Width,
+                        Length = item.Length,
+                        Depth = item.Depth
                     }
                 );
                 orientations.Add(
                     new OrientatedItem4d()
                     {
                         Item = item,
-                        Width = prevItem.Length,
-                        Length = prevItem.Width,
-                        Depth = prevItem.Depth
+                        Width = item.Length,
+                        Length = item.Width,
+                        Depth = item.Depth
                     }
                 );
 
@@ -110,9 +110,9 @@ namespace SharpPacker.Services
                         new OrientatedItem4d()
                         {
                             Item = item,
-                            Width = prevItem.Width,
-                            Length = prevItem.Depth,
-                            Depth = prevItem.Length
+                            Width = item.Width,
+                            Length = item.Depth,
+                            Depth = item.Length
                         }
                     );
 
@@ -120,9 +120,9 @@ namespace SharpPacker.Services
                         new OrientatedItem4d()
                         {
                             Item = item,
-                            Width = prevItem.Length,
-                            Length = prevItem.Depth,
-                            Depth = prevItem.Width
+                            Width = item.Length,
+                            Length = item.Depth,
+                            Depth = item.Width
                         }
                     );
 
@@ -130,9 +130,9 @@ namespace SharpPacker.Services
                         new OrientatedItem4d()
                         {
                             Item = item,
-                            Width = prevItem.Depth,
-                            Length = prevItem.Width,
-                            Depth = prevItem.Length
+                            Width = item.Depth,
+                            Length = item.Width,
+                            Depth = item.Length
                         }
                     );
 
@@ -140,9 +140,9 @@ namespace SharpPacker.Services
                         new OrientatedItem4d()
                         {
                             Item = item,
-                            Width = prevItem.Depth,
-                            Length = prevItem.Length,
-                            Depth = prevItem.Width
+                            Width = item.Depth,
+                            Length = item.Length,
+                            Depth = item.Width
                         }
                     );
                 }
@@ -222,7 +222,7 @@ namespace SharpPacker.Services
         }
 
         protected int CalculateAdditionalItemsPackedWithThisOrientation(OrientatedItem4d prevItem,
-                                                                                                        IEnumerable<Item4d> nextItems,
+                                                                        IEnumerable<Item4d> nextItems,
                                                                         int originalWidthLeft,
                                                                         int originalLengthLeft,
                                                                         int depthLeft,
@@ -239,7 +239,7 @@ namespace SharpPacker.Services
             {
                 LookAheadMode = true
             };
-
+            // TODO Broken here, TestIssue174
             var remainigRowPacked = tempPacker.Pack();
 
             itemsToPack = itemsToPack.Except(remainigRowPacked.PackedItems.Select(x => x.Item));

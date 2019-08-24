@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace SharpPacker.Models
@@ -6,7 +7,7 @@ namespace SharpPacker.Models
     public class OrientatedItem4d
     {
         private const double degree15inRadians = 0.261799;
-        private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
+        private static readonly ConcurrentDictionary<string, float> tippingPointCache = new ConcurrentDictionary<string, float>();
 
         public OrientatedItem4d()
         {
@@ -38,7 +39,7 @@ namespace SharpPacker.Models
             var tangens = (double)Math.Min(Width, Length) / (Depth != 0 ? Depth : 1);
             var angle = (float)Math.Atan(tangens);
 
-            tippingPointCache.Add(key, angle);
+            tippingPointCache.AddOrUpdate(key, angle, (prevKey, prevAngle) => angle);
 
             return angle;
         }
