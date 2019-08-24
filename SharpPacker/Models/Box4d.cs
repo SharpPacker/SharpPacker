@@ -4,18 +4,17 @@ namespace SharpPacker.Models
 {
     public class Box4d : IComparable<Box4d>
     {
-        public virtual string Reference { get; set; }
-
-        public virtual int OuterWidth { get; set; }
-        public virtual int OuterLength { get; set; }
-        public virtual int OuterDepth { get; set; }
-
-        public virtual int InnerWidth { get; set; }
-        public virtual int InnerLength { get; set; }
-        public virtual int InnerDepth { get; set; }
-
         public virtual int EmptyWeight { get; set; }
+        public virtual int InnerDepth { get; set; }
+        public virtual int InnerLength { get; set; }
+        public float InnerVolume => ((float)InnerWidth * InnerLength * InnerDepth);
+        public virtual int InnerWidth { get; set; }
         public virtual int MaxWeight { get; set; }
+        public virtual int OuterDepth { get; set; }
+        public virtual int OuterLength { get; set; }
+        public float OuterVolume => ((float)OuterWidth * OuterLength * OuterDepth);
+        public virtual int OuterWidth { get; set; }
+        public virtual string Reference { get; set; }
 
         public int WeightCapacity {
             get {
@@ -29,9 +28,6 @@ namespace SharpPacker.Models
                 }
             }
         }
-
-        public float InnerVolume => ((float)InnerWidth * InnerLength * InnerDepth);
-        public float OuterVolume => ((float)OuterWidth * OuterLength * OuterDepth);
 
         public int CompareTo(Box4d other)
         {

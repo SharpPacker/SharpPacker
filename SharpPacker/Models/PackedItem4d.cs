@@ -2,9 +2,10 @@
 {
     public class PackedItem4d
     {
+        public Item4d Item;
+
         public PackedItem4d()
         {
-
         }
 
         public PackedItem4d(Item4d item,
@@ -25,19 +26,14 @@
             this.Depth = depth;
         }
 
-        public Item4d Item;
-
+        public int Depth { get; set; }
+        public int Length { get; set; }
+        public float Volume => ((float)Width * Length * Depth);
+        public int Width { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
-
-        public int Width { get; set; }
-        public int Length { get; set; }
-        public int Depth { get; set; }
-
         public int Weight => Item.Weight;
-
-        public float Volume => ((float)Width * Length * Depth);
 
         public static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
         {

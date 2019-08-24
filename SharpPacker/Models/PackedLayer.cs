@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace SharpPacker.Models
@@ -9,13 +8,22 @@ namespace SharpPacker.Models
     {
         public List<PackedItem4d> Items { get; set; } = new List<PackedItem4d>();
 
-        /// <summary>
-        /// Add a packed item to this layer.
-        /// </summary>
-        /// <param name="packedItem"></param>
-        public void Insert(PackedItem4d packedItem)
+        public int CompareTo(PackedLayer other)
         {
-            this.Items.Add(packedItem);
+            var result = other.GetFootprint().CompareTo(this.GetFootprint());
+            if (result == 0)
+            {
+                result = other.GetDepth().CompareTo(this.GetDepth());
+            }
+
+            return result;
+        }
+
+        public int GetDepth()
+        {
+            var layerDepth = Items.Max(i => i.Z + i.Depth);
+
+            return layerDepth - GetStartDepth();
         }
 
         /// <summary>
@@ -41,23 +49,13 @@ namespace SharpPacker.Models
             return startDepth;
         }
 
-
-        public int GetDepth()
+        /// <summary>
+        /// Add a packed item to this layer.
+        /// </summary>
+        /// <param name="packedItem"></param>
+        public void Insert(PackedItem4d packedItem)
         {
-            var layerDepth = Items.Max(i => i.Z + i.Depth);
-
-            return layerDepth - GetStartDepth();
-        }
-
-        public int CompareTo(PackedLayer other)
-        {
-            var result = other.GetFootprint().CompareTo(this.GetFootprint());
-            if(result == 0)
-            {
-                result = other.GetDepth().CompareTo(this.GetDepth());
-            }
-
-            return result;
+            this.Items.Add(packedItem);
         }
     }
 }

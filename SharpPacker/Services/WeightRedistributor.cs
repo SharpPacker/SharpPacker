@@ -37,47 +37,60 @@ namespace SharpPacker.Services
         }
 
         /// <summary>
-        /// Helper method for RedistributeWeight()
+        /// Not every attempted repack is actually helpful - sometimes moving an item between two
+        /// otherwise identical boxes, or sometimes the box used for the now lighter set of items
+        /// actually weighs more when empty causing an increase in total weight.
         /// </summary>
-        /// <param name="boxesList"></param>
-        /// <param name="targetWeight"></param>
         /// <returns></returns>
-        private bool EqualiseWeightsIteration(ref List<PackedBox4d> boxesList, double targetWeight)
+        private bool DidRepackActuallyHelp(PackedBox4d oldBoxA, PackedBox4d oldBoxB, PackedBox4d newBoxA, PackedBox4d newBoxB)
         {
-            SortBoxesListByWeight(ref boxesList);
+            PackedBox4d[] oldList = { oldBoxA, oldBoxB };
+            PackedBox4d[] newList = { newBoxA, newBoxB };
 
-            var maxIndex = boxesList.Count - 1;
+            var oldWeigthVariance = PackedBoxListHelpers.GetWeightVariance(oldList);
+            var newWeigthVariance = PackedBoxListHelpers.GetWeightVariance(newList);
 
-            for (var i = 0; i <= maxIndex; i++)
-            {
-                for (var j = 0; j <= maxIndex; j++)
-                {
-                    var boxA = boxesList[i];
-                    var boxB = boxesList[j];
-
-                    if (j <= i || boxA.TotalWeight == boxB.TotalWeight)
-                    {
-                        continue; //no need to evaluate
-                    }
-
-                    if (EqualiseWeight(ref boxA, ref boxB, targetWeight))
-                    {
-                        //remove any now-empty boxes from the list
-                        if (boxesList.Any(box => box == null))
-                        {
-                            boxesList = boxesList.Where(box => (box != null)).ToList();
-                        }
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return (newWeigthVariance < oldWeigthVariance);
         }
 
-        private void SortBoxesListByWeight(ref List<PackedBox4d> listToSort)
+        /// <summary>
+        /// Do a volume repack of a set of items.
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> items)
         {
-            listToSort.Sort((a, b) => b.TotalWeight.CompareTo(a.TotalWeight));
+            return DoVolumeRepack(items, null);
+        }
+
+        /// <summary>
+        /// Do a volume repack of a set of items.
+        /// </summary>
+        /// <param name="originalItems"></param>
+        /// <param name="plusOneItem"></param>
+        /// <returns></returns>
+        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> originalItems, Item4d plusOneItem)
+        {
+            var packer = new Packer();
+            packer.SetBoxes(this.boxes);
+            packer.SetItems(originalItems);
+            if (plusOneItem != null)
+            {
+                packer.AddItem(plusOneItem);
+            }
+
+            return packer.DoVolumePacking();
+        }
+
+        /// <summary>
+        /// Do a volume repack of a set of items.
+        /// </summary>
+        /// <param name="originalPackedItems"></param>
+        /// <param name="plusOnePackedItem"></param>
+        /// <returns></returns>
+        private List<PackedBox4d> DoVolumeRepack(IEnumerable<PackedItem4d> originalPackedItems, PackedItem4d plusOnePackedItem)
+        {
+            return DoVolumeRepack(originalPackedItems.Select(pi => pi.Item), plusOnePackedItem?.Item);
         }
 
         /// <summary>
@@ -156,60 +169,47 @@ namespace SharpPacker.Services
         }
 
         /// <summary>
-        /// Do a volume repack of a set of items.
+        /// Helper method for RedistributeWeight()
         /// </summary>
-        /// <param name="items"></param>
+        /// <param name="boxesList"></param>
+        /// <param name="targetWeight"></param>
         /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> items)
+        private bool EqualiseWeightsIteration(ref List<PackedBox4d> boxesList, double targetWeight)
         {
-            return DoVolumeRepack(items, null);
-        }
+            SortBoxesListByWeight(ref boxesList);
 
-        /// <summary>
-        /// Do a volume repack of a set of items.
-        /// </summary>
-        /// <param name="originalItems"></param>
-        /// <param name="plusOneItem"></param>
-        /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> originalItems, Item4d plusOneItem)
-        {
-            var packer = new Packer();
-            packer.SetBoxes(this.boxes);
-            packer.SetItems(originalItems);
-            if (plusOneItem != null)
+            var maxIndex = boxesList.Count - 1;
+
+            for (var i = 0; i <= maxIndex; i++)
             {
-                packer.AddItem(plusOneItem);
+                for (var j = 0; j <= maxIndex; j++)
+                {
+                    var boxA = boxesList[i];
+                    var boxB = boxesList[j];
+
+                    if (j <= i || boxA.TotalWeight == boxB.TotalWeight)
+                    {
+                        continue; //no need to evaluate
+                    }
+
+                    if (EqualiseWeight(ref boxA, ref boxB, targetWeight))
+                    {
+                        //remove any now-empty boxes from the list
+                        if (boxesList.Any(box => box == null))
+                        {
+                            boxesList = boxesList.Where(box => (box != null)).ToList();
+                        }
+                        return true;
+                    }
+                }
             }
 
-            return packer.DoVolumePacking();
+            return false;
         }
 
-        /// <summary>
-        /// Do a volume repack of a set of items.
-        /// </summary>
-        /// <param name="originalPackedItems"></param>
-        /// <param name="plusOnePackedItem"></param>
-        /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<PackedItem4d> originalPackedItems, PackedItem4d plusOnePackedItem)
+        private void SortBoxesListByWeight(ref List<PackedBox4d> listToSort)
         {
-            return DoVolumeRepack(originalPackedItems.Select(pi => pi.Item), plusOnePackedItem?.Item);
-        }
-
-        /// <summary>
-        /// Not every attempted repack is actually helpful - sometimes moving an item between two otherwise identical
-        /// boxes, or sometimes the box used for the now lighter set of items actually weighs more when empty causing
-        /// an increase in total weight.
-        /// </summary>
-        /// <returns></returns>
-        private bool DidRepackActuallyHelp(PackedBox4d oldBoxA, PackedBox4d oldBoxB, PackedBox4d newBoxA, PackedBox4d newBoxB)
-        {
-            PackedBox4d[] oldList = { oldBoxA, oldBoxB };
-            PackedBox4d[] newList = { newBoxA, newBoxB };
-
-            var oldWeigthVariance = PackedBoxListHelpers.GetWeightVariance(oldList);
-            var newWeigthVariance = PackedBoxListHelpers.GetWeightVariance(newList);
-
-            return (newWeigthVariance < oldWeigthVariance);
+            listToSort.Sort((a, b) => b.TotalWeight.CompareTo(a.TotalWeight));
         }
     }
 }

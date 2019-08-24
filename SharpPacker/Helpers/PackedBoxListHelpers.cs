@@ -18,28 +18,6 @@ namespace SharpPacker.Helpers
         }
 
         /// <summary>
-        /// Calculate the variance in weight between these boxes.
-        /// </summary>
-        /// <param name="pBoxList"></param>
-        /// <returns></returns>
-        public static double GetWeightVariance(IEnumerable<PackedBox4d> pBoxList)
-        {
-            var boxCount = pBoxList.Count();
-
-            if (boxCount == 0)
-            {
-                return 0;
-            }
-
-            var mean = GetMeanWeight(pBoxList);
-            var variance = pBoxList.Sum(pBox => Math.Pow(pBox.TotalWeight - mean, 2));
-
-            var meanVariance = variance / boxCount;
-
-            return meanVariance;
-        }
-
-        /// <summary>
         /// Get volume utilisation of the set of packed boxes.
         /// </summary>
         /// <param name="pBoxList"></param>
@@ -64,6 +42,28 @@ namespace SharpPacker.Helpers
             }
 
             return (100 * (double)itemsVolume / boxesVolume);
+        }
+
+        /// <summary>
+        /// Calculate the variance in weight between these boxes.
+        /// </summary>
+        /// <param name="pBoxList"></param>
+        /// <returns></returns>
+        public static double GetWeightVariance(IEnumerable<PackedBox4d> pBoxList)
+        {
+            var boxCount = pBoxList.Count();
+
+            if (boxCount == 0)
+            {
+                return 0;
+            }
+
+            var mean = GetMeanWeight(pBoxList);
+            var variance = pBoxList.Sum(pBox => Math.Pow(pBox.TotalWeight - mean, 2));
+
+            var meanVariance = variance / boxCount;
+
+            return meanVariance;
         }
     }
 }

@@ -1,33 +1,30 @@
-﻿using System;
+﻿using SharpPacker.Models;
 using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using SharpPacker;
-using SharpPacker.Models;
 using System.Linq;
+using Xunit;
 
 namespace SharpPacker.Tests.BoxPackerTests
 {
-   
     public class BoxListTest
     {
         /// <summary>
-        /// Test that sorting of boxes with different dimensions works as expected i.e. Largest(by volume) first.
+        /// Test that sorting of boxes with identical dimensions works as expected i.e. order by
+        /// maximum weight capacity.
         /// </summary>
         [Fact]
-        public void TestSorting()
+        public void TestIssue163()
         {
-            var box1 = Factory.CreateBox("C_Small", 21, 21, 3, 1, 20, 20, 2, 100);
-            var box2 = Factory.CreateBox("B_Large", 201, 201, 21, 1, 200, 200, 20, 1000);
-            var box3 = Factory.CreateBox("A_Medium", 101, 101, 11, 5, 100, 100, 10, 500);
+            var box2 = Factory.CreateBox("C2", 202, 152, 32, 10, 200, 150, 30, 100);
+            var box3 = Factory.CreateBox("B3", 202, 152, 32, 10, 200, 150, 30, 250);
+            var box1 = Factory.CreateBox("A1", 202, 152, 32, 10, 200, 150, 30, 50);
 
-            var list = new List<Box4d>() { box1, box2, box3 };
+            var list = new List<Box4d>() { box1, box3, box2 };
 
             var sorted = (list as IEnumerable<Box4d>).OrderBy(box => box).ToList();
 
-            Assert.Equal("C_Small", sorted[0].Reference);
-            Assert.Equal("A_Medium", sorted[1].Reference);
-            Assert.Equal("B_Large", sorted[2].Reference);
+            Assert.Equal(box1.Reference, sorted[0].Reference);
+            Assert.Equal(box2.Reference, sorted[1].Reference);
+            Assert.Equal(box3.Reference, sorted[2].Reference);
         }
 
         /// <summary>
@@ -75,22 +72,23 @@ namespace SharpPacker.Tests.BoxPackerTests
         }
 
         /// <summary>
-        /// Test that sorting of boxes with identical dimensions works as expected i.e. order by maximum weight capacity.
+        /// Test that sorting of boxes with different dimensions works as expected i.e. Largest(by
+        /// volume) first.
         /// </summary>
         [Fact]
-        public void TestIssue163()
+        public void TestSorting()
         {
-            var box2 = Factory.CreateBox("C2", 202, 152, 32, 10, 200, 150, 30, 100);
-            var box3 = Factory.CreateBox("B3", 202, 152, 32, 10, 200, 150, 30, 250);
-            var box1 = Factory.CreateBox("A1", 202, 152, 32, 10, 200, 150, 30, 50);
+            var box1 = Factory.CreateBox("C_Small", 21, 21, 3, 1, 20, 20, 2, 100);
+            var box2 = Factory.CreateBox("B_Large", 201, 201, 21, 1, 200, 200, 20, 1000);
+            var box3 = Factory.CreateBox("A_Medium", 101, 101, 11, 5, 100, 100, 10, 500);
 
-            var list = new List<Box4d>() { box1, box3, box2 };
+            var list = new List<Box4d>() { box1, box2, box3 };
 
             var sorted = (list as IEnumerable<Box4d>).OrderBy(box => box).ToList();
 
-            Assert.Equal(box1.Reference, sorted[0].Reference);
-            Assert.Equal(box2.Reference, sorted[1].Reference);
-            Assert.Equal(box3.Reference, sorted[2].Reference);
+            Assert.Equal("C_Small", sorted[0].Reference);
+            Assert.Equal("A_Medium", sorted[1].Reference);
+            Assert.Equal("B_Large", sorted[2].Reference);
         }
     }
 }

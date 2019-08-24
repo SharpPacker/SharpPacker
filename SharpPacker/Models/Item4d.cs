@@ -4,17 +4,14 @@ namespace SharpPacker.Models
 {
     public class Item4d : IComparable<Item4d>
     {
+        public int Depth { get; set; }
         public string Description { get; set; }
 
-        public int Width { get; set; }
-        public int Length { get; set; }
-        public int Depth { get; set; }
-
-        public int Weight { get; set; }
-
         public bool KeepFlat { get; set; }
-
+        public int Length { get; set; }
         public float Volume => ((float)Width * Length * Depth);
+        public int Weight { get; set; }
+        public int Width { get; set; }
 
         public int CompareTo(Item4d other)
         {

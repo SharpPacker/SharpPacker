@@ -1,15 +1,19 @@
-﻿using System;
+﻿using SharpPacker.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using SharpPacker;
-using SharpPacker.Models;
 using System.Linq;
+using Xunit;
 
 namespace SharpPacker.Tests.BoxPackerTests
 {
     public class ItemListTest
     {
+        [Fact]
+        public void TestCount()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Test that sorting of items with different dimensions works as expected i.e.
         /// * - Largest(by volume) first
@@ -33,12 +37,20 @@ namespace SharpPacker.Tests.BoxPackerTests
 
             var sorted = (list as IEnumerable<Item4d>).OrderBy(item => item).ToList();
 
-            // TODO Check if this test is OK in original library - looks like in current ItemList sorting is inverted: 
-            // -- Dough: Reverse internal ordering of ItemList so that it can use O(1) array_pop rather than O(n) array_shift
+            // TODO Check if this test is OK in original library - looks like in current ItemList
+            // sorting is inverted:
+            // -- Dough: Reverse internal ordering of ItemList so that it can use O(1) array_pop
+            //    rather than O(n) array_shift
             Assert.Equal(item2.Description, sorted[0].Description);
             Assert.Equal(item4.Description, sorted[1].Description);
             Assert.Equal(item3.Description, sorted[2].Description);
             Assert.Equal(item1.Description, sorted[3].Description);
+        }
+
+        [Fact]
+        public void TestExtract()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -63,8 +75,10 @@ namespace SharpPacker.Tests.BoxPackerTests
 
             var sorted = (list as IEnumerable<Item4d>).OrderBy(item => item).ToList();
 
-            // TODO Check if this test is OK in original library - looks like in current ItemList sorting is inverted: 
-            // -- Dough: Reverse internal ordering of ItemList so that it can use O(1) array_pop rather than O(n) array_shift
+            // TODO Check if this test is OK in original library - looks like in current ItemList
+            // sorting is inverted:
+            // -- Dough: Reverse internal ordering of ItemList so that it can use O(1) array_pop
+            //    rather than O(n) array_shift
             Assert.Equal(item1.Description, sorted[0].Description);
             Assert.Equal(item3.Description, sorted[1].Description);
             Assert.Equal(item2.Description, sorted[2].Description);
@@ -72,17 +86,7 @@ namespace SharpPacker.Tests.BoxPackerTests
         }
 
         [Fact]
-        public void TestCount()
-        {
-            throw new NotImplementedException();
-        }
-        [Fact]
         public void TestTop()
-        {
-            throw new NotImplementedException();
-        }
-        [Fact]
-        public void TestExtract()
         {
             throw new NotImplementedException();
         }

@@ -5,20 +5,11 @@ namespace SharpPacker.Models
 {
     public class OrientatedItem4d
     {
-        private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
         private const double degree15inRadians = 0.261799;
-
-        public Item4d Item { get; set; }
-
-        public int Width { get; set; }
-        public int Length { get; set; }
-        public int Depth { get; set; }
-
-        public int SurfaceFootprint => (Width * Length);
+        private static readonly Dictionary<string, float> tippingPointCache = new Dictionary<string, float>();
 
         public OrientatedItem4d()
         {
-
         }
 
         public OrientatedItem4d(Item4d item, int width, int length, int depth)
@@ -29,11 +20,12 @@ namespace SharpPacker.Models
             this.Depth = depth;
         }
 
-        public bool IsStable()
-        {
-            var tp = GetTippingPoint();
-            return tp > degree15inRadians;
-        }
+        public int Depth { get; set; }
+        public Item4d Item { get; set; }
+
+        public int Length { get; set; }
+        public int SurfaceFootprint => (Width * Length);
+        public int Width { get; set; }
 
         public float GetTippingPoint()
         {
@@ -49,6 +41,12 @@ namespace SharpPacker.Models
             tippingPointCache.Add(key, angle);
 
             return angle;
+        }
+
+        public bool IsStable()
+        {
+            var tp = GetTippingPoint();
+            return tp > degree15inRadians;
         }
 
         public override string ToString()

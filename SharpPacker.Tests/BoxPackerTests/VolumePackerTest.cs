@@ -10,58 +10,204 @@ namespace SharpPacker.Tests.BoxPackerTests
     public class VolumePackerTest
     {
         /// <summary>
-        /// Test that identical orientation doesn't survive change of row
-        /// (7 side by side, then 2 side by side rotated).
+        /// Test that identical orientation doesn"t survive change of row (7 side by side, then 2
+        /// side by side rotated).
         /// </summary>
         [Fact]
         public void TestAllowsRotatedBoxesInNewRow()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("40x70x30InternalBox", 40, 70, 30, 0, 40, 70, 30, 1000);
+            var item = Factory.CreateItem("30x10x30item", 30, 10, 30, 0, true);
+
+            var itemList = new List<Item4d>();
+            for(var i = 1; i < 9; i++)
+            {
+                itemList.Add(item);
+            }
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(9, packedBox.PackedItems.Count);
         }
 
         /// <summary>
-        /// Test an infinite loop doesn't come back.
+        /// Test an infinite loop doesn"t come back.
         /// </summary>
         [Fact]
         public void TestIssue14()
         {
-            throw new NotImplementedException();
+            var packer = new Packer();
+            packer.AddBox(Factory.CreateBox("29x1x23Box", 29, 1, 23, 0, 29, 1, 23, 100));
+            packer.AddItem(Factory.CreateItem("13x1x10Item", 13, 1, 10, 1, true));
+            packer.AddItem(Factory.CreateItem("9x1x6Item", 9, 1, 6, 1, true));
+            packer.AddItem(Factory.CreateItem("9x1x6Item", 9, 1, 6, 1, true));
+            packer.AddItem(Factory.CreateItem("9x1x6Item", 9, 1, 6, 1, true));
+
+            var pBoxes = packer.Pack();
+            var boxesCount = pBoxes.Count;
+
+            Assert.Equal(1, boxesCount);
         }
 
+        /// <summary>
+        /// From issue #147.
+        /// </summary>
         [Fact]
         public void TestIssue147A()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("Box", 250, 1360, 260, 0, 250, 1360, 260, 30000);
+            var item = Factory.CreateItem("Item", 90, 200, 200, 150, true);
+
+            var itemList = new List<Item4d>();
+
+            for(var i = 0; i < 14; i++)
+            {
+                itemList.Add(item);
+            }
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(14, packedBox.PackedItems.Count);
         }
 
+        /// <summary>
+        /// From issue #147.
+        /// </summary>
         [Fact]
         public void TestIssue147B()
         {
-            throw new NotImplementedException();
+            var box1 = Factory.CreateBox("Box", 400, 200, 500, 0, 400, 200, 500, 10000);
+            var itemList1 = new List<Item4d>
+            {
+                Factory.CreateItem("Item 1", 447, 62, 303, 965, false),
+                Factory.CreateItem("Item 2", 495, 70, 308, 1018, false),
+            };
+
+            var packer1 = new VolumePacker(box1, itemList1);
+            var packedBox1 = packer1.Pack();
+
+            Assert.Equal(2, packedBox1.PackedItems.Count);
+
+            var box2 = Factory.CreateBox("Box", 400, 200, 500, 0, 400, 200, 500, 10000);
+            var itemList2 = new List<Item4d>
+            {
+                Factory.CreateItem("Item 1", 447, 62, 303, 965, false),
+                Factory.CreateItem("Item 2", 495, 70, 308, 1018, false),
+            };
+
+            var packer2 = new VolumePacker(box1, itemList1);
+            var packedBox2= packer2.Pack();
+
+            Assert.Equal(2, packedBox2.PackedItems.Count);
         }
 
+        /// <summary>
+        /// Test stability of items is calculated appropriately.
+        /// </summary>
         [Fact]
         public void TestIssue148()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("Box", 27, 37, 22, 100, 25, 36, 21, 15000);
+            var item = Factory.CreateItem("Item", 6, 12, 20, 100, false);
+            var itemList = new List<Item4d>();
+            for(var i = 0; i < 12; i++)
+            {
+                itemList.Add(item);
+            }
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(12, packedBox.PackedItems.Count);
         }
 
+        /// <summary>
+        /// From issue #161.
+        /// </summary>
         [Fact]
         public void TestIssue161()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("Box", 240, 150, 180, 0, 240, 150, 180, 10000);
+            var item1 = Factory.CreateItem("Item 1", 70, 70, 95, 0, false);
+            var item2 = Factory.CreateItem("Item 2", 95, 75, 95, 0, true);
+
+            var itemList1 = new List<Item4d>();
+            for(var i = 0; i < 6; i++)
+            {
+                itemList1.Add(item1);
+            }
+            for (var i = 0; i < 3; i++)
+            {
+                itemList1.Add(item2);
+            }
+
+            var packer1 = new VolumePacker(box, itemList1);
+            var packedBox1 = packer1.Pack();
+            Assert.Equal(9, packedBox1.PackedItems.Count);
+
+            var itemList2 = new List<Item4d>();
+            for (var i = 0; i < 6; i++)
+            {
+                itemList2.Add(item1);
+            }
+            for (var i = 0; i < 2; i++)
+            {
+                itemList2.Add(item2);
+            }
+
+            var packer2 = new VolumePacker(box, itemList2);
+            var packedBox = packer2.Pack();
+            Assert.Equal(8, packedBox.PackedItems.Count);
         }
 
+        /// <summary>
+        /// From issue #164.
+        /// </summary>
         [Fact]
         public void TestIssue164()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("Box", 820, 820, 830, 0, 820, 820, 830, 10000);
+            var itemList = new List<Item4d>
+            {
+                Factory.CreateItem("Item 1", 110, 110, 50, 100, false),
+                Factory.CreateItem("Item 2", 100, 300, 30, 100, false),
+                Factory.CreateItem("Item 3", 100, 150, 50, 100, false),
+                Factory.CreateItem("Item 4", 100, 200, 80, 110, false),
+                Factory.CreateItem("Item 5", 80, 150, 80, 50, false),
+                Factory.CreateItem("Item 6", 80, 150, 80, 50, false),
+                Factory.CreateItem("Item 7", 80, 150, 80, 50, false),
+                Factory.CreateItem("Item 8", 270, 70, 60, 350, false),
+                Factory.CreateItem("Item 9", 150, 150, 80, 180, false),
+                Factory.CreateItem("Item 10", 80, 150, 80, 50, false),
+            };
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(10, packedBox.PackedItems.Count);
         }
 
         [Fact]
         public void TestIssue174()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("Box", 0, 0, 0, 10, 5000, 5000, 5000, 10000);
+            var itemList = new List<Item4d>
+            {
+                Factory.CreateItem("Item 0", 1000, 1650, 850, 500, false),
+                Factory.CreateItem("Item 1", 960, 1640, 800, 500, false),
+                Factory.CreateItem("Item 2", 950, 1650, 800, 500, false),
+                Factory.CreateItem("Item 3", 1000, 2050, 800, 500, false),
+                Factory.CreateItem("Item 4", 1000, 2100, 850, 500, false),
+                Factory.CreateItem("Item 5", 950, 2050, 800, 500, false),
+                Factory.CreateItem("Item 6", 940, 970, 800, 500, false),
+            };
+
+            var volumePacker = new VolumePacker(box, itemList);
+            var packedBox = volumePacker.Pack();
+
+            Assert.Equal(7, packedBox.PackedItems.Count);
         }
 
         /// <summary>
@@ -70,22 +216,73 @@ namespace SharpPacker.Tests.BoxPackerTests
         [Fact]
         public void TestIssue47A()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("165x225x25Box", 165, 225, 25, 0, 165, 225, 25, 100);
+            var item = Factory.CreateItem("20x69x20Item", 20, 69, 20, 0, true);
+
+            var itemList = new List<Item4d>();
+            for(var i = 0; i < 23; i++)
+            {
+                itemList.Add(item);
+            }
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(23, packedBox.PackedItems.Count);
         }
 
         /// <summary>
-        /// Test identical items keep their orientation (with box length < width).
+        /// Test identical items keep their orientation (with box length < width)
         /// </summary>
         [Fact]
         public void TestIssue47B()
         {
-            throw new NotImplementedException();
+            var box = Factory.CreateBox("165x225x25Box", 165, 225, 25, 0, 165, 225, 25, 100);
+            var item = Factory.CreateItem("20x69x20Item", 69, 20, 20, 0, true);
+
+            var itemList = new List<Item4d>();
+            for (var i = 0; i < 23; i++)
+            {
+                itemList.Add(item);
+            }
+
+            var packer = new VolumePacker(box, itemList);
+            var packedBox = packer.Pack();
+
+            Assert.Equal(23, packedBox.PackedItems.Count);
         }
 
-        [Fact]
+        /// <summary>
+        /// From issue #124.
+        /// </summary>
+        [Fact(Skip = "until bug is fixed")]
         public void TestUnpackedSpaceInsideLayersIsFilled()
         {
-            throw new NotImplementedException();
+            var box1 = Factory.CreateBox("Box", 4, 14, 11, 0, 4, 14, 11, 100);
+            var itemList1 = new List<Item4d>
+            {
+                Factory.CreateItem("Item 1", 8, 8, 2, 1, false),
+                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
+                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
+            };
+
+            var packer1 = new VolumePacker(box1, itemList1);
+            var packedBox1 = packer1.Pack();
+
+            Assert.Equal(3, packedBox1.PackedItems.Count);
+
+            var box2 = Factory.CreateBox("Box", 4, 14, 11, 0, 4, 14, 11, 100);
+            var itemList2 = new List<Item4d>
+            {
+                Factory.CreateItem("Item 1", 8, 8, 2, 1, false),
+                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
+                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
+            };
+
+            var packer2 = new VolumePacker(box2, itemList2);
+            var packedBox2 = packer2.Pack();
+
+            Assert.Equal(3, packedBox2.PackedItems.Count);
         }
 
         /// <summary>
@@ -126,8 +323,8 @@ namespace SharpPacker.Tests.BoxPackerTests
 
             var pBoxes = packer.Pack();
 
-            #pragma warning disable xUnit2013 // Do not use equality check to check for collection size.
-            Assert.Equal(1, pBoxes.Count);
+            var boxesCount = pBoxes.Count;
+            Assert.Equal(1, boxesCount);
 
             var pBox = pBoxes.First();
 

@@ -5,17 +5,9 @@ namespace SharpPacker
     internal interface IPacker<TItem, TBox, TPackedBox>
     {
         /// <summary>
-        /// Add item to be packed.
+        /// Number of boxes at which balancing weight is deemed not worth the extra computation time.
         /// </summary>
-        /// <param name="item"></param>
-        /// <param name="quantity"></param>
-        void AddItem(TItem item, int quantity = 1);
-
-        /// <summary>
-        /// Set a list of items all at once.
-        /// </summary>
-        /// <param name="itemCollection"></param>
-        void SetItems(IEnumerable<TItem> itemCollection);
+        int MaxBoxesToBalanceWeight { get; set; }
 
         /// <summary>
         /// Add box size.
@@ -24,15 +16,17 @@ namespace SharpPacker
         void AddBox(TBox box);
 
         /// <summary>
-        /// Add a pre-prepared set of boxes all at once.
+        /// Add item to be packed.
         /// </summary>
-        /// <param name="boxCollection"></param>
-        void SetBoxes(IEnumerable<TBox> boxCollection);
+        /// <param name="item"></param>
+        /// <param name="quantity"></param>
+        void AddItem(TItem item, int quantity = 1);
 
         /// <summary>
-        /// Number of boxes at which balancing weight is deemed not worth the extra computation time.
+        /// Pack items into boxes using the principle of largest volume item first.
         /// </summary>
-        int MaxBoxesToBalanceWeight { get; set; }
+        /// <returns></returns>
+        List<TPackedBox> DoVolumePacking();
 
         /// <summary>
         /// Pack items into boxes.
@@ -41,9 +35,15 @@ namespace SharpPacker
         List<TPackedBox> Pack();
 
         /// <summary>
-        /// Pack items into boxes using the principle of largest volume item first.
+        /// Add a pre-prepared set of boxes all at once.
         /// </summary>
-        /// <returns></returns>
-        List<TPackedBox> DoVolumePacking();
+        /// <param name="boxCollection"></param>
+        void SetBoxes(IEnumerable<TBox> boxCollection);
+
+        /// <summary>
+        /// Set a list of items all at once.
+        /// </summary>
+        /// <param name="itemCollection"></param>
+        void SetItems(IEnumerable<TItem> itemCollection);
     }
 }

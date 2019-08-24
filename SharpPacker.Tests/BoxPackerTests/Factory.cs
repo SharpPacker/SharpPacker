@@ -1,11 +1,8 @@
 ﻿using SharpPacker.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SharpPacker.Tests.BoxPackerTests
 {
-    static class Factory
+    internal static class Factory
     {
         public static Box4d CreateBox(string reference,
             int outerWidth,
