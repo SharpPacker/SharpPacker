@@ -7,12 +7,10 @@ namespace SharpPacker.Tests.BoxPackerTests
 {
     public class EfficiencyTest
     {
-
-
         [Fact]
         public void TestCanPackRepresentativeLargerSamples()
         {
-            throw NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,11 +16,23 @@ namespace SharpPacker
         void AddBox(TBox box);
 
         /// <summary>
+        /// Add a pre-prepared set of boxes all at once.
+        /// </summary>
+        /// <param name="boxCollection"></param>
+        void SetBoxes(IEnumerable<TBox> boxCollection);
+
+        /// <summary>
         /// Add item to be packed.
         /// </summary>
         /// <param name="item"></param>
         /// <param name="quantity"></param>
         void AddItem(TItem item, int quantity = 1);
+        
+        /// <summary>
+        /// Set a list of items all at once.
+        /// </summary>
+        /// <param name="itemCollection"></param>
+        void SetItems(IEnumerable<TItem> itemCollection);
 
         /// <summary>
         /// Pack items into boxes using the principle of largest volume item first.
@@ -33,17 +45,6 @@ namespace SharpPacker
         /// </summary>
         /// <returns></returns>
         List<TPackedBox> Pack();
-
-        /// <summary>
-        /// Add a pre-prepared set of boxes all at once.
-        /// </summary>
-        /// <param name="boxCollection"></param>
-        void SetBoxes(IEnumerable<TBox> boxCollection);
-
-        /// <summary>
-        /// Set a list of items all at once.
-        /// </summary>
-        /// <param name="itemCollection"></param>
-        void SetItems(IEnumerable<TItem> itemCollection);
+        
     }
 }
