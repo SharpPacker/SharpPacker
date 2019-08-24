@@ -25,12 +25,13 @@ namespace SharpPacker.Services
             var targetWeight = PackedBoxListHelpers.GetMeanWeight(originalBoxes);
 
             var redistrebutedBoxes = originalBoxes.ToList();
+            redistrebutedBoxes.OrderByDescending(box => box.TotalWeight);
 
             var iterationSuccessful = false;
 
             do
             {
-                EqualiseWeightsIteration(ref redistrebutedBoxes, targetWeight);
+                iterationSuccessful = EqualiseWeightsIteration(ref redistrebutedBoxes, targetWeight);
             } while (iterationSuccessful);
 
             return redistrebutedBoxes;
@@ -194,6 +195,10 @@ namespace SharpPacker.Services
 
                     if (EqualiseWeight(ref boxA, ref boxB, targetWeight))
                     {
+                        // TODO: check, why boxes in list is not changed
+                        boxesList[i] = boxA;
+                        boxesList[j] = boxB;
+
                         //remove any now-empty boxes from the list
                         if (boxesList.Any(box => box == null))
                         {
