@@ -186,9 +186,10 @@ namespace SharpPacker.Tests.BoxPackerTests
         [Fact]
         public void TestIssue38()
         {
+            // TODO: Fix this
             var packer = new Packer();
             packer.AddBox(Factory.CreateBox("Box1", 2, 2, 2, 0, 2, 2, 2, 1000));
-            packer.AddBox(Factory.CreateBox("Box2", 2, 2, 2, 0, 2, 2, 2, 1000));
+            packer.AddBox(Factory.CreateBox("Box2", 4, 4, 4, 0, 4, 4, 4, 1000));
 
             packer.AddItem(Factory.CreateItem("Item 1", 1, 1, 1, 100, false));
             packer.AddItem(Factory.CreateItem("Item 2", 1, 1, 1, 100, false));

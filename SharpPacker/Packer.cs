@@ -72,10 +72,10 @@ namespace SharpPacker
                         }
                     }
                 }
-
+                // if any items is packed, then any chanses for this in next iteration
                 if (packedBoxesIteration.Count == 0)
                 {
-                    break;
+                    throw new ItemTooLargeException();
                 }
                 //Find best box of iteration, and remove packed items from unpacked list
                 var bestBox = FindBestBoxFromIteration(packedBoxesIteration);
@@ -105,11 +105,6 @@ namespace SharpPacker
 
         private PackedBox4d FindBestBoxFromIteration(IEnumerable<PackedBox4d> packedBoxes)
         {
-            if(packedBoxes.Count() == 0)
-            {
-                throw new ItemTooLargeException();
-            }
-
             packedBoxes.OrderBy(pb => pb);
             return packedBoxes.First();
         }

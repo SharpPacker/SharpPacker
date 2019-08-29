@@ -54,5 +54,10 @@ namespace SharpPacker.Models
             // maximum weight capacity as fallback decider
             return this.WeightCapacity.CompareTo(other.WeightCapacity);
         }
+
+        override public string ToString()
+        {
+            return $"{Reference} [w{InnerWidth}, l{InnerLength}, d{InnerDepth}]";
+        }
     }
 }

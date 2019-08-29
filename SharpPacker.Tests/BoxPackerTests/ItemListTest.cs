@@ -8,7 +8,7 @@ namespace SharpPacker.Tests.BoxPackerTests
 {
     public class ItemListTest
     {
-        [Fact]
+        [Fact(Skip = "not implemented")]
         public void TestCount()
         {
             throw new NotImplementedException();
@@ -47,7 +47,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             Assert.Equal(item1.Description, sorted[3].Description);
         }
 
-        [Fact]
+        [Fact(Skip = "not implemented")]
         public void TestExtract()
         {
             throw new NotImplementedException();
@@ -85,7 +85,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             Assert.Equal(item4.Description, sorted[3].Description);
         }
 
-        [Fact]
+        [Fact(Skip = "not implemented")]
         public void TestTop()
         {
             throw new NotImplementedException();

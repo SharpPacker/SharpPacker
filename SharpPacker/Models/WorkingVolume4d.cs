@@ -4,8 +4,8 @@
     {
         private readonly int depth;
         private readonly int length;
-        private readonly int maxWeight;
         private readonly int width;
+        private readonly int maxWeight;
 
         public WorkingVolume4d(int _width,
                                 int _length,

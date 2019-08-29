@@ -21,7 +21,7 @@ namespace SharpPacker.Models
 
         public int GetDepth()
         {
-            var layerDepth = Items.Max(i => i.Z + i.Depth);
+            var layerDepth = Items.Count > 0 ? Items.Max(i => i.Z + i.Depth) : 0;
 
             return layerDepth - GetStartDepth();
         }
@@ -32,8 +32,8 @@ namespace SharpPacker.Models
         /// <returns></returns>
         public int GetFootprint()
         {
-            var layerWidth = Items.Max(i => i.X + i.Width);
-            var layerLength = Items.Max(i => i.Y + i.Length);
+            var layerWidth = Items.Count > 0 ? Items.Max(i => i.X + i.Width) : 0;
+            var layerLength = Items.Count > 0 ? Items.Max(i => i.Y + i.Length) : 0;
 
             return layerWidth * layerLength;
         }
@@ -44,7 +44,7 @@ namespace SharpPacker.Models
         /// <returns></returns>
         public int GetStartDepth()
         {
-            var startDepth = Items.Min(i => i.Z);
+            var startDepth = Items.Count > 0 ? Items.Min(i => i.Z) : 0;
 
             return startDepth;
         }

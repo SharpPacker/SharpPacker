@@ -239,7 +239,7 @@ namespace SharpPacker.Services
             {
                 LookAheadMode = true
             };
-            // TODO Broken here, TestIssue174
+
             var remainigRowPacked = tempPacker.Pack();
 
             itemsToPack = itemsToPack.Except(remainigRowPacked.PackedItems.Select(x => x.Item));

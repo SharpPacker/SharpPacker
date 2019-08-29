@@ -15,22 +15,19 @@ namespace SharpPacker.Models
 
         public int CompareTo(Item4d other)
         {
-            if (this.Volume > other.Volume)
+            var volumeDecider = this.Volume.CompareTo(other.Volume);
+            if(volumeDecider != 0)
             {
-                return 1;
-            }
-            if (this.Volume < other.Volume)
-            {
-                return -1;
+                return -1 * volumeDecider;
             }
 
             var weightDecider = this.Weight - other.Weight;
             if (weightDecider != 0)
             {
-                return weightDecider;
+                return -1 * weightDecider;
             }
 
-            return other.Description.CompareTo(this.Description);
+            return -1 * other.Description.CompareTo(this.Description);
         }
     }
 }
