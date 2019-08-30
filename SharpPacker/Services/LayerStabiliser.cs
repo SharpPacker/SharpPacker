@@ -15,12 +15,13 @@ namespace SharpPacker.Services
             var stabilizedLayers = new List<PackedLayer>();
 
             packedLayers.OrderBy(l => l);
+
             var currentZ = 0;
             foreach (var oldZLayer in packedLayers)
             {
                 var oldZStart = oldZLayer.GetStartDepth();
-
                 var newZLayer = new PackedLayer();
+
                 foreach (var oldZItem in oldZLayer.Items)
                 {
                     var newZ = oldZItem.Z - oldZStart + currentZ;
@@ -32,8 +33,9 @@ namespace SharpPacker.Services
                         Depth = oldZItem.Depth,
                         X = oldZItem.X,
                         Y = oldZItem.Y,
-                        Z = oldZItem.Z,
+                        Z = newZ,
                     };
+                    newZLayer.Items.Add(newZItem);
                 }
                 stabilizedLayers.Add(newZLayer);
                 currentZ += newZLayer.GetDepth();

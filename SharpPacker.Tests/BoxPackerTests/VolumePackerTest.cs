@@ -20,7 +20,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             var item = Factory.CreateItem("30x10x30item", 30, 10, 30, 0, true);
 
             var itemList = new List<Item4d>();
-            for(var i = 1; i < 9; i++)
+            for(var i = 0; i < 9; i++)
             {
                 itemList.Add(item);
             }
@@ -121,6 +121,19 @@ namespace SharpPacker.Tests.BoxPackerTests
             var packedBox = packer.Pack();
 
             Assert.Equal(12, packedBox.PackedItems.Count);
+
+            var box2 = Factory.CreateBox("Box", 27, 37, 22, 100, 25, 36, 21, 15000);
+            var item2 = Factory.CreateItem("Item", 6, 12, 20, 100, true);
+            var itemList2 = new List<Item4d>();
+            for (var i = 0; i < 12; i++)
+            {
+                itemList2.Add(item2);
+            }
+
+            var packer2 = new VolumePacker(box2, itemList2);
+            var packedBox2 = packer2.Pack();
+
+            Assert.Equal(12, packedBox2.PackedItems.Count);
         }
 
         /// <summary>
@@ -241,7 +254,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             var item = Factory.CreateItem("20x69x20Item", 69, 20, 20, 0, true);
 
             var itemList = new List<Item4d>();
-            for (var i = 0; i < 23; i++)
+            for(var i = 0; i < 23; i++)
             {
                 itemList.Add(item);
             }

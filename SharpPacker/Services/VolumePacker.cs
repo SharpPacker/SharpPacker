@@ -64,7 +64,7 @@ namespace SharpPacker.Services
                 RotateLayersNinetyDegrees();
             }
 
-            if (LookAheadMode)
+            if (!LookAheadMode)
             {
                 StabiliseLayers();
             }
