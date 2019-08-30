@@ -138,7 +138,7 @@ namespace SharpPacker.Services
                     var packedItem = PackedItem4d.FromOrientatedItem(orientedItem, x, y, startDepth);
                     newLayer.Insert(packedItem);
                     remainingWeight -= orientedItem.Item.Weight;
-                    widthLeft -= orientedItem.Item.Width;
+                    widthLeft -= orientedItem.Width;
 
                     rowWidth += orientedItem.Width;
                     rowLength = Math.Max(rowLength, orientedItem.Length);
