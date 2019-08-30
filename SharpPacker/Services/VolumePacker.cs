@@ -106,11 +106,12 @@ namespace SharpPacker.Services
 
             PackedItem4d prevItem = null;
 
-            items.Sort();
             while (items.Count > 0)
             {
-                var itemToPack = items.Last();
-                items.Remove(itemToPack);
+                items.Sort();
+                var lastIndex = items.Count - 1;
+                var itemToPack = items[lastIndex];
+                items.RemoveAt(lastIndex);
 
                 //skip items that are simply too heavy or too large
                 if (!CheckConstrains(itemToPack))

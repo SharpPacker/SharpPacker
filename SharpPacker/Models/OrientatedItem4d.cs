@@ -52,7 +52,7 @@ namespace SharpPacker.Models
 
         public override string ToString()
         {
-            return $"{Width}|{Length}|{Depth}";
+            return $"OrientatedItem {Item?.Description} [w{Width}, l{Length}, d{Depth}]";
         }
     }
 }

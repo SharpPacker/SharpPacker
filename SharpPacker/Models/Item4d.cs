@@ -29,5 +29,10 @@ namespace SharpPacker.Models
 
             return -1 * other.Description.CompareTo(this.Description);
         }
+
+        override public string ToString()
+        {
+            return $"Item {Description} [w{Width}, l{Length}, d{Depth}]";
+        }
     }
 }

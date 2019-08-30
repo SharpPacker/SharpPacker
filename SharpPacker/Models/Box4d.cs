@@ -57,7 +57,7 @@ namespace SharpPacker.Models
 
         override public string ToString()
         {
-            return $"{Reference} [w{InnerWidth}, l{InnerLength}, d{InnerDepth}]";
+            return $"Box {Reference} [w{InnerWidth}, l{InnerLength}, d{InnerDepth}]";
         }
     }
 }

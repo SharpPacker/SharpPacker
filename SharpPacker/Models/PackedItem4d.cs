@@ -40,9 +40,9 @@
             return new PackedItem4d()
             {
                 Item = oi.Item,
-                Width = oi.Item.Width,
-                Length = oi.Item.Length,
-                Depth = oi.Item.Depth,
+                Width = oi.Width,
+                Length = oi.Length,
+                Depth = oi.Depth,
                 X = x,
                 Y = y,
                 Z = z,
@@ -60,6 +60,11 @@
             };
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return $"PackedItem4d {Item?.Description} [w{Width}, l{Length}, d{Depth}] (x{X}, y{Y}, z{Z})";
         }
     }
 }

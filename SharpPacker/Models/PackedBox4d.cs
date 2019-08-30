@@ -22,15 +22,15 @@ namespace SharpPacker.Models
 
         private bool ItemsIsEmpty => PackedItems.Count == 0;
 
-        public int RemainingDepth => Box.InnerDepth - UsedDepth;
-        public int RemainingLength => Box.InnerLength - UsedLength;
-        public int RemainingWeight => Box.MaxWeight - TotalWeight;
-        public int RemainingWidth => Box.InnerWidth - UsedWidth;
+        public int RemainingDepth => (Box?.InnerDepth ?? 0) - UsedDepth;
+        public int RemainingLength => (Box?.InnerLength ?? 0) - UsedLength;
+        public int RemainingWidth => (Box?.InnerWidth ?? 0) - UsedWidth;
 
         public int ItemsWeight => ItemsIsEmpty ? 0 : PackedItems.Sum(item => item.Weight);
-        public int TotalWeight => Box.EmptyWeight + ItemsWeight;
+        public int TotalWeight => (Box?.EmptyWeight ?? 0) + ItemsWeight;
+        public int RemainingWeight => (Box?.MaxWeight ?? 0) - TotalWeight;
 
-        public float InnerVolume => (Box.InnerVolume);
+        public float InnerVolume => (Box?.InnerVolume ?? 0);
         public float UsedVolume => ItemsIsEmpty ? 0 : PackedItems.Sum(item => item.Volume);
         public float UnusedVolume => InnerVolume - UsedVolume;
 
@@ -51,6 +51,9 @@ namespace SharpPacker.Models
             }
         }
 
-        
+        override public string ToString()
+        {
+            return $"PackedBox {Box?.Reference} [w{UsedWidth}/{Box?.InnerWidth ?? 0}, l{UsedLength}/{Box?.InnerLength ?? 0}, d{UsedLength}/{Box?.InnerDepth ?? 0}]";
+        }
     }
 }
