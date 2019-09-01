@@ -234,7 +234,7 @@ namespace SharpPacker.Services
             var capThreshold = 8;
             var itemsToPack = nextItems.OrderByDescending(i => i).Take(capThreshold).Reverse();
 
-            var tempBox = new WorkingVolume4d(originalWidthLeft - prevItem.Width, currentRowLength, depthLeft, int.MaxValue);
+            var tempBox = new WorkingVolume(originalWidthLeft - prevItem.Width, currentRowLength, depthLeft, int.MaxValue);
             var tempPacker = new VolumePacker(tempBox, itemsToPack.ToList())
             {
                 LookAheadMode = true

@@ -7,12 +7,11 @@ namespace SharpPacker.Services
 {
     internal class WeightRedistributor
     {
-        private readonly List<Box> boxes;
+        private readonly BoxList boxes;
 
-        public WeightRedistributor(IEnumerable<Box> _boxes)
+        public WeightRedistributor(BoxList _boxes)
         {
-            boxes = new List<Box>();
-            boxes.AddRange(_boxes);
+            boxes = _boxes;
         }
 
         /// <summary>

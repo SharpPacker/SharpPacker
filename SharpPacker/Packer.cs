@@ -7,17 +7,17 @@ using System.Linq;
 
 namespace SharpPacker
 {
-    public class Packer : IPacker<Item, Box, PackedBox>
+    public class Packer : IPacker<Item, PackedBox>
     {
         public int MaxBoxesToBalanceWeight { get; set; } = 12;
 
         private readonly List<Item> _items;
-        private readonly List<Box> _boxes;
+        private BoxList _boxes;
 
         public Packer()
         {
             _items = new List<Item>();
-            _boxes = new List<Box>();
+            _boxes = new BoxList();
         }
 
         public void AddItem(Item item, int quantity = 1)
@@ -36,13 +36,12 @@ namespace SharpPacker
 
         public void AddBox(Box box)
         {
-            _boxes.Add(box);
+            _boxes.Insert(box);
         }
 
-        public void SetBoxes(IEnumerable<Box> boxCollection)
+        public void SetBoxes(BoxList boxCollection)
         {
-            _boxes.Clear();
-            _boxes.AddRange(boxCollection);
+            _boxes = boxCollection;
         }
 
         public List<PackedBox> DoVolumePacking()

@@ -1,13 +1,13 @@
 ﻿namespace SharpPacker.Models
 {
-    internal class WorkingVolume4d : Box
+    internal class WorkingVolume : Box
     {
         private readonly int depth;
         private readonly int length;
         private readonly int width;
         private readonly int maxWeight;
 
-        public WorkingVolume4d(int _width,
+        public WorkingVolume(int _width,
                                 int _length,
                                 int _depth,
                                 int _maxWeight

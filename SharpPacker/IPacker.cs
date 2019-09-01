@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using SharpPacker.Models;
+using System.Collections.Generic;
 
 namespace SharpPacker
 {
-    internal interface IPacker<TItem, TBox, TPackedBox>
+    internal interface IPacker<TItem, TPackedBox>
     {
         /// <summary>
         /// Number of boxes at which balancing weight is deemed not worth the extra computation time.
@@ -13,13 +14,13 @@ namespace SharpPacker
         /// Add box size.
         /// </summary>
         /// <param name="box"></param>
-        void AddBox(TBox box);
+        void AddBox(Box box);
 
         /// <summary>
         /// Add a pre-prepared set of boxes all at once.
         /// </summary>
         /// <param name="boxCollection"></param>
-        void SetBoxes(IEnumerable<TBox> boxCollection);
+        void SetBoxes(BoxList boxCollection);
 
         /// <summary>
         /// Add item to be packed.
