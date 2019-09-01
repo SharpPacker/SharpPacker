@@ -1,14 +1,14 @@
 ﻿namespace SharpPacker.Models
 {
-    public class PackedItem4d
+    public class PackedItem
     {
-        public Item4d Item;
+        public Item Item;
 
-        public PackedItem4d()
+        public PackedItem()
         {
         }
 
-        public PackedItem4d(Item4d item,
+        public PackedItem(Item item,
                 int x,
                 int y,
                 int z,
@@ -35,9 +35,9 @@
         public int Z { get; set; }
         public int Weight => Item.Weight;
 
-        public static PackedItem4d FromOrientatedItem(OrientatedItem4d oi, int x, int y, int z)
+        public static PackedItem FromOrientatedItem(OrientatedItem oi, int x, int y, int z)
         {
-            return new PackedItem4d()
+            return new PackedItem()
             {
                 Item = oi.Item,
                 Width = oi.Width,
@@ -49,9 +49,9 @@
             };
         }
 
-        public OrientatedItem4d ToOrientatedItem()
+        public OrientatedItem ToOrientatedItem()
         {
-            var result = new OrientatedItem4d()
+            var result = new OrientatedItem()
             {
                 Item = this.Item,
                 Width = this.Width,

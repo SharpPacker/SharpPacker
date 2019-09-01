@@ -13,17 +13,17 @@ namespace SharpPacker.Services
         /// <summary>
         /// Box to pack items into.
         /// </summary>
-        private readonly Box4d box;
+        private readonly Box box;
 
         /// <summary>
         /// List of items to be packed.
         /// </summary>
-        private readonly List<Item4d> items;
+        private readonly List<Item> items;
 
         /// <summary>
         /// List of items temporarily skipped to be packed.
         /// </summary>
-        private readonly List<Item4d> skippedItems;
+        private readonly List<Item> skippedItems;
 
         private List<PackedLayer> layers;
 
@@ -32,11 +32,11 @@ namespace SharpPacker.Services
         /// </summary>
         private int remainingWeight;
 
-        public VolumePacker(Box4d _box, IEnumerable<Item4d> _items)
+        public VolumePacker(Box _box, IEnumerable<Item> _items)
         {
             box = _box;
             items = _items.ToList();
-            skippedItems = new List<Item4d>();
+            skippedItems = new List<Item>();
             remainingWeight = box.MaxWeight - box.EmptyWeight;
             layers = new List<PackedLayer>();
         }
@@ -51,7 +51,7 @@ namespace SharpPacker.Services
         /// Pack as many items as possible into specific given box.
         /// </summary>
         /// <returns></returns>
-        public PackedBox4d Pack()
+        public PackedBox Pack()
         {
             while (items.Count > 0)
             {
@@ -69,7 +69,7 @@ namespace SharpPacker.Services
                 StabiliseLayers();
             }
 
-            var result = new PackedBox4d()
+            var result = new PackedBox()
             {
                 Box = box,
                 PackedItems = GetPackedItemList()
@@ -104,7 +104,7 @@ namespace SharpPacker.Services
             int x, y, rowWidth, rowLength, layerDepth;
             x = y = rowWidth = rowLength = layerDepth = 0;
 
-            PackedItem4d prevItem = null;
+            PackedItem prevItem = null;
 
             while (items.Count > 0)
             {
@@ -139,7 +139,7 @@ namespace SharpPacker.Services
 
                 if (orientedItem != null)
                 {
-                    var packedItem = PackedItem4d.FromOrientatedItem(orientedItem, x, y, startDepth);
+                    var packedItem = PackedItem.FromOrientatedItem(orientedItem, x, y, startDepth);
                     newLayer.Insert(packedItem);
                     remainingWeight -= orientedItem.Item.Weight;
                     widthLeft -= orientedItem.Width;
@@ -201,7 +201,7 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="itemToPack"></param>
         /// <returns></returns>
-        private bool CheckConstrains(Item4d itemToPack)
+        private bool CheckConstrains(Item itemToPack)
         {
             return CheckNonDimensionalConstrains(itemToPack) &&
                 CheckDimensionalConstraints(itemToPack);
@@ -212,7 +212,7 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="itemToPack"></param>
         /// <returns></returns>
-        private bool CheckDimensionalConstraints(Item4d itemToPack)
+        private bool CheckDimensionalConstraints(Item itemToPack)
         {
             var oif = new OrientatedItemFactory(box);
             return oif.GetPossibleOrientationsInEmptyBox(itemToPack).Count() != 0;
@@ -221,7 +221,7 @@ namespace SharpPacker.Services
         /// <summary> As well as purely dimensional constraints, there are other constraints that
         /// need to be met e.g.weight limits or item-specific restrictions(e.g.max<x> batteries per
         /// box). </summary> <param name="itemToPack"></param> <returns></returns>
-        private bool CheckNonDimensionalConstrains(Item4d itemToPack)
+        private bool CheckNonDimensionalConstrains(Item itemToPack)
         {
             var weightOk = itemToPack.Weight <= remainingWeight;
             // TODO: Add ConstrainedItem restrictions check
@@ -239,10 +239,10 @@ namespace SharpPacker.Services
             return depth;
         }
 
-        private OrientatedItem4d GetOrientationForItem(
-                                                                    Item4d itemToPack,
-                                    PackedItem4d prevItem,
-                                    IEnumerable<Item4d> nextItems,
+        private OrientatedItem GetOrientationForItem(
+                                                                    Item itemToPack,
+                                    PackedItem prevItem,
+                                    IEnumerable<Item> nextItems,
                                     bool isLastItem,
                                     int maxWidth,
                                     int maxLength,
@@ -281,9 +281,9 @@ namespace SharpPacker.Services
         /// Generate a single list of items packed.
         /// </summary>
         /// <returns></returns>
-        private List<PackedItem4d> GetPackedItemList()
+        private List<PackedItem> GetPackedItemList()
         {
-            var packedItemList = new List<PackedItem4d>();
+            var packedItemList = new List<PackedItem>();
             foreach (var layer in layers)
             {
                 foreach (var packedItem in layer.Items)
@@ -307,7 +307,7 @@ namespace SharpPacker.Services
         /// <summary>
         /// Reintegrate skipped items into main list.
         /// </summary>
-        private void RebuildItemList(Item4d currentItem = null)
+        private void RebuildItemList(Item currentItem = null)
         {
             if (items.Count() == 0)
             {
@@ -343,8 +343,8 @@ namespace SharpPacker.Services
 
         private void TryAndStackItemsIntoSpace(
                                                         PackedLayer layer,
-                        PackedItem4d prevItem,
-                        IEnumerable<Item4d> nextItems,
+                        PackedItem prevItem,
+                        IEnumerable<Item> nextItems,
                         int maxWidth,
                         int maxLength,
                         int maxDepth,
@@ -380,7 +380,7 @@ namespace SharpPacker.Services
 
                 if (stackedItem != null)
                 {
-                    layer.Insert(PackedItem4d.FromOrientatedItem(stackedItem, x, y, z));
+                    layer.Insert(PackedItem.FromOrientatedItem(stackedItem, x, y, z));
 
                     remainingWeight -= lastItem.Weight;
                     maxDepth -= stackedItem.Depth;

@@ -4,21 +4,21 @@ using System.Linq;
 
 namespace SharpPacker.Models
 {
-    public class PackedBox4d : IComparable<PackedBox4d>
+    public class PackedBox : IComparable<PackedBox>
     {
-        public PackedBox4d()
+        public PackedBox()
         {
-            this.PackedItems = new List<PackedItem4d>();
+            this.PackedItems = new List<PackedItem>();
         }
 
-        public PackedBox4d(Box4d box, IEnumerable<PackedItem4d> pItems)
+        public PackedBox(Box box, IEnumerable<PackedItem> pItems)
         {
             this.Box = box;
             this.PackedItems = pItems.ToList();
         }
 
-        public Box4d Box { get; set; }
-        public List<PackedItem4d> PackedItems { get; set; }
+        public Box Box { get; set; }
+        public List<PackedItem> PackedItems { get; set; }
 
         private bool ItemsIsEmpty => PackedItems.Count == 0;
 
@@ -56,7 +56,7 @@ namespace SharpPacker.Models
             return $"PackedBox {Box?.Reference} [w{UsedWidth}/{Box?.InnerWidth ?? 0}, l{UsedLength}/{Box?.InnerLength ?? 0}, d{UsedLength}/{Box?.InnerDepth ?? 0}]";
         }
 
-        public int CompareTo(PackedBox4d other)
+        public int CompareTo(PackedBox other)
         {
             var itemsInThis = this.PackedItems.Count;
             var itemsInOther = other.PackedItems.Count;

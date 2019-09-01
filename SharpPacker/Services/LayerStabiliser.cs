@@ -25,7 +25,7 @@ namespace SharpPacker.Services
                 foreach (var oldZItem in oldZLayer.Items)
                 {
                     var newZ = oldZItem.Z - oldZStart + currentZ;
-                    var newZItem = new PackedItem4d()
+                    var newZItem = new PackedItem()
                     {
                         Item = oldZItem.Item,
                         Width = oldZItem.Width,

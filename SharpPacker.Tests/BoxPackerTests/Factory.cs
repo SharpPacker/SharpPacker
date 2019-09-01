@@ -4,7 +4,7 @@ namespace SharpPacker.Tests.BoxPackerTests
 {
     internal static class Factory
     {
-        public static Box4d CreateBox(string reference,
+        public static Box CreateBox(string reference,
             int outerWidth,
             int outerLength,
             int outerDepth,
@@ -14,7 +14,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             int innerDepth,
             int maxWeight)
         {
-            return new Box4d()
+            return new Box()
             {
                 Reference = reference,
                 OuterWidth = outerWidth,
@@ -28,14 +28,14 @@ namespace SharpPacker.Tests.BoxPackerTests
             };
         }
 
-        public static Item4d CreateItem(string description,
+        public static Item CreateItem(string description,
                                         int width,
                                         int length,
                                         int depth,
                                         int weight,
                                         bool keepFlat)
         {
-            return new Item4d()
+            return new Item()
             {
                 Description = description,
                 Width = width,

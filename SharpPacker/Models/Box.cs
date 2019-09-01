@@ -2,7 +2,7 @@
 
 namespace SharpPacker.Models
 {
-    public class Box4d : IComparable<Box4d>
+    public class Box : IComparable<Box>
     {
         public virtual int EmptyWeight { get; set; }
         public virtual int InnerDepth { get; set; }
@@ -29,7 +29,7 @@ namespace SharpPacker.Models
             }
         }
 
-        public int CompareTo(Box4d other)
+        public int CompareTo(Box other)
         {
             // try smallest box first
             if (this.InnerVolume > other.InnerVolume)

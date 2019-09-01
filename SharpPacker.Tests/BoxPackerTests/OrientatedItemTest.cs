@@ -11,7 +11,7 @@ namespace SharpPacker.Tests.BoxPackerTests
         [Fact]
         public void TestZeroDepth()
         {
-            var orientedItem = new OrientatedItem4d(
+            var orientedItem = new OrientatedItem(
                     Factory.CreateItem("Item", 1, 1, 0, 0, false),
                     1,
                     1,

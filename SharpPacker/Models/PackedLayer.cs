@@ -6,7 +6,7 @@ namespace SharpPacker.Models
 {
     internal class PackedLayer : IComparable<PackedLayer>
     {
-        public List<PackedItem4d> Items { get; set; } = new List<PackedItem4d>();
+        public List<PackedItem> Items { get; set; } = new List<PackedItem>();
 
         public int CompareTo(PackedLayer other)
         {
@@ -53,7 +53,7 @@ namespace SharpPacker.Models
         /// Add a packed item to this layer.
         /// </summary>
         /// <param name="packedItem"></param>
-        public void Insert(PackedItem4d packedItem)
+        public void Insert(PackedItem packedItem)
         {
             this.Items.Add(packedItem);
         }

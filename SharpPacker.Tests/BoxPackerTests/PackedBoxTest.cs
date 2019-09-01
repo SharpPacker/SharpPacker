@@ -13,19 +13,19 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestGetters()
         {
             var box = Factory.CreateBox("Box", 370, 375, 60, 140, 364, 374, 40, 3000);
-            var oItem = new OrientatedItem4d(
+            var oItem = new OrientatedItem(
                     Factory.CreateItem("Item", 230, 330, 6, 320, true),
                     230,
                     330,
                     6
                 );
 
-            var packedItemList = new List<PackedItem4d>
+            var packedItemList = new List<PackedItem>
             {
-                PackedItem4d.FromOrientatedItem(oItem, 0, 0, 0)
+                PackedItem.FromOrientatedItem(oItem, 0, 0, 0)
             };
 
-            var pBox = new PackedBox4d(box, packedItemList);
+            var pBox = new PackedBox(box, packedItemList);
 
             Assert.Equal(box.Reference, pBox.Box.Reference);
             Assert.Equal(460, pBox.TotalWeight);
@@ -46,19 +46,19 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestVolumeUtilisation()
         {
             var box = Factory.CreateBox("Box", 10, 10, 20, 10, 10, 10, 20, 10);
-            var oItem = new OrientatedItem4d(
+            var oItem = new OrientatedItem(
                     Factory.CreateItem("Item", 4, 10, 10, 10, true),
                     4,
                     10,
                     10
                 );
 
-            var packedItemList = new List<PackedItem4d>
+            var packedItemList = new List<PackedItem>
             {
-                PackedItem4d.FromOrientatedItem(oItem, 0, 0, 0)
+                PackedItem.FromOrientatedItem(oItem, 0, 0, 0)
             };
 
-            var pBox = new PackedBox4d(box, packedItemList);
+            var pBox = new PackedBox(box, packedItemList);
 
             Assert.Equal(400, pBox.UsedVolume);
             Assert.Equal(1600, pBox.UnusedVolume);

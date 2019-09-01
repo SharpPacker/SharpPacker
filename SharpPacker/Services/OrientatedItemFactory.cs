@@ -7,17 +7,17 @@ namespace SharpPacker.Services
 {
     internal class OrientatedItemFactory
     {
-        private readonly Box4d box;
+        private readonly Box box;
 
-        public OrientatedItemFactory(Box4d _box)
+        public OrientatedItemFactory(Box _box)
         {
             box = _box;
         }
 
-        public OrientatedItem4d GetBestOrientation(
-                               Item4d item,
-                               OrientatedItem4d prevItem,
-                               IEnumerable<Item4d> nextItems,
+        public OrientatedItem GetBestOrientation(
+                               Item item,
+                               OrientatedItem prevItem,
+                               IEnumerable<Item> nextItems,
                                bool isLastItem,
                                int widthLeft,
                                int lengthLeft,
@@ -26,7 +26,7 @@ namespace SharpPacker.Services
                                int x,
                                int y,
                                int z,
-                               IEnumerable<PackedItem4d> prevPackedItemList
+                               IEnumerable<PackedItem> prevPackedItemList
                            )
         {
             var possibleOrientations = GetPossibleOrientations(item, prevItem, widthLeft, lengthLeft, depthLeft, x, y, z, prevPackedItemList);
@@ -56,23 +56,23 @@ namespace SharpPacker.Services
             return bestFit;
         }
 
-        public List<OrientatedItem4d> GetPossibleOrientations(Item4d item,
-            OrientatedItem4d prevItem,
+        public List<OrientatedItem> GetPossibleOrientations(Item item,
+            OrientatedItem prevItem,
             int widthLeft,
             int lengthLeft,
             int depthLeft,
             int x,
             int y,
             int z,
-            IEnumerable<PackedItem4d> prevPackedItemsList)
+            IEnumerable<PackedItem> prevPackedItemsList)
         {
-            var orientations = new List<OrientatedItem4d>();
+            var orientations = new List<OrientatedItem>();
 
             if (prevItem != null && IsSameDimensions(prevItem.Item, item))
             {
                 // Special case items that are the same as what we just packed - keep orientation
                 orientations.Add(
-                    new OrientatedItem4d()
+                    new OrientatedItem()
                     {
                         Item = item,
                         Width = prevItem.Width,
@@ -85,7 +85,7 @@ namespace SharpPacker.Services
             {
                 // simple 2D rotation
                 orientations.Add(
-                    new OrientatedItem4d()
+                    new OrientatedItem()
                     {
                         Item = item,
                         Width = item.Width,
@@ -94,7 +94,7 @@ namespace SharpPacker.Services
                     }
                 );
                 orientations.Add(
-                    new OrientatedItem4d()
+                    new OrientatedItem()
                     {
                         Item = item,
                         Width = item.Length,
@@ -107,7 +107,7 @@ namespace SharpPacker.Services
                 if (!item.KeepFlat)
                 {
                     orientations.Add(
-                        new OrientatedItem4d()
+                        new OrientatedItem()
                         {
                             Item = item,
                             Width = item.Width,
@@ -117,7 +117,7 @@ namespace SharpPacker.Services
                     );
 
                     orientations.Add(
-                        new OrientatedItem4d()
+                        new OrientatedItem()
                         {
                             Item = item,
                             Width = item.Length,
@@ -127,7 +127,7 @@ namespace SharpPacker.Services
                     );
 
                     orientations.Add(
-                        new OrientatedItem4d()
+                        new OrientatedItem()
                         {
                             Item = item,
                             Width = item.Depth,
@@ -137,7 +137,7 @@ namespace SharpPacker.Services
                     );
 
                     orientations.Add(
-                        new OrientatedItem4d()
+                        new OrientatedItem()
                         {
                             Item = item,
                             Width = item.Depth,
@@ -159,7 +159,7 @@ namespace SharpPacker.Services
             return orientations;
         }
 
-        public List<OrientatedItem4d> GetPossibleOrientationsInEmptyBox(Item4d item)
+        public List<OrientatedItem> GetPossibleOrientationsInEmptyBox(Item item)
         {
             // TODO: cache implementation
             var orientations = GetPossibleOrientations(item,
@@ -170,17 +170,17 @@ namespace SharpPacker.Services
                                                         0,
                                                         0,
                                                         0,
-                                                        new List<PackedItem4d>()
+                                                        new List<PackedItem>()
                                                     );
 
             return orientations;
         }
 
-        public List<OrientatedItem4d> GetUsableOrientations(Item4d item, IEnumerable<OrientatedItem4d> possibleOrientations, bool isLastItem)
+        public List<OrientatedItem> GetUsableOrientations(Item item, IEnumerable<OrientatedItem> possibleOrientations, bool isLastItem)
         {
-            var orientationsToUse = new List<OrientatedItem4d>();
-            var stableOrientations = new List<OrientatedItem4d>();
-            var unstableOrientations = new List<OrientatedItem4d>();
+            var orientationsToUse = new List<OrientatedItem>();
+            var stableOrientations = new List<OrientatedItem>();
+            var unstableOrientations = new List<OrientatedItem>();
 
             // Divide possible orientations into stable (low centre of gravity) and unstable (high
             // centre of gravity)
@@ -221,8 +221,8 @@ namespace SharpPacker.Services
             return orientationsToUse;
         }
 
-        protected int CalculateAdditionalItemsPackedWithThisOrientation(OrientatedItem4d prevItem,
-                                                                        IEnumerable<Item4d> nextItems,
+        protected int CalculateAdditionalItemsPackedWithThisOrientation(OrientatedItem prevItem,
+                                                                        IEnumerable<Item> nextItems,
                                                                         int originalWidthLeft,
                                                                         int originalLengthLeft,
                                                                         int depthLeft,
@@ -252,13 +252,13 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        private List<OrientatedItem4d> GetStableOrientationsInEmptyBox(Item4d item)
+        private List<OrientatedItem> GetStableOrientationsInEmptyBox(Item item)
         {
             var orientations = GetPossibleOrientationsInEmptyBox(item);
             return orientations.Where(o => o.IsStable()).ToList();
         }
 
-        private List<OrientatedItem4d> GetStablePrientationsInEmptyBox(Item4d item)
+        private List<OrientatedItem> GetStablePrientationsInEmptyBox(Item item)
         {
             var orientationsInEmptyBox = GetPossibleOrientationsInEmptyBox(item);
 
@@ -271,7 +271,7 @@ namespace SharpPacker.Services
         /// <param name="itemA"></param>
         /// <param name="itemB"></param>
         /// <returns></returns>
-        private bool IsSameDimensions(Item4d itemA, Item4d itemB)
+        private bool IsSameDimensions(Item itemA, Item itemB)
         {
             var dimsA = new int[] { itemA.Width, itemA.Length, itemA.Depth };
             var dimsB = new int[] { itemB.Width, itemB.Length, itemB.Depth };
@@ -284,20 +284,20 @@ namespace SharpPacker.Services
                     && dimsA[2] == dimsB[2];
         }
 
-        private class OrientatedItemsComparer : IComparer<OrientatedItem4d>
+        private class OrientatedItemsComparer : IComparer<OrientatedItem>
         {
             public int widthLeft;
             public int lengthLeft;
             public int depthLeft;
             
-            public IEnumerable<Item4d> nextItems;
+            public IEnumerable<Item> nextItems;
             public int rowLength;
             
             public int x;
             public int y;
             public int z;
 
-            public List<PackedItem4d> prevPackedItemList;
+            public List<PackedItem> prevPackedItemList;
 
             private readonly OrientatedItemFactory _oif;
 
@@ -306,7 +306,7 @@ namespace SharpPacker.Services
                 _oif = oif;
             }
 
-            public int Compare(OrientatedItem4d a, OrientatedItem4d b)
+            public int Compare(OrientatedItem a, OrientatedItem b)
             {
                 var orientationAWidthLeft = widthLeft - a.Width;
                 var orientationALengthLeft = lengthLeft - a.Length;

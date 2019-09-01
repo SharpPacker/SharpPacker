@@ -7,20 +7,20 @@ using System.Linq;
 
 namespace SharpPacker
 {
-    public class Packer : IPacker<Item4d, Box4d, PackedBox4d>
+    public class Packer : IPacker<Item, Box, PackedBox>
     {
         public int MaxBoxesToBalanceWeight { get; set; } = 12;
 
-        private readonly List<Item4d> _items;
-        private readonly List<Box4d> _boxes;
+        private readonly List<Item> _items;
+        private readonly List<Box> _boxes;
 
         public Packer()
         {
-            _items = new List<Item4d>();
-            _boxes = new List<Box4d>();
+            _items = new List<Item>();
+            _boxes = new List<Box>();
         }
 
-        public void AddItem(Item4d item, int quantity = 1)
+        public void AddItem(Item item, int quantity = 1)
         {
             for(var i = 0; i < quantity; i++)
             {
@@ -28,32 +28,32 @@ namespace SharpPacker
             }
         }
 
-        public void SetItems(IEnumerable<Item4d> itemCollection)
+        public void SetItems(IEnumerable<Item> itemCollection)
         {
             _items.Clear();
             _items.AddRange(itemCollection);
         }
 
-        public void AddBox(Box4d box)
+        public void AddBox(Box box)
         {
             _boxes.Add(box);
         }
 
-        public void SetBoxes(IEnumerable<Box4d> boxCollection)
+        public void SetBoxes(IEnumerable<Box> boxCollection)
         {
             _boxes.Clear();
             _boxes.AddRange(boxCollection);
         }
 
-        public List<PackedBox4d> DoVolumePacking()
+        public List<PackedBox> DoVolumePacking()
         {
-            var packedBoxes = new List<PackedBox4d>();
+            var packedBoxes = new List<PackedBox>();
 
             //Keep going until everything packed
             var itemsToPack = _items.ToList();
             while(itemsToPack.Count > 0)
             {
-                var packedBoxesIteration = new List<PackedBox4d>();
+                var packedBoxesIteration = new List<PackedBox>();
 
                 //Loop through boxes starting with smallest, see what happens
                 foreach(var box in _boxes)
@@ -89,7 +89,7 @@ namespace SharpPacker
             return packedBoxes;
         }
 
-        public List<PackedBox4d> Pack()
+        public List<PackedBox> Pack()
         {
             var packedBoxes = DoVolumePacking();
 
@@ -103,7 +103,7 @@ namespace SharpPacker
             return packedBoxes;
         }
 
-        private PackedBox4d FindBestBoxFromIteration(IEnumerable<PackedBox4d> packedBoxes)
+        private PackedBox FindBestBoxFromIteration(IEnumerable<PackedBox> packedBoxes)
         {
             packedBoxes.OrderBy(pb => pb);
             return packedBoxes.First();

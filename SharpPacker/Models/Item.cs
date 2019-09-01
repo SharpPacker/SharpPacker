@@ -2,7 +2,7 @@
 
 namespace SharpPacker.Models
 {
-    public class Item4d : IComparable<Item4d>
+    public class Item : IComparable<Item>
     {
         public int Depth { get; set; }
         public string Description { get; set; }
@@ -13,7 +13,7 @@ namespace SharpPacker.Models
         public int Weight { get; set; }
         public int Width { get; set; }
 
-        public int CompareTo(Item4d other)
+        public int CompareTo(Item other)
         {
             var volumeDecider = this.Volume.CompareTo(other.Volume);
             if(volumeDecider != 0)

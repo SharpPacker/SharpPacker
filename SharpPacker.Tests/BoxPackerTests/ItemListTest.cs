@@ -27,7 +27,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             var item3 = Factory.CreateItem("B_Medium", 100, 100, 10, 500, true);
             var item4 = Factory.CreateItem("D_Medium Heavy", 100, 100, 10, 501, true);
 
-            var list = new List<Item4d>
+            var list = new List<Item>
             {
                 item1,
                 item2,
@@ -35,7 +35,7 @@ namespace SharpPacker.Tests.BoxPackerTests
                 item4
             };
 
-            var sorted = (list as IEnumerable<Item4d>).OrderBy(item => item).ToList();
+            var sorted = (list as IEnumerable<Item>).OrderBy(item => item).ToList();
 
             // TODO Check if this test is OK in original library - looks like in current ItemList
             // sorting is inverted:
@@ -65,7 +65,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             var item3 = Factory.CreateItem("Item A", 20, 20, 2, 100, true);
             var item4 = Factory.CreateItem("Item B", 20, 20, 2, 100, true);
 
-            var list = new List<Item4d>
+            var list = new List<Item>
             {
                 item1,
                 item2,
@@ -73,7 +73,7 @@ namespace SharpPacker.Tests.BoxPackerTests
                 item4
             };
 
-            var sorted = (list as IEnumerable<Item4d>).OrderBy(item => item).ToList();
+            var sorted = (list as IEnumerable<Item>).OrderBy(item => item).ToList();
 
             // TODO Check if this test is OK in original library - looks like in current ItemList
             // sorting is inverted:

@@ -11,7 +11,7 @@ namespace SharpPacker.Tests.BoxPackerTests
         [Fact]
         public void TestVolumeCalculation()
         {
-            var pItem = new PackedItem4d(
+            var pItem = new PackedItem(
                     Factory.CreateItem("Item", 1, 1, 0, 0, true),
                     0,
                     0,

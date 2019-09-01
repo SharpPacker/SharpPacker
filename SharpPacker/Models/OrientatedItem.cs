@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace SharpPacker.Models
 {
-    public class OrientatedItem4d
+    public class OrientatedItem
     {
         private const double degree15inRadians = 0.261799;
         private static readonly ConcurrentDictionary<string, float> tippingPointCache = new ConcurrentDictionary<string, float>();
 
-        public OrientatedItem4d()
+        public OrientatedItem()
         {
         }
 
-        public OrientatedItem4d(Item4d item, int width, int length, int depth)
+        public OrientatedItem(Item item, int width, int length, int depth)
         {
             this.Item = item;
             this.Width = width;
@@ -22,7 +22,7 @@ namespace SharpPacker.Models
         }
 
         public int Depth { get; set; }
-        public Item4d Item { get; set; }
+        public Item Item { get; set; }
 
         public int Length { get; set; }
         public int SurfaceFootprint => (Width * Length);

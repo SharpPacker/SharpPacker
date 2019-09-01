@@ -7,11 +7,11 @@ namespace SharpPacker.Services
 {
     internal class WeightRedistributor
     {
-        private readonly List<Box4d> boxes;
+        private readonly List<Box> boxes;
 
-        public WeightRedistributor(IEnumerable<Box4d> _boxes)
+        public WeightRedistributor(IEnumerable<Box> _boxes)
         {
-            boxes = new List<Box4d>();
+            boxes = new List<Box>();
             boxes.AddRange(_boxes);
         }
 
@@ -20,7 +20,7 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="originalBoxes"></param>
         /// <returns></returns>
-        public List<PackedBox4d> RedistributeWeight(IEnumerable<PackedBox4d> originalBoxes)
+        public List<PackedBox> RedistributeWeight(IEnumerable<PackedBox> originalBoxes)
         {
             var targetWeight = PackedBoxListHelpers.GetMeanWeight(originalBoxes);
 
@@ -43,10 +43,10 @@ namespace SharpPacker.Services
         /// actually weighs more when empty causing an increase in total weight.
         /// </summary>
         /// <returns></returns>
-        private bool DidRepackActuallyHelp(PackedBox4d oldBoxA, PackedBox4d oldBoxB, PackedBox4d newBoxA, PackedBox4d newBoxB)
+        private bool DidRepackActuallyHelp(PackedBox oldBoxA, PackedBox oldBoxB, PackedBox newBoxA, PackedBox newBoxB)
         {
-            PackedBox4d[] oldList = { oldBoxA, oldBoxB };
-            PackedBox4d[] newList = { newBoxA, newBoxB };
+            PackedBox[] oldList = { oldBoxA, oldBoxB };
+            PackedBox[] newList = { newBoxA, newBoxB };
 
             var oldWeigthVariance = PackedBoxListHelpers.GetWeightVariance(oldList);
             var newWeigthVariance = PackedBoxListHelpers.GetWeightVariance(newList);
@@ -59,7 +59,7 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> items)
+        private List<PackedBox> DoVolumeRepack(IEnumerable<Item> items)
         {
             return DoVolumeRepack(items, null);
         }
@@ -70,7 +70,7 @@ namespace SharpPacker.Services
         /// <param name="originalItems"></param>
         /// <param name="plusOneItem"></param>
         /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<Item4d> originalItems, Item4d plusOneItem)
+        private List<PackedBox> DoVolumeRepack(IEnumerable<Item> originalItems, Item plusOneItem)
         {
             var packer = new Packer();
             packer.SetBoxes(this.boxes);
@@ -89,7 +89,7 @@ namespace SharpPacker.Services
         /// <param name="originalPackedItems"></param>
         /// <param name="plusOnePackedItem"></param>
         /// <returns></returns>
-        private List<PackedBox4d> DoVolumeRepack(IEnumerable<PackedItem4d> originalPackedItems, PackedItem4d plusOnePackedItem)
+        private List<PackedBox> DoVolumeRepack(IEnumerable<PackedItem> originalPackedItems, PackedItem plusOnePackedItem)
         {
             return DoVolumeRepack(originalPackedItems.Select(pi => pi.Item), plusOnePackedItem?.Item);
         }
@@ -101,7 +101,7 @@ namespace SharpPacker.Services
         /// <param name="boxB"></param>
         /// <param name="targetWeight"></param>
         /// <returns>was the weight rebalanced?</returns>
-        private bool EqualiseWeight(ref PackedBox4d boxA, ref PackedBox4d boxB, double targetWeight)
+        private bool EqualiseWeight(ref PackedBox boxA, ref PackedBox boxB, double targetWeight)
         {
             var anyIterationSuccessful = false;
 
@@ -164,7 +164,7 @@ namespace SharpPacker.Services
         /// <param name="boxesList"></param>
         /// <param name="targetWeight"></param>
         /// <returns></returns>
-        private bool EqualiseWeightsIteration(ref List<PackedBox4d> boxesList, double targetWeight)
+        private bool EqualiseWeightsIteration(ref List<PackedBox> boxesList, double targetWeight)
         {
             SortBoxesListByWeight(ref boxesList);
 
@@ -201,7 +201,7 @@ namespace SharpPacker.Services
             return false;
         }
 
-        private void SortBoxesListByWeight(ref List<PackedBox4d> listToSort)
+        private void SortBoxesListByWeight(ref List<PackedBox> listToSort)
         {
             listToSort.Sort((a, b) => b.TotalWeight.CompareTo(a.TotalWeight));
         }

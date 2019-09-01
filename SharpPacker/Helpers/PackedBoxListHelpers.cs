@@ -12,7 +12,7 @@ namespace SharpPacker.Helpers
         /// </summary>
         /// <param name="pBoxList"></param>
         /// <returns></returns>
-        public static double GetMeanWeight(IEnumerable<PackedBox4d> pBoxList)
+        public static double GetMeanWeight(IEnumerable<PackedBox> pBoxList)
         {
             return pBoxList.Average(b => b?.TotalWeight) ?? 0d;
         }
@@ -22,7 +22,7 @@ namespace SharpPacker.Helpers
         /// </summary>
         /// <param name="pBoxList"></param>
         /// <returns></returns>
-        public static double GetVolumeUtilizationPercent(IEnumerable<PackedBox4d> pBoxList)
+        public static double GetVolumeUtilizationPercent(IEnumerable<PackedBox> pBoxList)
         {
             var itemsVolume = 0f;
             var boxesVolume = 0f;
@@ -49,7 +49,7 @@ namespace SharpPacker.Helpers
         /// </summary>
         /// <param name="pBoxList"></param>
         /// <returns></returns>
-        public static double GetWeightVariance(IEnumerable<PackedBox4d> pBoxList)
+        public static double GetWeightVariance(IEnumerable<PackedBox> pBoxList)
         {
             var boxCount = pBoxList.Count();
 
