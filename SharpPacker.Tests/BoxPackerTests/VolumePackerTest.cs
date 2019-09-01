@@ -19,10 +19,10 @@ namespace SharpPacker.Tests.BoxPackerTests
             var box = Factory.CreateBox("40x70x30InternalBox", 40, 70, 30, 0, 40, 70, 30, 1000);
             var item = Factory.CreateItem("30x10x30item", 30, 10, 30, 0, true);
 
-            var itemList = new List<Item>();
+            var itemList = new ItemList();
             for(var i = 0; i < 9; i++)
             {
-                itemList.Add(item);
+                itemList.Insert(item);
             }
 
             var packer = new VolumePacker(box, itemList);
@@ -59,11 +59,11 @@ namespace SharpPacker.Tests.BoxPackerTests
             var box = Factory.CreateBox("Box", 250, 1360, 260, 0, 250, 1360, 260, 30000);
             var item = Factory.CreateItem("Item", 90, 200, 200, 150, true);
 
-            var itemList = new List<Item>();
+            var itemList = new ItemList();
 
             for(var i = 0; i < 14; i++)
             {
-                itemList.Add(item);
+                itemList.Insert(item);
             }
 
             var packer = new VolumePacker(box, itemList);
@@ -79,11 +79,9 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestIssue147B()
         {
             var box1 = Factory.CreateBox("Box", 400, 200, 500, 0, 400, 200, 500, 10000);
-            var itemList1 = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 447, 62, 303, 965, false),
-                Factory.CreateItem("Item 2", 495, 70, 308, 1018, false),
-            };
+            var itemList1 = new ItemList();
+            itemList1.Insert(Factory.CreateItem("Item 1", 447, 62, 303, 965, false));
+            itemList1.Insert(Factory.CreateItem("Item 2", 495, 70, 308, 1018, false));
 
             var packer1 = new VolumePacker(box1, itemList1);
             var packedBox1 = packer1.Pack();
@@ -91,11 +89,9 @@ namespace SharpPacker.Tests.BoxPackerTests
             Assert.Equal(2, packedBox1.PackedItems.Count);
 
             var box2 = Factory.CreateBox("Box", 400, 200, 500, 0, 400, 200, 500, 10000);
-            var itemList2 = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 447, 62, 303, 965, false),
-                Factory.CreateItem("Item 2", 495, 70, 308, 1018, false),
-            };
+            var itemList2 = new ItemList();
+            itemList2.Insert(Factory.CreateItem("Item 1", 447, 62, 303, 965, false));
+            itemList2.Insert(Factory.CreateItem("Item 2", 495, 70, 308, 1018, false));
 
             var packer2 = new VolumePacker(box1, itemList1);
             var packedBox2= packer2.Pack();
@@ -111,10 +107,10 @@ namespace SharpPacker.Tests.BoxPackerTests
         {
             var box = Factory.CreateBox("Box", 27, 37, 22, 100, 25, 36, 21, 15000);
             var item = Factory.CreateItem("Item", 6, 12, 20, 100, false);
-            var itemList = new List<Item>();
+            var itemList = new ItemList();
             for(var i = 0; i < 12; i++)
             {
-                itemList.Add(item);
+                itemList.Insert(item);
             }
 
             var packer = new VolumePacker(box, itemList);
@@ -124,10 +120,10 @@ namespace SharpPacker.Tests.BoxPackerTests
 
             var box2 = Factory.CreateBox("Box", 27, 37, 22, 100, 25, 36, 21, 15000);
             var item2 = Factory.CreateItem("Item", 6, 12, 20, 100, true);
-            var itemList2 = new List<Item>();
+            var itemList2 = new ItemList();
             for (var i = 0; i < 12; i++)
             {
-                itemList2.Add(item2);
+                itemList2.Insert(item2);
             }
 
             var packer2 = new VolumePacker(box2, itemList2);
@@ -146,28 +142,28 @@ namespace SharpPacker.Tests.BoxPackerTests
             var item1 = Factory.CreateItem("Item 1", 70, 70, 95, 0, false);
             var item2 = Factory.CreateItem("Item 2", 95, 75, 95, 0, true);
 
-            var itemList1 = new List<Item>();
+            var itemList1 = new ItemList();
             for(var i = 0; i < 6; i++)
             {
-                itemList1.Add(item1);
+                itemList1.Insert(item1);
             }
             for (var i = 0; i < 3; i++)
             {
-                itemList1.Add(item2);
+                itemList1.Insert(item2);
             }
 
             var packer1 = new VolumePacker(box, itemList1);
             var packedBox1 = packer1.Pack();
             Assert.Equal(9, packedBox1.PackedItems.Count);
 
-            var itemList2 = new List<Item>();
+            var itemList2 = new ItemList();
             for (var i = 0; i < 6; i++)
             {
-                itemList2.Add(item1);
+                itemList2.Insert(item1);
             }
             for (var i = 0; i < 2; i++)
             {
-                itemList2.Add(item2);
+                itemList2.Insert(item2);
             }
 
             var packer2 = new VolumePacker(box, itemList2);
@@ -182,19 +178,17 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestIssue164()
         {
             var box = Factory.CreateBox("Box", 820, 820, 830, 0, 820, 820, 830, 10000);
-            var itemList = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 110, 110, 50, 100, false),
-                Factory.CreateItem("Item 2", 100, 300, 30, 100, false),
-                Factory.CreateItem("Item 3", 100, 150, 50, 100, false),
-                Factory.CreateItem("Item 4", 100, 200, 80, 110, false),
-                Factory.CreateItem("Item 5", 80, 150, 80, 50, false),
-                Factory.CreateItem("Item 6", 80, 150, 80, 50, false),
-                Factory.CreateItem("Item 7", 80, 150, 80, 50, false),
-                Factory.CreateItem("Item 8", 270, 70, 60, 350, false),
-                Factory.CreateItem("Item 9", 150, 150, 80, 180, false),
-                Factory.CreateItem("Item 10", 80, 150, 80, 50, false),
-            };
+            var itemList = new ItemList();
+            itemList.Insert(Factory.CreateItem("Item 1", 110, 110, 50, 100, false));
+            itemList.Insert(Factory.CreateItem("Item 2", 100, 300, 30, 100, false));
+            itemList.Insert(Factory.CreateItem("Item 3", 100, 150, 50, 100, false));
+            itemList.Insert(Factory.CreateItem("Item 4", 100, 200, 80, 110, false));
+            itemList.Insert(Factory.CreateItem("Item 5", 80, 150, 80, 50, false));
+            itemList.Insert(Factory.CreateItem("Item 6", 80, 150, 80, 50, false));
+            itemList.Insert(Factory.CreateItem("Item 7", 80, 150, 80, 50, false));
+            itemList.Insert(Factory.CreateItem("Item 8", 270, 70, 60, 350, false));
+            itemList.Insert(Factory.CreateItem("Item 9", 150, 150, 80, 180, false));
+            itemList.Insert(Factory.CreateItem("Item 10", 80, 150, 80, 50, false));
 
             var packer = new VolumePacker(box, itemList);
             var packedBox = packer.Pack();
@@ -206,16 +200,15 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestIssue174()
         {
             var box = Factory.CreateBox("Box", 0, 0, 0, 10, 5000, 5000, 5000, 10000);
-            var itemList = new List<Item>
-            {
-                Factory.CreateItem("Item 0", 1000, 1650, 850, 500, false),
-                Factory.CreateItem("Item 1", 960, 1640, 800, 500, false),
-                Factory.CreateItem("Item 2", 950, 1650, 800, 500, false),
-                Factory.CreateItem("Item 3", 1000, 2050, 800, 500, false),
-                Factory.CreateItem("Item 4", 1000, 2100, 850, 500, false),
-                Factory.CreateItem("Item 5", 950, 2050, 800, 500, false),
-                Factory.CreateItem("Item 6", 940, 970, 800, 500, false),
-            };
+
+            var itemList = new ItemList();
+            itemList.Insert(Factory.CreateItem("Item 0", 1000, 1650, 850, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 1", 960, 1640, 800, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 2", 950, 1650, 800, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 3", 1000, 2050, 800, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 4", 1000, 2100, 850, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 5", 950, 2050, 800, 500, false));
+            itemList.Insert(Factory.CreateItem("Item 6", 940, 970, 800, 500, false));
 
             var volumePacker = new VolumePacker(box, itemList);
             var packedBox = volumePacker.Pack();
@@ -232,10 +225,10 @@ namespace SharpPacker.Tests.BoxPackerTests
             var box = Factory.CreateBox("165x225x25Box", 165, 225, 25, 0, 165, 225, 25, 100);
             var item = Factory.CreateItem("20x69x20Item", 20, 69, 20, 0, true);
 
-            var itemList = new List<Item>();
+            var itemList = new ItemList();
             for(var i = 0; i < 23; i++)
             {
-                itemList.Add(item);
+                itemList.Insert(item);
             }
 
             var packer = new VolumePacker(box, itemList);
@@ -253,10 +246,10 @@ namespace SharpPacker.Tests.BoxPackerTests
             var box = Factory.CreateBox("165x225x25Box", 165, 225, 25, 0, 165, 225, 25, 100);
             var item = Factory.CreateItem("20x69x20Item", 69, 20, 20, 0, true);
 
-            var itemList = new List<Item>();
+            var itemList = new ItemList();
             for(var i = 0; i < 23; i++)
             {
-                itemList.Add(item);
+                itemList.Insert(item);
             }
 
             var packer = new VolumePacker(box, itemList);
@@ -272,12 +265,10 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestUnpackedSpaceInsideLayersIsFilled()
         {
             var box1 = Factory.CreateBox("Box", 4, 14, 11, 0, 4, 14, 11, 100);
-            var itemList1 = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 8, 8, 2, 1, false),
-                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
-                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
-            };
+            var itemList1 = new ItemList();
+            itemList1.Insert(Factory.CreateItem("Item 1", 8, 8, 2, 1, false));
+            itemList1.Insert(Factory.CreateItem("Item 1", 4, 4, 4, 1, false));
+            itemList1.Insert(Factory.CreateItem("Item 1", 4, 4, 4, 1, false));
 
             var packer1 = new VolumePacker(box1, itemList1);
             var packedBox1 = packer1.Pack();
@@ -285,12 +276,10 @@ namespace SharpPacker.Tests.BoxPackerTests
             Assert.Equal(3, packedBox1.PackedItems.Count);
 
             var box2 = Factory.CreateBox("Box", 4, 14, 11, 0, 4, 14, 11, 100);
-            var itemList2 = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 8, 8, 2, 1, false),
-                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
-                Factory.CreateItem("Item 1", 4, 4, 4, 1, false),
-            };
+            var itemList2 = new ItemList();
+            itemList1.Insert(Factory.CreateItem("Item 1", 8, 8, 2, 1, false));
+            itemList1.Insert(Factory.CreateItem("Item 1", 4, 4, 4, 1, false));
+            itemList1.Insert(Factory.CreateItem("Item 1", 4, 4, 4, 1, false));
 
             var packer2 = new VolumePacker(box2, itemList2);
             var packedBox2 = packer2.Pack();
@@ -305,14 +294,12 @@ namespace SharpPacker.Tests.BoxPackerTests
         public void TestUsedDimensionsCalculatedCorrectly()
         {
             var box = Factory.CreateBox("Bundle", 75, 15, 15, 0, 75, 15, 15, 30);
-            var itemList = new List<Item>
-            {
-                Factory.CreateItem("Item 1", 14, 12, 2, 2, true),
-                Factory.CreateItem("Item 2", 14, 12, 2, 2, true),
-                Factory.CreateItem("Item 3", 14, 12, 2, 2, true),
-                Factory.CreateItem("Item 4", 14, 12, 2, 2, true),
-                Factory.CreateItem("Item 5", 14, 12, 2, 2, true),
-            };
+            var itemList = new ItemList();
+            itemList.Insert(Factory.CreateItem("Item 1", 14, 12, 2, 2, true));
+            itemList.Insert(Factory.CreateItem("Item 2", 14, 12, 2, 2, true));
+            itemList.Insert(Factory.CreateItem("Item 3", 14, 12, 2, 2, true));
+            itemList.Insert(Factory.CreateItem("Item 4", 14, 12, 2, 2, true));
+            itemList.Insert(Factory.CreateItem("Item 5", 14, 12, 2, 2, true));
 
             var packer = new VolumePacker(box, itemList);
             var pBox = packer.Pack();
