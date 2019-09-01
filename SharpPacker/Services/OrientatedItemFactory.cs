@@ -36,13 +36,13 @@ namespace SharpPacker.Services
             {
                 return null;
             }
-
+            //TODO: VolumePackerTest.161 chtck here
             var comparer = new OrientatedItemsComparer(this)
             {
                 widthLeft = widthLeft,
                 lengthLeft = lengthLeft,
                 depthLeft = depthLeft,
-                nextItems = nextItems.ToList(),
+                nextItems = nextItems,
                 rowLength = rowLength,
                 x = x,
                 y = y,
@@ -286,15 +286,19 @@ namespace SharpPacker.Services
 
         private class OrientatedItemsComparer : IComparer<OrientatedItem4d>
         {
-            public int depthLeft;
-            public int lengthLeft;
-            public IEnumerable<Item4d> nextItems;
-            public List<PackedItem4d> prevPackedItemList;
-            public int rowLength;
             public int widthLeft;
+            public int lengthLeft;
+            public int depthLeft;
+            
+            public IEnumerable<Item4d> nextItems;
+            public int rowLength;
+            
             public int x;
             public int y;
             public int z;
+
+            public List<PackedItem4d> prevPackedItemList;
+
             private readonly OrientatedItemFactory _oif;
 
             public OrientatedItemsComparer(OrientatedItemFactory oif)
@@ -330,7 +334,7 @@ namespace SharpPacker.Services
                 if (nextItems.Count() != 0)
                 {
                     var itemToCheck = nextItems.First();
-                    var nextItemFitOrientationsA = _oif.GetPossibleOrientations(itemToCheck,
+                    var nextItemFitA = _oif.GetPossibleOrientations(itemToCheck,
                                                                                     a,
                                                                                     orientationAWidthLeft,
                                                                                     lengthLeft,
@@ -339,27 +343,28 @@ namespace SharpPacker.Services
                                                                                     y,
                                                                                     z,
                                                                                     prevPackedItemList
-                                                                                );
-                    var nextItemFitOrientationsB = _oif.GetPossibleOrientations(itemToCheck,
+                                                                                ).Count > 0;
+                    var nextItemFitB = _oif.GetPossibleOrientations(itemToCheck,
                                                                                     b,
-                                                                                    orientationAWidthLeft,
+                                                                                    orientationBWidthLeft,
                                                                                     lengthLeft,
                                                                                     depthLeft,
                                                                                     x,
                                                                                     y,
                                                                                     z,
                                                                                     prevPackedItemList
-                                                                                );
+                                                                                ).Count > 0;
 
-                    if (nextItemFitOrientationsA.Count() != 0 && nextItemFitOrientationsB.Count() == 0)
+                    if (nextItemFitA && !nextItemFitB)
                     {
                         return -1;
                     }
-                    if (nextItemFitOrientationsA.Count() == 0 && nextItemFitOrientationsB.Count() != 0)
+                    if (!nextItemFitA && nextItemFitB)
                     {
                         return 1;
                     }
 
+                    // if not an easy either/or, do a partial lookahead
                     var additionalPackedA = _oif.CalculateAdditionalItemsPackedWithThisOrientation(a,
                                                                                                     nextItems,
                                                                                                     widthLeft,
@@ -381,6 +386,7 @@ namespace SharpPacker.Services
                     }
                 }
 
+                // otherwise prefer leaving minimum possible gap, or the greatest footprint
                 if (orientationADepthLeft != orientationBDepthLeft)
                 {
                     return orientationADepthLeft.CompareTo(orientationBDepthLeft);

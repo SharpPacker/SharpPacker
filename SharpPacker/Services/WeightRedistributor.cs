@@ -105,19 +105,8 @@ namespace SharpPacker.Services
         {
             var anyIterationSuccessful = false;
 
-            PackedBox4d overWeightBox;
-            PackedBox4d underWeightBox;
-
-            if (boxA.TotalWeight > boxB.TotalWeight)
-            {
-                overWeightBox = boxA;
-                underWeightBox = boxB;
-            }
-            else
-            {
-                overWeightBox = boxB;
-                underWeightBox = boxA;
-            }
+            var overWeightBox = (boxA.TotalWeight > boxB.TotalWeight) ? boxA : boxB;
+            var underWeightBox = (boxA.TotalWeight > boxB.TotalWeight) ? boxB : boxA;
 
             var overWeightBoxItems = overWeightBox.PackedItems.ToList();
             var underWeightBoxItems = underWeightBox.PackedItems.ToList();

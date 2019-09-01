@@ -44,8 +44,8 @@ namespace SharpPacker.Services
         public bool LookAheadMode { get; set; } = false;
 
         private int BoxLength => Math.Min(box.InnerWidth, box.InnerLength);
-        private bool BoxRotated => (BoxWidth != box.InnerWidth) || (BoxLength != box.InnerLength);
         private int BoxWidth => Math.Max(box.InnerWidth, box.InnerLength);
+        private bool BoxRotated => (BoxWidth != box.InnerWidth) || (BoxLength != box.InnerLength);
 
         /// <summary>
         /// Pack as many items as possible into specific given box.
@@ -109,6 +109,10 @@ namespace SharpPacker.Services
             while (items.Count > 0)
             {
                 items.Sort();
+                items.Reverse();
+                // TODO: Why this is not work? Test is broken, if this is applied after change
+                // items.OrderByDescending(i => i);
+
                 var lastIndex = items.Count - 1;
                 var itemToPack = items[lastIndex];
                 items.RemoveAt(lastIndex);

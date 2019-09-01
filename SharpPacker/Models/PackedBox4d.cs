@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SharpPacker.Models
 {
-    public class PackedBox4d
+    public class PackedBox4d : IComparable<PackedBox4d>
     {
         public PackedBox4d()
         {
@@ -54,6 +54,28 @@ namespace SharpPacker.Models
         override public string ToString()
         {
             return $"PackedBox {Box?.Reference} [w{UsedWidth}/{Box?.InnerWidth ?? 0}, l{UsedLength}/{Box?.InnerLength ?? 0}, d{UsedLength}/{Box?.InnerDepth ?? 0}]";
+        }
+
+        public int CompareTo(PackedBox4d other)
+        {
+            var itemsInThis = this.PackedItems.Count;
+            var itemsInOther = other.PackedItems.Count;
+
+            var choise = itemsInOther.CompareTo(itemsInThis);
+            if(choise == 0)
+            {
+                choise = other.VolumeUtilizationPercent.CompareTo(this.VolumeUtilizationPercent);
+            }
+            if (choise == 0)
+            {
+                choise = other.UsedVolume.CompareTo(this.UsedVolume);
+            }
+            if (choise == 0)
+            {
+                choise = other.TotalWeight.CompareTo(this.TotalWeight);
+            }
+
+            return choise;
         }
     }
 }
