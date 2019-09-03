@@ -17,7 +17,7 @@ namespace SharpPacker.Services
         public OrientatedItem GetBestOrientation(
                                Item item,
                                OrientatedItem prevItem,
-                               IEnumerable<Item> nextItems,
+                               ItemList nextItems,
                                bool isLastItem,
                                int widthLeft,
                                int lengthLeft,
@@ -26,7 +26,7 @@ namespace SharpPacker.Services
                                int x,
                                int y,
                                int z,
-                               IEnumerable<PackedItem> prevPackedItemList
+                               PackedItemList prevPackedItemList
                            )
         {
             var possibleOrientations = GetPossibleOrientations(item, prevItem, widthLeft, lengthLeft, depthLeft, x, y, z, prevPackedItemList);
@@ -47,7 +47,7 @@ namespace SharpPacker.Services
                 x = x,
                 y = y,
                 z = z,
-                prevPackedItemList = prevPackedItemList.ToList(),
+                prevPackedItemList = prevPackedItemList,
             };
             usableOrientations.Sort(comparer);
 
@@ -64,7 +64,7 @@ namespace SharpPacker.Services
             int x,
             int y,
             int z,
-            IEnumerable<PackedItem> prevPackedItemsList)
+            PackedItemList prevPackedItemsList)
         {
             var orientations = new List<OrientatedItem>();
 
@@ -170,7 +170,7 @@ namespace SharpPacker.Services
                                                         0,
                                                         0,
                                                         0,
-                                                        new List<PackedItem>()
+                                                        new PackedItemList()
                                                     );
 
             return orientations;
@@ -222,7 +222,7 @@ namespace SharpPacker.Services
         }
 
         protected int CalculateAdditionalItemsPackedWithThisOrientation(OrientatedItem prevItem,
-                                                                        IEnumerable<Item> nextItems,
+                                                                        ItemList nextItems,
                                                                         int originalWidthLeft,
                                                                         int originalLengthLeft,
                                                                         int depthLeft,
@@ -231,18 +231,26 @@ namespace SharpPacker.Services
             var currentRowLength = Math.Max(prevItem.Length, currentRowLengthBeforePacking);
 
             // cap lookahead as this gets recursive and slow
-            var capThreshold = 8;
-            var itemsToPack = nextItems.OrderByDescending(i => i).Take(capThreshold).Reverse();
+            var itemsToPack = nextItems.TopN(8);
 
             var tempBox = new WorkingVolume(originalWidthLeft - prevItem.Width, currentRowLength, depthLeft, int.MaxValue);
-            var tempPacker = new VolumePacker(tempBox, itemsToPack.ToList())
-            {
-                LookAheadMode = true
-            };
+            var tempPacker = new VolumePacker(tempBox, itemsToPack.Clone());
+            tempPacker.LookAheadMode = true;
 
             var remainigRowPacked = tempPacker.Pack();
+            foreach(var packedItem in remainigRowPacked.PackedItems)
+            {
+                itemsToPack.Remove(packedItem.Item);
+            }
 
-            itemsToPack = itemsToPack.Except(remainigRowPacked.PackedItems.Select(x => x.Item));
+            var tempBox2 = new WorkingVolume(originalWidthLeft, originalLengthLeft - currentRowLength, depthLeft, int.MaxValue);
+            var tempPacker2 = new VolumePacker(tempBox2, itemsToPack.Clone());
+            tempPacker2.LookAheadMode = true;
+            var nextRowPacked = tempPacker2.Pack();
+            foreach (var packedItem in nextRowPacked.PackedItems)
+            {
+                itemsToPack.Remove(packedItem.Item);
+            }
 
             return nextItems.Count() - itemsToPack.Count();
         }
@@ -271,7 +279,7 @@ namespace SharpPacker.Services
         /// <param name="itemA"></param>
         /// <param name="itemB"></param>
         /// <returns></returns>
-        private bool IsSameDimensions(Item itemA, Item itemB)
+        public bool IsSameDimensions(Item itemA, Item itemB)
         {
             var dimsA = new int[] { itemA.Width, itemA.Length, itemA.Depth };
             var dimsB = new int[] { itemB.Width, itemB.Length, itemB.Depth };
@@ -290,14 +298,14 @@ namespace SharpPacker.Services
             public int lengthLeft;
             public int depthLeft;
             
-            public IEnumerable<Item> nextItems;
+            public ItemList nextItems;
             public int rowLength;
             
             public int x;
             public int y;
             public int z;
 
-            public List<PackedItem> prevPackedItemList;
+            public PackedItemList prevPackedItemList;
 
             private readonly OrientatedItemFactory _oif;
 

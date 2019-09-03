@@ -7,16 +7,16 @@ using System.Linq;
 
 namespace SharpPacker
 {
-    public class Packer : IPacker<Item, PackedBox>
+    public class Packer : IPacker
     {
         public int MaxBoxesToBalanceWeight { get; set; } = 12;
 
-        private readonly List<Item> _items;
+        private ItemList _items;
         private BoxList _boxes;
 
         public Packer()
         {
-            _items = new List<Item>();
+            _items = new ItemList();
             _boxes = new BoxList();
         }
 
@@ -24,14 +24,22 @@ namespace SharpPacker
         {
             for(var i = 0; i < quantity; i++)
             {
-                this._items.Add(item);
+                this._items.Insert(item);
             }
+        }
+
+        public void SetItems(ItemList itemCollection)
+        {
+            _items = itemCollection;
         }
 
         public void SetItems(IEnumerable<Item> itemCollection)
         {
-            _items.Clear();
-            _items.AddRange(itemCollection);
+            _items = new ItemList();
+            foreach(var item in itemCollection)
+            {
+                _items.Insert(item);
+            }
         }
 
         public void AddBox(Box box)
@@ -44,28 +52,27 @@ namespace SharpPacker
             _boxes = boxCollection;
         }
 
-        public List<PackedBox> DoVolumePacking()
+        public PackedBoxList DoVolumePacking()
         {
-            var packedBoxes = new List<PackedBox>();
+            var packedBoxes = new PackedBoxList();
 
             //Keep going until everything packed
-            var itemsToPack = _items.ToList();
-            while(itemsToPack.Count > 0)
+            while(_items.Count > 0)
             {
                 var packedBoxesIteration = new List<PackedBox>();
 
                 //Loop through boxes starting with smallest, see what happens
                 foreach(var box in _boxes)
                 {
-                    var volumePacker = new VolumePacker(box, itemsToPack.ToList());
+                    var volumePacker = new VolumePacker(box, _items.Clone());
                     var packedBox = volumePacker.Pack();
 
-                    var packedItemsCount = packedBox.PackedItems.Count;
-                    if (packedItemsCount != 0)
+                    if (packedBox.PackedItems.Count != 0)
                     {
                         packedBoxesIteration.Add(packedBox);
 
-                        if(packedItemsCount == itemsToPack.Count)
+                        //Have we found a single box that contains everything?
+                        if (packedBox.PackedItems.Count == _items.Count)
                         {
                             break;
                         }
@@ -78,17 +85,19 @@ namespace SharpPacker
                 }
                 //Find best box of iteration, and remove packed items from unpacked list
                 var bestBox = FindBestBoxFromIteration(packedBoxesIteration);
-                packedBoxes.Add(bestBox);
+
                 foreach (var itemToRemove in bestBox.PackedItems)
                 {
-                    itemsToPack.Remove(itemToRemove.Item);
+                    _items.Remove(itemToRemove.Item);
                 }
+
+                packedBoxes.Insert(bestBox);
             }
 
             return packedBoxes;
         }
 
-        public List<PackedBox> Pack()
+        public PackedBoxList Pack()
         {
             var packedBoxes = DoVolumePacking();
 
@@ -102,12 +111,38 @@ namespace SharpPacker
             return packedBoxes;
         }
 
-        private PackedBox FindBestBoxFromIteration(IEnumerable<PackedBox> packedBoxes)
+        private PackedBox FindBestBoxFromIteration(List<PackedBox> packedBoxes)
         {
-            packedBoxes.OrderBy(pb => pb);
-            return packedBoxes.First();
+            packedBoxes.Sort(Compare);
+
+            var result = packedBoxes.FirstOrDefault();
+            if(packedBoxes.Count > 0)
+            {
+                packedBoxes.RemoveAt(0);
+            }
+            return result;
         }
 
+        private int Compare(PackedBox boxA, PackedBox boxB)
+        {
+            var itemsInThis = boxA.PackedItems.Count;
+            var itemsInOther = boxB.PackedItems.Count;
 
+            var choise = itemsInOther.CompareTo(itemsInThis);
+            if (choise == 0)
+            {
+                choise = boxB.VolumeUtilizationPercent.CompareTo(boxA.VolumeUtilizationPercent);
+            }
+            if (choise == 0)
+            {
+                choise = boxB.UsedVolume.CompareTo(boxA.UsedVolume);
+            }
+            if (choise == 0)
+            {
+                choise = boxB.TotalWeight.CompareTo(boxA.TotalWeight);
+            }
+
+            return choise;
+        }
     }
 }

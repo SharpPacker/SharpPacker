@@ -20,10 +20,8 @@ namespace SharpPacker.Tests.BoxPackerTests
                     6
                 );
 
-            var packedItemList = new List<PackedItem>
-            {
-                PackedItem.FromOrientatedItem(oItem, 0, 0, 0)
-            };
+            var packedItemList = new PackedItemList();
+            packedItemList.Insert(PackedItem.FromOrientatedItem(oItem, 0, 0, 0));
 
             var pBox = new PackedBox(box, packedItemList);
 
@@ -53,10 +51,8 @@ namespace SharpPacker.Tests.BoxPackerTests
                     10
                 );
 
-            var packedItemList = new List<PackedItem>
-            {
-                PackedItem.FromOrientatedItem(oItem, 0, 0, 0)
-            };
+            var packedItemList = new PackedItemList();
+            packedItemList.Insert(PackedItem.FromOrientatedItem(oItem, 0, 0, 0));
 
             var pBox = new PackedBox(box, packedItemList);
 

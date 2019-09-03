@@ -8,23 +8,19 @@ namespace SharpPacker.Models
 {
     public class BoxList : IEnumerable<Box>
     {
-        private readonly List<Box> bList = new List<Box>();
-        private bool isSoreted = false;
+        private readonly List<Box> _list = new List<Box>();
+        private bool _isSorted = false;
 
         public void Insert(Box b)
         {
-            bList.Add(b);
-            isSoreted = false;
+            _list.Add(b);
+            _isSorted = false;
         }
 
         public IEnumerator<Box> GetEnumerator()
         {
-            if (!isSoreted)
-            {
-                bList.Sort(Compare);
-            };
-
-            var listCopy = new List<Box>(bList);
+            Sort();
+            var listCopy = new List<Box>(_list);
 
             return listCopy.GetEnumerator();
         }
@@ -34,11 +30,19 @@ namespace SharpPacker.Models
             return GetEnumerator();
         }
 
+        private void Sort()
+        {
+            if (!_isSorted)
+            {
+                _list.Sort(Compare);
+                _isSorted = true;
+            }
+        }
+
         private int Compare(Box boxA, Box boxB)
         {
             // try smallest box first
             var volumeDecider = boxA.InnerVolume.CompareTo(boxB.InnerVolume);
-
             if (volumeDecider != 0)
             {
                 return volumeDecider;
@@ -46,7 +50,6 @@ namespace SharpPacker.Models
 
             // with smallest empty weight
             var emptyWeightDecider = boxB.EmptyWeight.CompareTo(boxA.EmptyWeight);
-
             if(emptyWeightDecider != 0)
             {
                 return emptyWeightDecider;

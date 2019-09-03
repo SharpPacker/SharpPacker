@@ -1,5 +1,4 @@
-﻿using SharpPacker.Helpers;
-using SharpPacker.Models;
+﻿using SharpPacker.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,9 +18,9 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="originalBoxes"></param>
         /// <returns></returns>
-        public List<PackedBox> RedistributeWeight(IEnumerable<PackedBox> originalBoxes)
+        public PackedBoxList RedistributeWeight(PackedBoxList originalBoxes)
         {
-            var targetWeight = PackedBoxListHelpers.GetMeanWeight(originalBoxes);
+            var targetWeight = originalBoxes.GetMeanWeight();
 
             var redistrebutedBoxes = originalBoxes.ToList();
             redistrebutedBoxes.OrderByDescending(box => box.TotalWeight);
@@ -30,10 +29,45 @@ namespace SharpPacker.Services
 
             do
             {
-                iterationSuccessful = EqualiseWeightsIteration(ref redistrebutedBoxes, targetWeight);
+                iterationSuccessful = false;
+                foreach(var (boxA, a) in redistrebutedBoxes.Select((value, index) => (boxA:value, a:index)))
+                {
+                    foreach (var (boxB, b) in redistrebutedBoxes.Select((value, index) => (boxB: value, b: index)))
+                    {
+
+                        if(b <= a || boxA.TotalWeight == boxB.TotalWeight)
+                        {
+                            continue; //no need to evaluate
+                        }
+
+                        var boxARef = boxA;
+                        var boxBRef = boxB;
+
+                        iterationSuccessful = EqualiseWeight(ref boxARef, ref boxBRef, targetWeight);
+                        redistrebutedBoxes[a] = boxARef;
+                        redistrebutedBoxes[b] = boxBRef;
+
+                        if (iterationSuccessful)
+                        {
+                            //remove any now-empty boxes from the list
+                            redistrebutedBoxes = redistrebutedBoxes
+                                .Where(box => box != null)
+                                .OrderByDescending(box => box.TotalWeight)
+                                .ToList();
+
+                            goto leaveLoops;
+                        }
+                    }
+                }
+
+            leaveLoops:; 
             } while (iterationSuccessful);
 
-            return redistrebutedBoxes;
+            //Combine back into a single list
+            var packedBoxes = new PackedBoxList();
+            packedBoxes.InsertFromArray(redistrebutedBoxes.ToArray());
+
+            return packedBoxes;
         }
 
         /// <summary>
@@ -44,13 +78,13 @@ namespace SharpPacker.Services
         /// <returns></returns>
         private bool DidRepackActuallyHelp(PackedBox oldBoxA, PackedBox oldBoxB, PackedBox newBoxA, PackedBox newBoxB)
         {
-            PackedBox[] oldList = { oldBoxA, oldBoxB };
-            PackedBox[] newList = { newBoxA, newBoxB };
+            PackedBoxList oldList = new PackedBoxList();
+            oldList.InsertFromArray(new PackedBox[] { oldBoxA, oldBoxB});
 
-            var oldWeigthVariance = PackedBoxListHelpers.GetWeightVariance(oldList);
-            var newWeigthVariance = PackedBoxListHelpers.GetWeightVariance(newList);
+            PackedBoxList newList = new PackedBoxList();
+            newList.InsertFromArray(new PackedBox[] { newBoxA, newBoxB });
 
-            return (newWeigthVariance < oldWeigthVariance);
+            return newList.GetWeightVariance() < oldList.GetWeightVariance();
         }
 
         /// <summary>
@@ -58,18 +92,18 @@ namespace SharpPacker.Services
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        private List<PackedBox> DoVolumeRepack(IEnumerable<Item> items)
+        private PackedBoxList DoVolumeRepack(IEnumerable<Item> items)
         {
             return DoVolumeRepack(items, null);
         }
 
         /// <summary>
-        /// Do a volume repack of a set of items.
+        /// Do a volume repack of a set + one of items.
         /// </summary>
         /// <param name="originalItems"></param>
         /// <param name="plusOneItem"></param>
         /// <returns></returns>
-        private List<PackedBox> DoVolumeRepack(IEnumerable<Item> originalItems, Item plusOneItem)
+        private PackedBoxList DoVolumeRepack(IEnumerable<Item> originalItems, Item plusOneItem)
         {
             var packer = new Packer();
             packer.SetBoxes(this.boxes);
@@ -80,17 +114,6 @@ namespace SharpPacker.Services
             }
 
             return packer.DoVolumePacking();
-        }
-
-        /// <summary>
-        /// Do a volume repack of a set of items.
-        /// </summary>
-        /// <param name="originalPackedItems"></param>
-        /// <param name="plusOnePackedItem"></param>
-        /// <returns></returns>
-        private List<PackedBox> DoVolumeRepack(IEnumerable<PackedItem> originalPackedItems, PackedItem plusOnePackedItem)
-        {
-            return DoVolumeRepack(originalPackedItems.Select(pi => pi.Item), plusOnePackedItem?.Item);
         }
 
         /// <summary>
@@ -107,102 +130,50 @@ namespace SharpPacker.Services
             var overWeightBox = (boxA.TotalWeight > boxB.TotalWeight) ? boxA : boxB;
             var underWeightBox = (boxA.TotalWeight > boxB.TotalWeight) ? boxB : boxA;
 
-            var overWeightBoxItems = overWeightBox.PackedItems.ToList();
-            var underWeightBoxItems = underWeightBox.PackedItems.ToList();
+            var overWeightBoxItems = overWeightBox.PackedItems.AsItemList();
+            var underWeightBoxItems = underWeightBox.PackedItems.AsItemList();
 
-            var i = overWeightBoxItems.Count - 1;
-            while (i >= 0)
+            foreach (var (overWeightItem, key) in overWeightBoxItems.Select((value, index) => (overWeightItem: value, key: index)))
             {
-                var overWeightItem = overWeightBoxItems[i];
-                i--;
-
                 //TODO: check algorithm logic - why there is direct boxB using instead of over/underWeightBox?
                 if (overWeightItem.Weight + boxB.TotalWeight > targetWeight)
                 {
+                    // moving this item would harm more than help
+                    continue;
+                }
+                var newLighterBoxes = DoVolumeRepack(underWeightBoxItems, overWeightItem);
+                if(newLighterBoxes.Count != 1)
+                {
+                    //only want to move this item if it still fits in a single box
                     continue;
                 }
 
-                var newLighterBoxes = DoVolumeRepack(underWeightBoxItems, overWeightItem);
-                if (newLighterBoxes.Count != 1)
-                {
-                    continue; //only want to move this item if it still fits in a single box
-                }
-
                 underWeightBoxItems.Add(overWeightItem);
-
-                if (overWeightBoxItems.Count == 1)
-                { //sometimes a repack can be efficient enough to eliminate a box
-                    boxB = newLighterBoxes[0];
+                if(overWeightBoxItems.Count == 1)
+                {
+                    //sometimes a repack can be efficient enough to eliminate a box
+                    boxB = newLighterBoxes.Top();
                     boxA = null;
 
                     return true;
                 }
-                else
-                {
-                    overWeightBoxItems.RemoveAt(i + 1);
-                    var newHeavierBoxes = DoVolumeRepack(overWeightBoxItems, null);
-                    if (newHeavierBoxes.Count != 1)
-                    {
-                        continue; //only want to move this item if it still fits in a single box
-                    }
 
-                    if (DidRepackActuallyHelp(boxA, boxB, newHeavierBoxes[0], newLighterBoxes[0]))
-                    {
-                        boxB = newLighterBoxes[0];
-                        boxA = newHeavierBoxes[0];
-                        anyIterationSuccessful = true;
-                    }
+                overWeightBoxItems.RemoveAt(key);
+                var newHeavierBoxes = DoVolumeRepack(overWeightBoxItems);
+                if(newHeavierBoxes.Count != 1)
+                {
+                    continue;
+                }
+
+                if (DidRepackActuallyHelp(boxA, boxB, newHeavierBoxes.Top(), newLighterBoxes.Top()))
+                {
+                    boxB = newLighterBoxes.Top();
+                    boxA = newHeavierBoxes.Top();
+                    anyIterationSuccessful = true;
                 }
             }
+
             return anyIterationSuccessful;
-        }
-
-        /// <summary>
-        /// Helper method for RedistributeWeight()
-        /// </summary>
-        /// <param name="boxesList"></param>
-        /// <param name="targetWeight"></param>
-        /// <returns></returns>
-        private bool EqualiseWeightsIteration(ref List<PackedBox> boxesList, double targetWeight)
-        {
-            SortBoxesListByWeight(ref boxesList);
-
-            var maxIndex = boxesList.Count - 1;
-
-            for (var i = 0; i <= maxIndex; i++)
-            {
-                for (var j = 0; j <= maxIndex; j++)
-                {
-                    var boxA = boxesList[i];
-                    var boxB = boxesList[j];
-
-                    if (j <= i || boxA.TotalWeight == boxB.TotalWeight)
-                    {
-                        continue; //no need to evaluate
-                    }
-
-                    if (EqualiseWeight(ref boxA, ref boxB, targetWeight))
-                    {
-                        // TODO: check, why boxes in list is not changed
-                        boxesList[i] = boxA;
-                        boxesList[j] = boxB;
-
-                        //remove any now-empty boxes from the list
-                        if (boxesList.Any(box => box == null))
-                        {
-                            boxesList = boxesList.Where(box => (box != null)).ToList();
-                        }
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        private void SortBoxesListByWeight(ref List<PackedBox> listToSort)
-        {
-            listToSort.Sort((a, b) => b.TotalWeight.CompareTo(a.TotalWeight));
         }
     }
 }

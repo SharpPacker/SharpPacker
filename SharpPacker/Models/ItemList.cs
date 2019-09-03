@@ -27,6 +27,17 @@ namespace SharpPacker.Models
             }
         }
 
+        public ItemList Clone()
+        {
+            var cil = new ItemList();
+            foreach(var i in _list)
+            {
+                cil.Insert(i);
+            }
+
+            return cil;
+        }
+
         public Item Extract()
         {
             Sort();

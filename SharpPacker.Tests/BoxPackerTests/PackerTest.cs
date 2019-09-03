@@ -88,7 +88,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer1.AddBox(Factory.CreateBox("Box", 1, 1, 3, 0, 1, 1, 3, 3));
             packer1.AddItem(Factory.CreateItem("Item", 1, 1, 1, 1, false), 4);
 
-            var packedBoxes1 = packer1.Pack();
+            var packedBoxes1 = packer1.Pack().ToList();
 
             Assert.Equal(2, packedBoxes1[0].PackedItems.Count);
             Assert.Equal(2, packedBoxes1[1].PackedItems.Count);
@@ -99,7 +99,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer2.AddItem(Factory.CreateItem("Item", 1, 1, 1, 1, false), 4);
             packer2.MaxBoxesToBalanceWeight = 1;
 
-            var packedBoxes2 = packer2.Pack();
+            var packedBoxes2 = packer2.Pack().ToList();
 
             Assert.Equal(3, packedBoxes2[0].PackedItems.Count);
             Assert.Single(packedBoxes2[1].PackedItems);
@@ -114,7 +114,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             var packer = new Packer();
             packer.AddBox(Factory.CreateBox("Box", 100, 50, 50, 0, 100, 50, 50, 5000));
             packer.AddItem(Factory.CreateItem("Item", 15, 13, 8, 407, true), 2);
-            var packedBoxes = packer.Pack();
+            var packedBoxes = packer.Pack().ToList();
 
             Assert.Single(packedBoxes);
             Assert.Equal(26, packedBoxes[0].UsedWidth);
@@ -134,7 +134,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer.AddItem(Factory.CreateItem("Item 2", 210, 297, 11, 648, true));
             packer.AddItem(Factory.CreateItem("Item 3", 210, 297, 5, 187, true));
             packer.AddItem(Factory.CreateItem("Item 4", 148, 210, 32, 880, true));
-            var packedBoxes = packer.Pack();
+            var packedBoxes = packer.Pack().ToList();
 
             Assert.Single(packedBoxes);
             Assert.Equal(310, packedBoxes[0].UsedWidth);
@@ -153,7 +153,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer.AddItem(Factory.CreateItem("Item 1", 210, 297, 4, 213, true));
             packer.AddItem(Factory.CreateItem("Item 2", 80, 285, 70, 199, true));
             packer.AddItem(Factory.CreateItem("Item 3", 80, 285, 70, 199, true));
-            var packedBoxes = packer.Pack();
+            var packedBoxes = packer.Pack().ToList();
 
             Assert.Single(packedBoxes);
             Assert.Equal(210, packedBoxes[0].UsedWidth);
@@ -173,7 +173,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer.AddItem(Factory.CreateItem("Item 1", 35, 7, 2, 1, false));
             packer.AddItem(Factory.CreateItem("Item 2", 6, 5, 1, 1, false));
 
-            var packedBoxes = packer.Pack();
+            var packedBoxes = packer.Pack().ToList();
 
             Assert.Single(packedBoxes);
             Assert.Equal("Box A", packedBoxes[0].Box.Reference);
@@ -215,7 +215,7 @@ namespace SharpPacker.Tests.BoxPackerTests
             packer.AddBox(Factory.CreateBox("Medium", 220, 160, 160, 50, 220, 160, 160, 10000));
             packer.AddItem(Factory.CreateItem("Item", 55, 85, 122, 350, false));
 
-            var packedBoxes = packer.Pack();
+            var packedBoxes = packer.Pack().ToList();
 
             Assert.Single(packedBoxes);
             Assert.Equal("Small", packedBoxes[0].Box.Reference);

@@ -15,6 +15,8 @@ namespace SharpPacker.Models
 
         public int CompareTo(Item other)
         {
+            throw new NotImplementedException();
+
             var volumeDecider = this.Volume.CompareTo(other.Volume);
             if(volumeDecider != 0)
             {

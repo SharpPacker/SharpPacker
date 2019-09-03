@@ -8,17 +8,17 @@ namespace SharpPacker.Models
     {
         public PackedBox()
         {
-            this.PackedItems = new List<PackedItem>();
+            this.PackedItems = new PackedItemList();
         }
 
-        public PackedBox(Box box, IEnumerable<PackedItem> pItems)
+        public PackedBox(Box box, PackedItemList pItems)
         {
             this.Box = box;
-            this.PackedItems = pItems.ToList();
+            this.PackedItems = pItems;
         }
 
         public Box Box { get; set; }
-        public List<PackedItem> PackedItems { get; set; }
+        public PackedItemList PackedItems { get; set; }
 
         private bool ItemsIsEmpty => PackedItems.Count == 0;
 
