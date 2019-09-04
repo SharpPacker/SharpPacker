@@ -35,10 +35,10 @@ namespace SharpPacker.Tests.BoxPackerTests
         [Fact]
         public void TestDimensionalSorting()
         {
-            var item1 = Factory.CreateItem("A_Small", 20, 20, 2, 100, true);
-            var item2 = Factory.CreateItem("C_Large", 200, 200, 20, 1000, true);
-            var item3 = Factory.CreateItem("B_Medium", 100, 100, 10, 500, true);
-            var item4 = Factory.CreateItem("D_Medium Heavy", 100, 100, 10, 501, true);
+            var item1 = Factory.CreateItem("A1_Small", 20, 20, 2, 100, true);
+            var item2 = Factory.CreateItem("C2_Large", 200, 200, 20, 1000, true);
+            var item3 = Factory.CreateItem("B3_Medium", 100, 100, 10, 500, true);
+            var item4 = Factory.CreateItem("D4_Medium Heavy", 100, 100, 10, 501, true);
 
             var list = new ItemList();
             list.Insert(item1);

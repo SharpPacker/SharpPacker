@@ -86,16 +86,15 @@ namespace SharpPacker.Tests.BoxPackerTests
             var packer1 = new VolumePacker(box1, itemList1);
             var packedBox1 = packer1.Pack();
 
-            Assert.Equal(2, packedBox1.PackedItems.Count);
-
             var box2 = Factory.CreateBox("Box", 400, 200, 500, 0, 400, 200, 500, 10000);
             var itemList2 = new ItemList();
             itemList2.Insert(Factory.CreateItem("Item 1", 447, 62, 303, 965, false));
             itemList2.Insert(Factory.CreateItem("Item 2", 495, 70, 308, 1018, false));
 
-            var packer2 = new VolumePacker(box1, itemList1);
+            var packer2 = new VolumePacker(box1, itemList2);
             var packedBox2= packer2.Pack();
 
+            Assert.Equal(2, packedBox1.PackedItems.Count);
             Assert.Equal(2, packedBox2.PackedItems.Count);
         }
 

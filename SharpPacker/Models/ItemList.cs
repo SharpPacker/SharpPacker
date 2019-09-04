@@ -93,6 +93,7 @@ namespace SharpPacker.Models
         {
             Sort();
             var listCopy = new List<Item>(_list);
+            listCopy.Reverse();
 
             return listCopy.GetEnumerator();
         }
