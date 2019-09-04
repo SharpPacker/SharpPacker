@@ -19,4 +19,16 @@
     <ProjectReference Include="..\SharpPacker\SharpPacker.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="BoxPackerTests\Data\boxes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoxPackerTests\Data\expected.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoxPackerTests\Data\items.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
