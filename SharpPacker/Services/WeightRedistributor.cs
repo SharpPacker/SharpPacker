@@ -30,22 +30,27 @@ namespace SharpPacker.Services
             do
             {
                 iterationSuccessful = false;
-                foreach(var (boxA, a) in redistrebutedBoxes.Select((value, index) => (boxA:value, a:index)))
+
+                var a = redistrebutedBoxes.Count;
+                while(a - 1 >= 0)
                 {
-                    foreach (var (boxB, b) in redistrebutedBoxes.Select((value, index) => (boxB: value, b: index)))
+                    a -= 1;
+                    var boxA = redistrebutedBoxes[a];
+
+                    var b = redistrebutedBoxes.Count;
+                    while (b - 1 >= 0)
                     {
+                        b -= 1;
+                        var boxB = redistrebutedBoxes[b];
 
                         if(b <= a || boxA.TotalWeight == boxB.TotalWeight)
                         {
                             continue; //no need to evaluate
                         }
 
-                        var boxARef = boxA;
-                        var boxBRef = boxB;
-
-                        iterationSuccessful = EqualiseWeight(ref boxARef, ref boxBRef, targetWeight);
-                        redistrebutedBoxes[a] = boxARef;
-                        redistrebutedBoxes[b] = boxBRef;
+                        iterationSuccessful = EqualiseWeight(ref boxA, ref boxB, targetWeight);
+                        redistrebutedBoxes[a] = boxA;
+                        redistrebutedBoxes[b] = boxB;
 
                         if (iterationSuccessful)
                         {
@@ -55,12 +60,12 @@ namespace SharpPacker.Services
                                 .OrderByDescending(box => box.TotalWeight)
                                 .ToList();
 
-                            goto leaveLoops;
+                            goto LEAVE_LOOPS;
                         }
                     }
                 }
 
-            leaveLoops:; 
+            LEAVE_LOOPS:; 
             } while (iterationSuccessful);
 
             //Combine back into a single list
@@ -133,8 +138,12 @@ namespace SharpPacker.Services
             var overWeightBoxItems = overWeightBox.PackedItems.AsItemList();
             var underWeightBoxItems = underWeightBox.PackedItems.AsItemList();
 
-            foreach (var (overWeightItem, key) in overWeightBoxItems.Select((value, index) => (overWeightItem: value, key: index)))
+            var key = overWeightBoxItems.Count;
+            while(key - 1 >= 0)
             {
+                key--;
+                var overWeightItem = overWeightBoxItems[key];
+
                 //TODO: check algorithm logic - why there is direct boxB using instead of over/underWeightBox?
                 if (overWeightItem.Weight + boxB.TotalWeight > targetWeight)
                 {
