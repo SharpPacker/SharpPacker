@@ -6,13 +6,13 @@ namespace SharpPacker.DataTypes
 {
     public enum Rotation : byte
     {
-        S123_to_S123 = 0b0000_0000, // DEFAULT
-        S123_to_S132 = 0b0000_0001,
+        XYZ_to_XYZ = 0b0000_0000, // DEFAULT
+        XYZ_to_XZY = 0b0000_0001,
 
-        S123_to_S213 = 0b0000_0010,
-        S123_to_S231 = 0b0000_0100,
+        XYZ_to_YXZ = 0b0000_0010,
+        XYZ_to_YZX = 0b0000_0100,
 
-        S123_to_S312 = 0b0000_1000,
-        S123_to_S321 = 0b0001_0000,
+        XYZ_to_ZXY = 0b0000_1000,
+        XYZ_to_ZYX = 0b0001_0000,
     }
 }

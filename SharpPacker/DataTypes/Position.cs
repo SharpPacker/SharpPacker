@@ -4,10 +4,10 @@ using System.Text;
 
 namespace SharpPacker.DataTypes
 {
-    public struct Dimensions
+    public struct Position
     {
-        public int sizeX;
-        public int sizeY;
-        public int sizeZ;
+        public int X;
+        public int Y;
+        public int Z;
     }
 }
