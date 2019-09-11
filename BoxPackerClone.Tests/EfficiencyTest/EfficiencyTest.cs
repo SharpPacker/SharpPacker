@@ -8,7 +8,7 @@ using Xunit;
 using System.Linq;
 using System.Globalization;
 
-namespace BoxPackerClone.Tests.BoxPackerTests
+namespace BoxPackerClone.Tests.EfficiencyTest
 {
     public class Expected
     {

@@ -1,6 +1,6 @@
 ﻿using BoxPackerClone.Models;
 
-namespace BoxPackerClone.Tests.BoxPackerTests
+namespace BoxPackerClone.Tests
 {
     internal static class Factory
     {

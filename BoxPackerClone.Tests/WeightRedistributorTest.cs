@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace BoxPackerClone.Tests.BoxPackerTests
+namespace BoxPackerClone.Tests
 {
     public class WeightRedistributorTest
     {

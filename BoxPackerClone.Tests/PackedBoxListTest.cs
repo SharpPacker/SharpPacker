@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace BoxPackerClone.Tests.BoxPackerTests
+namespace BoxPackerClone.Tests
 {
     public class PackedBoxListTest
     {
