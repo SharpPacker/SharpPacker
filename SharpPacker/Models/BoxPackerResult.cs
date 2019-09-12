@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Models
 {
-    public class PackResult
+    public class BoxPackerResult
     {
         public IEnumerable<PackedBox> packedBoxes;
         public IEnumerable<Item> unpackedItems;

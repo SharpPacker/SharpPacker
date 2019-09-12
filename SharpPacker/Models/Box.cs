@@ -7,10 +7,10 @@ namespace SharpPacker.Models
 {
     public class Box
     {
+        public string name;
+
         public Dimensions outerDimensions;
         public Dimensions innerDimensions;
-
-        public Rotation bottomSide;
 
         public Weight emptyWeight;
         public Weight maxWeight;

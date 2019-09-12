@@ -9,5 +9,6 @@ namespace SharpPacker.Models
     {
         public Item item;
         public Position position;
+        public Rotation rotation;
     }
 }

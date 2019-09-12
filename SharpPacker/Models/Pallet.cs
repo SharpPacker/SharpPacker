@@ -1,11 +1,11 @@
 ﻿using SharpPacker.Models;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace SharpPacker.Interfaces
+namespace SharpPacker.Models
 {
-    public interface IPacker
+    public class Pallet : Box
     {
-        PackResult Pack();
     }
 }
