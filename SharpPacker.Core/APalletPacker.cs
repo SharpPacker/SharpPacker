@@ -5,9 +5,19 @@ using System.Collections.Generic;
 
 namespace SharpPacker.Core
 {
-    public abstract class APalletPacker
+    public abstract class APalletPacker<TOptions> : IDisposable
     {
-        public PalletPackerStepNotification nolify;
-        public abstract PalletPackerResult PackPallet(Pallet pallet, IEnumerable<Item> items);
+        public PalletPackerStepNotification stepNotify;
+
+        public abstract void Init(TOptions options);
+
+        public abstract PalletPackerResult PackPallet(PalletType pallet, IEnumerable<Item> items);
+
+        protected abstract void Dispose(bool disposing);
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

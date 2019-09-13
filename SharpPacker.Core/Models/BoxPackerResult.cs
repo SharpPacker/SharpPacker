@@ -6,7 +6,7 @@ namespace SharpPacker.Core.Models
 {
     public class BoxPackerResult
     {
-        public IEnumerable<PackedBox> packedBoxes;
-        public IEnumerable<Item> unpackedItems;
+        public IEnumerable<PackedBox> PackedBoxes { get; set; }
+        public IEnumerable<Item> UnpackedItems { get; set; }
     }
 }

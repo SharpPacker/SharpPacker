@@ -8,31 +8,28 @@ namespace SharpPacker.Core.Utils
 {
     public static class Rotator
     {
-        static Dimensions Rotate(Item i, Rotation r)
+        public static Dimensions Rotate(Dimensions d, Rotation r)
         {
-            var d = i.dimensions;
-
             switch (r)
             {
                 case Rotation.XYZ_to_XYZ:
-                    return new Dimensions { sizeX = d.sizeX, sizeY = d.sizeY, sizeZ = d.sizeZ };
+                    return new Dimensions(d.sizeX, d.sizeY, d.sizeZ);
 
                 case Rotation.XYZ_to_XZY:
-                    return new Dimensions { sizeX = d.sizeX, sizeZ = d.sizeY, sizeY = d.sizeZ  };
+                    return new Dimensions(d.sizeX, d.sizeZ, d.sizeY);
 
                 case Rotation.XYZ_to_YXZ:
-                    return new Dimensions { sizeY = d.sizeX, sizeX = d.sizeY, sizeZ = d.sizeZ };
+                    return new Dimensions(d.sizeY, d.sizeX, d.sizeZ);
 
                 case Rotation.XYZ_to_YZX:
-                    return new Dimensions { sizeY = d.sizeX, sizeZ = d.sizeY, sizeX = d.sizeZ };
+                    return new Dimensions(d.sizeY, d.sizeZ, d.sizeX);
 
                 case Rotation.XYZ_to_ZXY:
-                    return new Dimensions { sizeY = d.sizeX, sizeZ = d.sizeY, sizeX = d.sizeZ };
+                    return new Dimensions(d.sizeZ, d.sizeX, d.sizeY);
 
                 case Rotation.XYZ_to_ZYX:
-                    return new Dimensions { sizeZ = d.sizeX, sizeY = d.sizeY, sizeX = d.sizeZ };
+                    return new Dimensions(d.sizeZ, d.sizeY, d.sizeX);
             }
-
             throw new ArgumentException($"Unknown type of Rotation: {r}");
         }
     }

@@ -7,10 +7,15 @@ namespace SharpPacker.Core.Models
 {
     public class Item
     {
-        public string name;
+        public Item(string name)
+        {
+            Name = name;
+        }
 
-        public Dimensions dimensions;
-        public Rotation[] allowedRotations;
-        public Weight weight;
+        public string Name { get; }
+
+        public Dimensions Dimensions { get; set; }
+        public Rotation[] AllowedRotations { get; set; }
+        public Weight Weight { get; set; }
     }
 } 

@@ -5,5 +5,5 @@ using System.Text;
 
 namespace SharpPacker.Core.DataTypes
 {
-    public delegate void BoxPackerStepNotification(BoxPackerResult stepResult);
+    public delegate void BoxPackerStepNotification(BoxPackerResult stepResult, bool isLastStep);
 }
