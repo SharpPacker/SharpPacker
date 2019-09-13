@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.DataTypes
+namespace SharpPacker.Core.DataTypes
 {
     public struct Position
     {

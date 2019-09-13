@@ -1,9 +1,9 @@
-﻿using SharpPacker.Models;
+﻿using SharpPacker.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Models
+namespace SharpPacker.Core.Models
 {
     public class Pallet : Box
     {

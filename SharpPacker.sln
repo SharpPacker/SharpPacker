@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoxPackerClone", "BoxPacker
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoxPackerClone.Tests", "BoxPackerClone.Tests\BoxPackerClone.Tests.csproj", "{42E16C92-FF3E-4C4C-8D94-518BBAED8262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPacker", "SharpPacker\SharpPacker.csproj", "{28C5CD7F-EE7F-46A8-A94E-0BAF9247EA80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.Core", "SharpPacker.Core\SharpPacker.Core.csproj", "{5E0C870D-7702-471B-B19C-1EFFA449FE9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28C5CD7F-EE7F-46A8-A94E-0BAF9247EA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28C5CD7F-EE7F-46A8-A94E-0BAF9247EA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28C5CD7F-EE7F-46A8-A94E-0BAF9247EA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28C5CD7F-EE7F-46A8-A94E-0BAF9247EA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0C870D-7702-471B-B19C-1EFFA449FE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0C870D-7702-471B-B19C-1EFFA449FE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0C870D-7702-471B-B19C-1EFFA449FE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0C870D-7702-471B-B19C-1EFFA449FE9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

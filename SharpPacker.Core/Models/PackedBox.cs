@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Models
+namespace SharpPacker.Core.Models
 {
     public class PackedBox
     {
