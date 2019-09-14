@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Core.DataTypes
 {
-    public struct Dimensions
+    public struct Dimensions : IEquatable<Dimensions>
     {
         public Dimensions(int x, int y, int z)
         {
@@ -16,5 +16,7 @@ namespace SharpPacker.Core.DataTypes
         public int sizeX;
         public int sizeY;
         public int sizeZ;
+
+        public bool Equals(Dimensions other) => (other.sizeX == this.sizeX && other.sizeY == this.sizeY && other.sizeZ == this.sizeZ);
     }
 }

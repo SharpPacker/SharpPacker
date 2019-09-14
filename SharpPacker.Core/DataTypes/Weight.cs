@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Core.DataTypes
 {
-    public struct Weight
+    public struct Weight : IEquatable<Weight>, IEquatable<int>
     {
         private int _value;
 
@@ -17,5 +17,8 @@ namespace SharpPacker.Core.DataTypes
         {
             return w._value;
         }
+
+        public bool Equals(Weight other) => (other._value == this._value);
+        public bool Equals(int other) => (other == this._value);
     }
 }
