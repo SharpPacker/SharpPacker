@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SharpPacker.Core.DataTypes;
+using sharp = SharpPacker.Core.Models;
+using clone = BoxPackerClone.Models;
 
 namespace BoxPackerCloneAdapter
 {
     static class Convertors
     {
-        public static BoxPackerClone.Models.Box BoxToBox(SharpPacker.Core.Models.BoxType bt)
+        public static clone.Box BoxToBox(sharp.BoxType bt)
         {
-            return new BoxPackerClone.Models.Box
+            return new clone.Box
                 {
                     Reference = bt.Name,
 
@@ -27,9 +29,9 @@ namespace BoxPackerCloneAdapter
                 };
         }
 
-        public static BoxPackerClone.Models.Item ItemToItem(SharpPacker.Core.Models.Item item)
+        public static clone.Item ItemToItem(sharp.Item item)
         {
-            return new BoxPackerClone.Models.Item
+            return new clone.Item
             {
                 Description = item.Name,
 

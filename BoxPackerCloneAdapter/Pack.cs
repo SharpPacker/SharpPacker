@@ -1,8 +1,12 @@
 ﻿using BoxPackerClone;
 using SharpPacker.Core;
-using SharpPacker.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using sharp = SharpPacker.Core.Models;
+using clone = BoxPackerClone.Models;
+
 
 namespace BoxPackerCloneAdapter
 {
@@ -18,6 +22,7 @@ namespace BoxPackerCloneAdapter
 
         public BoxPackerCloneAdapter()
         {
+            options = new Options();
         }
 
         public override void Init(Options options)
@@ -26,22 +31,40 @@ namespace BoxPackerCloneAdapter
             Console.WriteLine("BoxPackerCloneAdapter.Init()");
         }
 
-        public override BoxPackerResult PackBoxes(IEnumerable<BoxType> boxes, IEnumerable<Item> items)
+        public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
             var packer = new Packer();
             packer.MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight;
 
-            foreach(var box in boxes)
+            foreach(var box in request.Boxes)
             {
                 packer.AddBox(Convertors.BoxToBox(box));
             }
 
-            foreach(var item in items)
+            foreach(var item in request.Items)
             {
                 packer.AddItem(Convertors.ItemToItem(item));
             }
 
+            clone.PackedBoxList pbl = packer.Pack();
+
+            var packedBoxes = new List<sharp.PackedBox>();
+            var unpackedItems = new List<sharp.Item>();
+
             throw new NotImplementedException();
+
+            var result = new sharp.BoxPackerResult
+                {
+                    PackedBoxes = packedBoxes,
+                    UnpackedItems = unpackedItems
+                };
+
+            return result;
+        }
+
+        public override async Task<sharp.BoxPackerResult> PackAsync(sharp.BoxPackerRequest request, CancellationToken cancellationToken)
+        {
+            return await Task.Run(() => Pack(request));
         }
 
         protected override void Dispose(bool disposing)
