@@ -29,6 +29,22 @@ namespace BoxPackerCloneAdapter
                 };
         }
 
+        public static sharp.BoxType BoxToBox(clone.Box bt)
+        {
+            return new sharp.BoxType(bt.Reference)
+            {
+                MinItemsCount = uint.MinValue,
+                MaxItemsCount = uint.MaxValue,
+
+                InnerDimensions = new Dimensions(bt.InnerWidth, bt.InnerLength, bt.InnerDepth),
+                OuterDimensions = new Dimensions(bt.OuterWidth, bt.OuterLength, bt.OuterDepth),
+
+                EmptyWeight = bt.EmptyWeight,
+                MaxWeight = bt.MaxWeight,
+            };
+        }
+
+
         public static clone.Item ItemToItem(sharp.Item item)
         {
             return new clone.Item
@@ -41,10 +57,31 @@ namespace BoxPackerCloneAdapter
 
                 Weight = item.Weight,
 
-                KeepFlat = (item.AllowedRotations.Length == 1 && item.AllowedRotations[0] == Rotation.XYZ_to_XYZ)
-                            || (item.AllowedRotations.Length == 2
-                                && item.AllowedRotations.Contains(Rotation.XYZ_to_XYZ)
-                                && item.AllowedRotations.Contains(Rotation.XYZ_to_YXZ)),
+                KeepFlat = (item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_XYZ) || item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_YXZ))
+                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_XZY)
+                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_YZX)
+                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_ZXY)
+                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_ZYX),
+            };
+        }
+
+        public static sharp.Item ItemToItem(clone.Item item)
+        {
+            throw new NotImplementedException();
+
+            return new sharp.Item(item.Description)
+            {
+                Dimensions = new Dimensions(item.Width, item.Length, item.Depth),
+                Weight = item.Weight,
+            };
+        }
+
+        public static sharp.PackedItem PackedItemToPackedItem(clone.PackedItem pItem)
+        {
+            throw new NotImplementedException();
+
+            return new sharp.PackedItem(ItemToItem(pItem.Item))
+            {
             };
         }
     }

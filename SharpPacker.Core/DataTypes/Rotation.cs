@@ -6,7 +6,7 @@ namespace SharpPacker.Core.DataTypes
 {
     public enum Rotation : byte
     {
-        XYZ_to_XYZ = 0b0000_0000, // DEFAULT
+        XYZ_to_XYZ = 0b0000_0000,
         XYZ_to_XZY = 0b0000_0001,
 
         XYZ_to_YXZ = 0b0000_0010,

@@ -28,15 +28,16 @@ namespace BoxPackerCloneAdapter
         public override void Init(Options options)
         {
             this.options = options;
-            Console.WriteLine("BoxPackerCloneAdapter.Init()");
         }
 
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
-            var packer = new Packer();
-            packer.MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight;
+            var packer = new Packer
+            {
+                MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight
+            };
 
-            foreach(var box in request.Boxes)
+            foreach (var box in request.Boxes)
             {
                 packer.AddBox(Convertors.BoxToBox(box));
             }
@@ -48,10 +49,38 @@ namespace BoxPackerCloneAdapter
 
             clone.PackedBoxList pbl = packer.Pack();
 
-            var packedBoxes = new List<sharp.PackedBox>();
-            var unpackedItems = new List<sharp.Item>();
+            
+            var packedBoxes = new List<sharp.PackedBox>
+            {
+                Capacity = pbl.Count
+            };
 
-            throw new NotImplementedException();
+            foreach (var pBoxFromResult in pbl)
+            {
+                List<sharp.PackedItem> pItems = new List<sharp.PackedItem>();
+
+                foreach (var pItemFromResult in pBoxFromResult.PackedItems)
+                {
+                    pItems.Add(Convertors.PackedItemToPackedItem(pItemFromResult));
+                }
+
+                var pBox = new sharp.PackedBox
+                {
+                    Box = Convertors.BoxToBox(pBoxFromResult.Box),
+                    PackedItems = pItems,
+                };
+
+                packedBoxes.Add(pBox);
+            }
+
+            var unpackedItems = new List<sharp.Item>(request.Items);
+            foreach (var pBox in packedBoxes)
+            {
+                foreach(var pItem in pBox.PackedItems)
+                {
+                    unpackedItems.Remove(pItem.Item);
+                }
+            }
 
             var result = new sharp.BoxPackerResult
                 {
@@ -69,7 +98,6 @@ namespace BoxPackerCloneAdapter
 
         protected override void Dispose(bool disposing)
         {
-            Console.WriteLine($"BoxPackerCloneAdapter.Dispose({disposing})");
         }
     }
 }
