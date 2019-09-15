@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Core.DataTypes
+namespace SharpPacker.Base.DataTypes
 {
     [Flags]
     public enum RotationFlags : byte

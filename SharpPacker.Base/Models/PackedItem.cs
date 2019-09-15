@@ -1,10 +1,10 @@
-﻿using SharpPacker.Core.DataTypes;
-using SharpPacker.Core.Utils;
+﻿using SharpPacker.Base.DataTypes;
+using SharpPacker.Base.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Core.Models
+namespace SharpPacker.Base.Models
 {
     public class PackedItem
     {

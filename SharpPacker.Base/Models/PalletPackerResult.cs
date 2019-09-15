@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Core.Models
+namespace SharpPacker.Base.Models
 {
     public class PalletPackerResult
     {

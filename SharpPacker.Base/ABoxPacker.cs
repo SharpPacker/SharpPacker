@@ -1,9 +1,9 @@
-﻿using SharpPacker.Core.DataTypes;
-using SharpPacker.Core.Models;
+﻿using SharpPacker.Base.DataTypes;
+using SharpPacker.Base.Models;
 using System;
 using System.Collections.Generic;
 
-namespace SharpPacker.Core
+namespace SharpPacker.Base
 {
     public abstract class ABoxPacker<TOptions> : APacker<BoxPackerRequest, BoxPackerResult, TOptions>
     {

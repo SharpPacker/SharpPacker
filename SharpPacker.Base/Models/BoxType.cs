@@ -1,9 +1,9 @@
-﻿using SharpPacker.Core.DataTypes;
+﻿using SharpPacker.Base.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Core.Models
+namespace SharpPacker.Base.Models
 {
     public class BoxType
     {

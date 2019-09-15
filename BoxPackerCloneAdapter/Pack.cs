@@ -1,10 +1,10 @@
 ﻿using BoxPackerClone;
-using SharpPacker.Core;
+using SharpPacker.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using sharp = SharpPacker.Core.Models;
+using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
 
 

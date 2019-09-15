@@ -1,11 +1,11 @@
-﻿using SharpPacker.Core.DataTypes;
+﻿using SharpPacker.Base.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SharpPacker.Core
+namespace SharpPacker.Base
 {
     public abstract class APacker<TRequest, TResult, TOptions> : IDisposable
     {

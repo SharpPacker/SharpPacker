@@ -1,10 +1,10 @@
-﻿using SharpPacker.Core.DataTypes;
-using SharpPacker.Core.Models;
+﻿using SharpPacker.Base.DataTypes;
+using SharpPacker.Base.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SharpPacker.Core.Utils
+namespace SharpPacker.Base.Utils
 {
     public static class Rotator
     {

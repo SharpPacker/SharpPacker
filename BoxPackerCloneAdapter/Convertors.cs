@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SharpPacker.Core.DataTypes;
-using sharp = SharpPacker.Core.Models;
+using SharpPacker.Base.DataTypes;
+using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
 
 namespace BoxPackerCloneAdapter
