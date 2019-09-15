@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BoxPackerClone\BoxPackerClone.csproj" />
-    <ProjectReference Include="..\SharpPacker.Core\SharpPacker.Core.csproj" />
+    <ProjectReference Include="..\SharpPacker.Base\SharpPacker.Base.csproj" />
   </ItemGroup>
 
 </Project>
