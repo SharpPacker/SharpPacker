@@ -32,5 +32,38 @@ namespace SharpPacker.Base.Utils
             }
             throw new ArgumentException($"Unknown type of Rotation: {r}");
         }
+
+        public static Rotation GetRotation(Dimensions original, Dimensions rotated)
+        {
+            var XisX = (rotated.sizeX == original.sizeX);
+            var XisY = (rotated.sizeX == original.sizeY);
+            var XisZ = (rotated.sizeX == original.sizeZ);
+
+            var YisX = XisY;
+            var YisY = (rotated.sizeY == original.sizeY);
+            var YisZ = (rotated.sizeY == original.sizeZ);
+
+            var ZisX = XisZ;
+            var ZisY = YisZ;
+            var ZisZ = (rotated.sizeZ == original.sizeZ);
+
+            var XYZ_to_XYZ = (XisX && YisY && ZisZ);
+            var XYZ_to_ZXY = (ZisX && XisY && YisZ);
+            var XYZ_to_YZX = (YisX && ZisY && XisZ);
+
+            var XYZ_to_XZY = (XisX && ZisY && YisZ) || (XisX && YisZ);
+            var XYZ_to_ZYX = (ZisX && YisY && XisZ) || (YisY && ZisX);
+            var XYZ_to_YXZ = (YisX && XisY && ZisZ) || (ZisZ && XisY);
+
+            if (XYZ_to_XYZ) return Rotation.XYZ_to_XYZ;
+            if (XYZ_to_ZXY) return Rotation.XYZ_to_ZXY;
+            if (XYZ_to_YZX) return Rotation.XYZ_to_YZX;
+
+            if (XYZ_to_XZY) return Rotation.XYZ_to_XZY;
+            if (XYZ_to_ZYX) return Rotation.XYZ_to_ZYX;
+            if (XYZ_to_YXZ) return Rotation.XYZ_to_YXZ;
+
+            throw new InvalidOperationException($"Unknown rotation from {original} to {rotated}");
+        }
     }
 }

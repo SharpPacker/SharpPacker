@@ -5,6 +5,7 @@ using System.Text;
 using SharpPacker.Base.DataTypes;
 using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
+using SharpPacker.Base.Utils;
 
 namespace BoxPackerCloneAdapter
 {
@@ -57,31 +58,29 @@ namespace BoxPackerCloneAdapter
 
                 Weight = item.Weight,
 
-                KeepFlat = (item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_XYZ) || item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_YXZ))
-                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_XZY)
-                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_YZX)
-                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_ZXY)
-                            && !item.AllowedRotations.HasFlag(RotationFlags.XYZ_to_ZYX),
+                KeepFlat = (item.AllowedRotations == RotationFlags.DoNotTurnOver) || (item.AllowedRotations == RotationFlags.XYZ_to_XYZ),
             };
         }
 
         public static sharp.Item ItemToItem(clone.Item item)
         {
-            throw new NotImplementedException();
-
             return new sharp.Item(item.Description)
             {
                 Dimensions = new Dimensions(item.Width, item.Length, item.Depth),
                 Weight = item.Weight,
+                AllowedRotations = item.KeepFlat ? RotationFlags.DoNotTurnOver : RotationFlags.AllRotations
             };
         }
 
         public static sharp.PackedItem PackedItemToPackedItem(clone.PackedItem pItem)
         {
-            throw new NotImplementedException();
+            var originalDimensions = new Dimensions(pItem.Item.Width, pItem.Item.Length, pItem.Item.Depth);
+            var rotatedDimensions = new Dimensions(pItem.Width, pItem.Length, pItem.Depth);
 
             return new sharp.PackedItem(ItemToItem(pItem.Item))
             {
+                Position = new Position(pItem.X, pItem.Y, pItem.Z),
+                Rotation = Rotator.GetRotation(originalDimensions, rotatedDimensions),
             };
         }
     }

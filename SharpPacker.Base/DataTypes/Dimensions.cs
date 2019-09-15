@@ -6,11 +6,11 @@ namespace SharpPacker.Base.DataTypes
 {
     public struct Dimensions : IEquatable<Dimensions>
     {
-        public Dimensions(int x, int y, int z)
+        public Dimensions(int sizeX, int sizeY, int sizeZ)
         {
-            sizeX = x;
-            sizeY = y;
-            sizeZ = z;
+            this.sizeX = sizeX;
+            this.sizeY = sizeY;
+            this.sizeZ = sizeZ;
         }
 
         public int sizeX;
@@ -18,5 +18,10 @@ namespace SharpPacker.Base.DataTypes
         public int sizeZ;
 
         public bool Equals(Dimensions other) => (other.sizeX == this.sizeX && other.sizeY == this.sizeY && other.sizeZ == this.sizeZ);
+
+        public override string ToString()
+        {
+            return $"{{\"sizeX\": {sizeX}, \"sizeY\": {sizeY}, \"sizeZ\": {sizeZ}}}";
+        }
     }
 }
