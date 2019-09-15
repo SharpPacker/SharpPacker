@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoxPackerCloneAdapter", "Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.Base", "SharpPacker.Base\SharpPacker.Base.csproj", "{B34B49D6-E555-467B-9576-4CD7CBC7343F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxPackerCloneAdapter.Tests", "BoxPackerCloneAdapter.Tests\BoxPackerCloneAdapter.Tests.csproj", "{F2916C4F-203F-4FE4-A086-877667ACDA16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2916C4F-203F-4FE4-A086-877667ACDA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2916C4F-203F-4FE4-A086-877667ACDA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2916C4F-203F-4FE4-A086-877667ACDA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2916C4F-203F-4FE4-A086-877667ACDA16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

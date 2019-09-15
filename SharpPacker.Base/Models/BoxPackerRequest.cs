@@ -6,7 +6,7 @@ namespace SharpPacker.Base.Models
 {
     public class BoxPackerRequest
     {
-        public IEnumerable<BoxType> Boxes { get; set; }
-        public IEnumerable<Item> Items { get; set; }
+        public List<BoxType> Boxes { get; } = new List<BoxType>();
+        public List<Item> Items { get; } = new List<Item>();
     }
 }
