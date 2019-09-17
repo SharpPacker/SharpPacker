@@ -127,7 +127,7 @@ namespace SharpPacker.CLI
 
             using (StreamWriter file = File.CreateText(cliArgs.resultPath))
             {
-                JsonSerializer serializer = new JsonSerializer();
+                JsonSerializer serializer = new JsonSerializer() { Formatting = Formatting.Indented };
                 serializer.Serialize(file, result);
             }
 

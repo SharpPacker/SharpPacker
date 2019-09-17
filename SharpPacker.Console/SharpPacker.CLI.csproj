@@ -17,7 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="demo_request.json">
+    <None Update="demo_request_long.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="demo_request_short.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
