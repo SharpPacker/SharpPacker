@@ -1,10 +1,21 @@
 ﻿using CommandLineParser.Arguments;
 using CommandLineParser.Exceptions;
+using Newtonsoft.Json;
+using SharpPacker.Base.Models;
 using System;
 using System.IO;
+using BoxPackerCloneAdapter;
 
 namespace SharpPacker.CLI
 {
+    enum ExitCode : int
+    {
+        DONE = 0,
+        NoArgs = -1,
+        ArgumentParseError = -10,
+        UnknownPackingError = -80,
+    }
+
     class ParsingTarget
     {
         [EnumeratedValueArgument(typeof(string), 'm', "mode", AllowedValues = "box;pallet", Description = "Mode = \"BOX\" or \"PALLET\"", AllowMultiple = false, IgnoreCase = true, Optional = false)]
@@ -19,9 +30,8 @@ namespace SharpPacker.CLI
 
     class BoxPacker
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-
             var parser = new CommandLineParser.CommandLineParser();
             parser.AcceptSlash = true;
 
@@ -33,7 +43,9 @@ namespace SharpPacker.CLI
                 parser.ShowUsageHeader = "Here is how you use the app: ";
                 parser.ShowUsageFooter = "Have fun!";
                 parser.ShowUsage();
-                return;
+                Console.WriteLine("=== PRESS ANY KEY FOR QUIT ===");
+                Console.ReadKey();
+                return (int)ExitCode.NoArgs;
             }
 
             try
@@ -50,7 +62,7 @@ namespace SharpPacker.CLI
                 Console.WriteLine(e.Message);
                 Console.WriteLine("=== PRESS ANY KEY FOR QUIT ===");
                 Console.ReadKey();
-                return;
+                return (int)ExitCode.ArgumentParseError;
             }
 
             parser.ShowParsedArguments();
@@ -60,14 +72,22 @@ namespace SharpPacker.CLI
                 FileInfo requestFileInfo = new FileInfo(cliArgs.requestPath);
                 cliArgs.resultPath = requestFileInfo.FullName;
                 cliArgs.resultPath = cliArgs.resultPath.Substring(0, cliArgs.resultPath.LastIndexOf(requestFileInfo.Extension));
-                cliArgs.resultPath += $"_result{requestFileInfo.Extension}";
+                cliArgs.resultPath += $".result{requestFileInfo.Extension}";
 
                 Console.WriteLine($"Result file path: {cliArgs.resultPath}");
             }
 
+            int result = (int)ExitCode.UnknownPackingError;
+
             try
             {
-                Proceed(cliArgs);
+                if (cliArgs.mode.Equals("BOX", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    result = (int)ProceedBoxPacker(cliArgs);
+                } else
+                {
+                    result = (int)ProceedPalletPacker(cliArgs);
+                }
             }
             catch(Exception e)
             {
@@ -75,21 +95,48 @@ namespace SharpPacker.CLI
                 Console.WriteLine(e.Message);
                 Console.WriteLine("=== PRESS ANY KEY FOR QUIT ===");
                 Console.ReadKey();
-                return;
+                return (int)ExitCode.UnknownPackingError;
             }
-            
+
+            Console.WriteLine("=== DONE");
+            return result;
         }
 
-        static void Proceed(ParsingTarget cliArgs)
+        static ExitCode ProceedBoxPacker(ParsingTarget cliArgs)
         {
             FileInfo requestFileInfo = new FileInfo(cliArgs.requestPath);
             if (!requestFileInfo.Exists)
             {
-                throw new FileNotFoundException("File not found: ", cliArgs.requestPath);
+                throw new FileNotFoundException($"File not found: {requestFileInfo.FullName}", requestFileInfo.FullName);
             }
 
-            Console.WriteLine(requestFileInfo.FullName);
-            Console.WriteLine(cliArgs.resultPath);
+            BoxPackerRequest request;
+
+            using (StreamReader file = File.OpenText(requestFileInfo.FullName))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                request = (BoxPackerRequest)serializer.Deserialize(file, typeof(BoxPackerRequest));
+            }
+
+            BoxPackerResult result;
+
+            using(var packer = new BoxPackerCloneAdapter.BoxPackerCloneAdapter()){
+                packer.Init(new Options() { MaxBoxesToBalanceWeight = 15 });
+                result = packer.Pack(request);
+            }
+
+            using (StreamWriter file = File.CreateText(cliArgs.resultPath))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, result);
+            }
+
+            return ExitCode.DONE;
+        }
+
+        static ExitCode ProceedPalletPacker(ParsingTarget cliArgs)
+        {
+            throw new NotImplementedException();
         }
     }
 }

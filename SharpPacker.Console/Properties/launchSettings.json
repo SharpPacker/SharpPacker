@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SharpPacker.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-i demo_request.json -m box"
+    }
+  }
+}

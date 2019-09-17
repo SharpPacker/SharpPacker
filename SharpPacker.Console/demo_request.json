@@ -1,0 +1,4343 @@
+{
+    "Boxes": [
+        {
+            "Name": "box1",
+            "OuterDimensions": {
+                "sizeX": 125,
+                "sizeY": 173,
+                "sizeZ": 85
+            },
+            "InnerDimensions": {
+                "sizeX": 125,
+                "sizeY": 173,
+                "sizeZ": 85
+            },
+            "EmptyWeight": 0,
+            "MaxWeight": 772,
+            "MinItemsCount": 1,
+            "MaxItemsCount": 2147483647
+        }
+    ],
+    "Items": [
+        {
+            "Name": "item0",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item1",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item2",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item3",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item4",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item5",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item6",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item7",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item8",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item9",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item10",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item11",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item12",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item13",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item14",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item15",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item16",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item17",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item18",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item19",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item20",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item21",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item22",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item23",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item24",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item25",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item26",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item27",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item28",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item29",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item30",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item31",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item32",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item33",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item34",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item35",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item36",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item37",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item38",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item39",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item40",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item41",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item42",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item43",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item44",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item45",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item46",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item47",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item48",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item49",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item50",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item51",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item52",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item53",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item54",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item55",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item56",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item57",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item58",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item59",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item60",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item61",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item62",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item63",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item64",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item65",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item66",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item67",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item68",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item69",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item70",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item71",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item72",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item73",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item74",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item75",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item76",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item77",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item78",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item79",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item80",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item81",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item82",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item83",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item84",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item85",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item86",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item87",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item88",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item89",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item90",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item91",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item92",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item93",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item94",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item95",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item96",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item97",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item98",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item99",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item100",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item101",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item102",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item103",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item104",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item105",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item106",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item107",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item108",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item109",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item110",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item111",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item112",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item113",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item114",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item115",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item116",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item117",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item118",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item119",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item120",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item121",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item122",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item123",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item124",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item125",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item126",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item127",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item128",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item129",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item130",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item131",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item132",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item133",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item134",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item135",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item136",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item137",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item138",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item139",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item140",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item141",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item142",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item143",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item144",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item145",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item146",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item147",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item148",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item149",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item150",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item151",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item152",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item153",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item154",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item155",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item156",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item157",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item158",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item159",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item160",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item161",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item162",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item163",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item164",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item165",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item166",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item167",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item168",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item169",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item170",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item171",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item172",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item173",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item174",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item175",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item176",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item177",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item178",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item179",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item180",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item181",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item182",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item183",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item184",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item185",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item186",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item187",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item188",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item189",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item190",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item191",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item192",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item193",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item194",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item195",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item196",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item197",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item198",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item199",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item200",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item201",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item202",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item203",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item204",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item205",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item206",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item207",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item208",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item209",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item210",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item211",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item212",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item213",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item214",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item215",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item216",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item217",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item218",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item219",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item220",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item221",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item222",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item223",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item224",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item225",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item226",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item227",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item228",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item229",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item230",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item231",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item232",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item233",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item234",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item235",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item236",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item237",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item238",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item239",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item240",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item241",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item242",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item243",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item244",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item245",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item246",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item247",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item248",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item249",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item250",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item251",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item252",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item253",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item254",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item255",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item256",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item257",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item258",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item259",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item260",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item261",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item262",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item263",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item264",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item265",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item266",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item267",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item268",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item269",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item270",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item271",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item272",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item273",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item274",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item275",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item276",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item277",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item278",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item279",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item280",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item281",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item282",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item283",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item284",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item285",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item286",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item287",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item288",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item289",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item290",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item291",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item292",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item293",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item294",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item295",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item296",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item297",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item298",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item299",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item300",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item301",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item302",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item303",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item304",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item305",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item306",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item307",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item308",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item309",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item310",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item311",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item312",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item313",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item314",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item315",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item316",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item317",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item318",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item319",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item320",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item321",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item322",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item323",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item324",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item325",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item326",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item327",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item328",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item329",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item330",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item331",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item332",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item333",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item334",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item335",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item336",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item337",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item338",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item339",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item340",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item341",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item342",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item343",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item344",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item345",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item346",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item347",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item348",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item349",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item350",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item351",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item352",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item353",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item354",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item355",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item356",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item357",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item358",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item359",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item360",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item361",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item362",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item363",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item364",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item365",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item366",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item367",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item368",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item369",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item370",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item371",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item372",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item373",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item374",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item375",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item376",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item377",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item378",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item379",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item380",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item381",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item382",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item383",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item384",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item385",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item386",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item387",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item388",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item389",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item390",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item391",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item392",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item393",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item394",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item395",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item396",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item397",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item398",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item399",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item400",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item401",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item402",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item403",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item404",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item405",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item406",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item407",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item408",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item409",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item410",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item411",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item412",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item413",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item414",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item415",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item416",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item417",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item418",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item419",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item420",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item421",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item422",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item423",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item424",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item425",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item426",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item427",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item428",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item429",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item430",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        },
+        {
+            "Name": "item431",
+            "Dimensions": {
+                "sizeX": 13,
+                "sizeY": 20,
+                "sizeZ": 13
+            },
+            "AllowedRotations": 31,
+            "Weight": 8
+        }
+    ]
+}

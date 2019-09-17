@@ -8,11 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineArgumentsParser" Version="3.0.20" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="System.Console" Version="4.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpPacker.Base\SharpPacker.Base.csproj" />
+    <ProjectReference Include="..\BoxPackerCloneAdapter\BoxPackerCloneAdapter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="demo_request.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
