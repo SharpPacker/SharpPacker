@@ -79,6 +79,8 @@ namespace SharpPacker.CLI
 
             int result = (int)ExitCode.UnknownPackingError;
 
+            Console.WriteLine($"=== START {DateTime.Now}");
+
             try
             {
                 if (cliArgs.mode.Equals("BOX", StringComparison.InvariantCultureIgnoreCase))
@@ -98,7 +100,7 @@ namespace SharpPacker.CLI
                 return (int)ExitCode.UnknownPackingError;
             }
 
-            Console.WriteLine("=== DONE");
+            Console.WriteLine($"=== DONE  {DateTime.Now}");
             return result;
         }
 
