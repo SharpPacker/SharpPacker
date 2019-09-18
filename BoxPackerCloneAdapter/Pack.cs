@@ -18,16 +18,9 @@ namespace BoxPackerCloneAdapter
     public class BoxPackerCloneAdapter : ABoxPacker<Options>
     {
         readonly Packer packer = new Packer();
-        Options options;
 
         public BoxPackerCloneAdapter()
         {
-            options = new Options();
-        }
-
-        public override void Init(Options options)
-        {
-            this.options = options;
         }
 
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)

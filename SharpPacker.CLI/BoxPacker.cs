@@ -123,7 +123,7 @@ namespace SharpPacker.CLI
             BoxPackerResult result;
 
             using(var packer = new BoxPackerCloneAdapter.BoxPackerCloneAdapter()){
-                packer.Init(new Options() { MaxBoxesToBalanceWeight = 15 });
+                packer.options.MaxBoxesToBalanceWeight = 15;
                 result = packer.Pack(request);
             }
 

@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 namespace SharpPacker.Base
 {
-    public abstract class ABoxPacker<TOptions> : APacker<BoxPackerRequest, BoxPackerResult, TOptions>
+    public abstract class ABoxPacker<TOptions> : APacker<BoxPackerRequest, BoxPackerResult, TOptions> where TOptions : class, new()
     {
+
     }
 }

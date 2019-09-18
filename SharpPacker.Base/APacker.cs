@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace SharpPacker.Base
 {
-    public abstract class APacker<TRequest, TResult, TOptions> : IDisposable
+    public abstract class APacker<TRequest, TResult, TOptions> : IDisposable where TOptions : class, new()
     {
         public StepNotification<TResult> stepNotify;
-
-        public abstract void Init(TOptions options);
+        public readonly TOptions options = new TOptions();
 
         public abstract TResult Pack(TRequest request);
         public abstract Task<TResult> PackAsync(TRequest request, CancellationToken cancellationToken);
