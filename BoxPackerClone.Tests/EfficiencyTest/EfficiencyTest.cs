@@ -117,9 +117,9 @@ namespace BoxPackerClone.Tests.EfficiencyTest
 
             var itemsDict = new Dictionary<string, List<ItemData>>();
 
-            string[] expectedLines = File.ReadAllLines("./BoxPackerTests/Data/expected.csv");
-            string[] boxesLines = File.ReadAllLines("./BoxPackerTests/Data/boxes.csv");
-            string[] itemsLines = File.ReadAllLines("./BoxPackerTests/Data/items.csv");
+            string[] expectedLines = File.ReadAllLines("./EfficiencyTest/Data/expected.csv");
+            string[] boxesLines = File.ReadAllLines("./EfficiencyTest/Data/boxes.csv");
+            string[] itemsLines = File.ReadAllLines("./EfficiencyTest/Data/items.csv");
 
             foreach (var expectedLine in expectedLines)
             {

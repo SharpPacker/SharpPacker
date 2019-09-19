@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using SharpPacker.Base.Models;
 using System;
 using System.IO;
-using BoxPackerCloneAdapter;
+using BoxPackerClone.Adapter;
 
-namespace SharpPacker.CLI
+namespace SharpPacker.CLI.BoxPacker
 {
     enum ExitCode : int
     {
@@ -18,9 +18,6 @@ namespace SharpPacker.CLI
 
     class ParsingTarget
     {
-        [EnumeratedValueArgument(typeof(string), 'm', "mode", AllowedValues = "box;pallet", Description = "Mode = \"BOX\" or \"PALLET\"", AllowMultiple = false, IgnoreCase = true, Optional = false)]
-        public string mode;
-
         [ValueArgument(typeof(string), 'i', "input", Description = "Request file path, *.json", Optional = false)]
         public string requestPath;
 
@@ -38,7 +35,7 @@ namespace SharpPacker.CLI
             var cliArgs = new ParsingTarget();
             parser.ExtractArgumentAttributes(cliArgs);
 
-            if(args.Length == 0)
+            if (args.Length == 0)
             {
                 parser.ShowUsageHeader = "Here is how you use the app: ";
                 parser.ShowUsageFooter = "Have fun!";
@@ -83,15 +80,9 @@ namespace SharpPacker.CLI
 
             try
             {
-                if (cliArgs.mode.Equals("BOX", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    result = (int)ProceedBoxPacker(cliArgs);
-                } else
-                {
-                    result = (int)ProceedPalletPacker(cliArgs);
-                }
+                result = (int)ProceedBoxPacker(cliArgs);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("=== ERROR:");
                 Console.WriteLine(e.Message);
@@ -122,7 +113,8 @@ namespace SharpPacker.CLI
 
             BoxPackerResult result;
 
-            using(var packer = new BoxPackerCloneAdapter.BoxPackerCloneAdapter()){
+            using (var packer = new BoxPackerCloneAdapter())
+            {
                 packer.options.MaxBoxesToBalanceWeight = 15;
                 result = packer.Pack(request);
             }
@@ -134,11 +126,6 @@ namespace SharpPacker.CLI
             }
 
             return ExitCode.DONE;
-        }
-
-        static ExitCode ProceedPalletPacker(ParsingTarget cliArgs)
-        {
-            throw new NotImplementedException();
         }
     }
 }
