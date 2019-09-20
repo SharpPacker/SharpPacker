@@ -17,7 +17,7 @@ namespace BoxPackerClone.Adapter
 
     public class BoxPackerCloneAdapter : ABoxPacker<Options>
     {
-        readonly Packer packer = new Packer();
+        readonly InfalliblePacker packer;
 
         public BoxPackerCloneAdapter()
         {
@@ -25,7 +25,7 @@ namespace BoxPackerClone.Adapter
 
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
-            var packer = new Packer
+            var packer = new InfalliblePacker
             {
                 MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight
             };
@@ -66,13 +66,10 @@ namespace BoxPackerClone.Adapter
                 packedBoxes.Add(pBox);
             }
 
-            var unpackedItems = new List<sharp.Item>(request.Items);
-            foreach (var pBox in packedBoxes)
+            var unpackedItems = new List<sharp.Item>();
+            foreach (var unpackedItem in packer._unpackedItems)
             {
-                foreach(var pItem in pBox.PackedItems)
-                {
-                    unpackedItems.Remove(pItem.Item);
-                }
+                unpackedItems.Add(Convertors.ItemToItem(unpackedItem));
             }
 
             var result = new sharp.BoxPackerResult
