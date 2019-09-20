@@ -101,7 +101,7 @@ namespace BoxPackerClone.Adapter.Tests
                 Items = itemsList
             };
 
-            var packer = new BoxPackerCloneAdapter();
+            var packer = new BoxPackerCloneStrategy();
             packer.options.MaxBoxesToBalanceWeight = 12;
             var result = packer.Pack(request);
 

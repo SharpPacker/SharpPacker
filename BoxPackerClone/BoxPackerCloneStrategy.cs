@@ -6,7 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
-
+using SharpPacker.Base.Interfaces;
+using SharpPacker.Base.Abstract;
 
 namespace BoxPackerClone.Adapter
 {
@@ -15,12 +16,8 @@ namespace BoxPackerClone.Adapter
         public int MaxBoxesToBalanceWeight = 12;
     }
 
-    public class BoxPackerCloneAdapter : ABoxPacker<Options>
+    public class BoxPackerCloneStrategy : ABoxPackerStrategy<Options>, IBoxPackerStrategy
     {
-        public BoxPackerCloneAdapter()
-        {
-        }
-
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
             var packer = new InfalliblePacker
@@ -77,11 +74,6 @@ namespace BoxPackerClone.Adapter
                 };
 
             return result;
-        }
-
-        public override async Task<sharp.BoxPackerResult> PackAsync(sharp.BoxPackerRequest request, CancellationToken cancellationToken)
-        {
-            return await Task.Run(() => Pack(request));
         }
 
         protected override void Dispose(bool disposing)

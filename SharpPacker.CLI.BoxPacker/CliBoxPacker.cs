@@ -25,7 +25,7 @@ namespace SharpPacker.CLI.BoxPacker
         public string resultPath = string.Empty;
     }
 
-    class BoxPacker
+    class CliBoxPacker
     {
         static int Main(string[] args)
         {
@@ -113,10 +113,13 @@ namespace SharpPacker.CLI.BoxPacker
 
             BoxPackerResult result;
 
-            using (var packer = new BoxPackerCloneAdapter())
+            using (var strategy = new BoxPackerCloneStrategy())
             {
-                packer.options.MaxBoxesToBalanceWeight = 15;
-                result = packer.Pack(request);
+                strategy.options.MaxBoxesToBalanceWeight = 15;
+                using(var packer = new SharpPacker.Base.BoxPacker(strategy))
+                {
+                    result = packer.Pack(request);
+                }
             }
 
             using (StreamWriter file = File.CreateText(cliArgs.resultPath))
