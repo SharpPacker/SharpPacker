@@ -17,8 +17,6 @@ namespace BoxPackerClone.Adapter
 
     public class BoxPackerCloneAdapter : ABoxPacker<Options>
     {
-        readonly InfalliblePacker packer;
-
         public BoxPackerCloneAdapter()
         {
         }

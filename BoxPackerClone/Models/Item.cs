@@ -16,20 +16,6 @@ namespace BoxPackerClone.Models
         public int CompareTo(Item other)
         {
             throw new NotImplementedException();
-
-            var volumeDecider = this.Volume.CompareTo(other.Volume);
-            if(volumeDecider != 0)
-            {
-                return -1 * volumeDecider;
-            }
-
-            var weightDecider = this.Weight - other.Weight;
-            if (weightDecider != 0)
-            {
-                return -1 * weightDecider;
-            }
-
-            return -1 * other.Description.CompareTo(this.Description);
         }
 
         override public string ToString()

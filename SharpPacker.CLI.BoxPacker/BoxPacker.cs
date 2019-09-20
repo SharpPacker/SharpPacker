@@ -19,10 +19,10 @@ namespace SharpPacker.CLI.BoxPacker
     class ParsingTarget
     {
         [ValueArgument(typeof(string), 'i', "input", Description = "Request file path, *.json", Optional = false)]
-        public string requestPath;
+        public string requestPath = string.Empty;
 
         [ValueArgument(typeof(string), 'o', "output", Description = "Result file path, *.json", Optional = true)]
-        public string resultPath;
+        public string resultPath = string.Empty;
     }
 
     class BoxPacker
