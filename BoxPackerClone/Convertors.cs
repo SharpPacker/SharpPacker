@@ -7,7 +7,7 @@ using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
 using SharpPacker.Base.Utils;
 
-namespace BoxPackerCloneAdapter
+namespace BoxPackerClone.Adapter
 {
     static class Convertors
     {

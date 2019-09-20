@@ -6,33 +6,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
+using SharpPacker.Base.Interfaces;
+using SharpPacker.Base.Abstract;
 
-
-namespace BoxPackerCloneAdapter
+namespace BoxPackerClone.Adapter
 {
     public class Options
     {
         public int MaxBoxesToBalanceWeight = 12;
     }
 
-    public class BoxPackerCloneAdapter : ABoxPacker<Options>
+    public class BoxPackerCloneStrategy : ABoxPackerStrategy<Options>, IBoxPackerStrategy
     {
-        readonly Packer packer = new Packer();
-        Options options;
-
-        public BoxPackerCloneAdapter()
-        {
-            options = new Options();
-        }
-
-        public override void Init(Options options)
-        {
-            this.options = options;
-        }
-
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
-            var packer = new Packer
+            var packer = new InfalliblePacker
             {
                 MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight
             };
@@ -73,13 +61,10 @@ namespace BoxPackerCloneAdapter
                 packedBoxes.Add(pBox);
             }
 
-            var unpackedItems = new List<sharp.Item>(request.Items);
-            foreach (var pBox in packedBoxes)
+            var unpackedItems = new List<sharp.Item>();
+            foreach (var unpackedItem in packer._unpackedItems)
             {
-                foreach(var pItem in pBox.PackedItems)
-                {
-                    unpackedItems.Remove(pItem.Item);
-                }
+                unpackedItems.Add(Convertors.ItemToItem(unpackedItem));
             }
 
             var result = new sharp.BoxPackerResult
@@ -89,11 +74,6 @@ namespace BoxPackerCloneAdapter
                 };
 
             return result;
-        }
-
-        public override async Task<sharp.BoxPackerResult> PackAsync(sharp.BoxPackerRequest request, CancellationToken cancellationToken)
-        {
-            return await Task.Run(() => Pack(request));
         }
 
         protected override void Dispose(bool disposing)

@@ -11,8 +11,8 @@ namespace BoxPackerClone
     {
         public int MaxBoxesToBalanceWeight { get; set; } = 12;
 
-        private ItemList _items;
-        private BoxList _boxes;
+        protected ItemList _items;
+        protected BoxList _boxes;
 
         public Packer()
         {
@@ -81,7 +81,9 @@ namespace BoxPackerClone
                 // if any items is packed, then any chanses for this in next iteration
                 if (packedBoxesIteration.Count == 0)
                 {
-                    throw new ItemTooLargeException();
+                    var ex = new ItemTooLargeException();
+                    ex.Data.Add("item", _items.Top());
+                    throw ex;
                 }
                 //Find best box of iteration, and remove packed items from unpacked list
                 var bestBox = FindBestBoxFromIteration(packedBoxesIteration);
@@ -97,7 +99,7 @@ namespace BoxPackerClone
             return packedBoxes;
         }
 
-        public PackedBoxList Pack()
+        public virtual PackedBoxList Pack()
         {
             var packedBoxes = DoVolumePacking();
 
