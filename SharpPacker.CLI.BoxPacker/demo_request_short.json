@@ -36,7 +36,7 @@
     }
   ],
 
-  "BundlesOfItems": [
+  "Bundles": [
     {
       "Item": {
         "Name": "item1",
@@ -45,7 +45,7 @@
           "sizeY": 1,
           "sizeZ": 1
         },
-        "AllowedRotations": 31,
+        "AllowedRotations": 31, 
         "Weight": 100
       },
       "Quantity": 4

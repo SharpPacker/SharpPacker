@@ -19,7 +19,7 @@
     }
   ],
 
-  "BundlesOfItems": [
+  "Bundles": [
     {
       "Item": {
         "Name": "item",
