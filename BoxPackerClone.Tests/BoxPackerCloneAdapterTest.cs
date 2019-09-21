@@ -4,6 +4,7 @@ using System;
 using Xunit;
 using System.Linq;
 using System.Collections.Generic;
+using SharpPacker.Base.Utils;
 
 namespace BoxPackerClone.Adapter.Tests
 {
@@ -17,8 +18,8 @@ namespace BoxPackerClone.Adapter.Tests
         public void TestIssue38()
         {
             var boxList = new List<BoxType>();
-            var itemsList = new List<Item>();
-            
+            var bundlesList = new List<ItemsBundle>();
+
             boxList.Add(new BoxType("Box1")
             {
                 OuterDimensions = new Dimensions(2, 2, 2),
@@ -35,70 +36,37 @@ namespace BoxPackerClone.Adapter.Tests
                 MaxWeight = 1000,
             });
 
+            bundlesList.Add(
+                new ItemsBundle(
+                    new Item("Item1")
+                    {
+                        Dimensions = new Dimensions(1, 1, 1),
+                        Weight = 100,
+                        AllowedRotations = RotationFlags.AllRotations,
+                    }, 4));
 
-            itemsList.Add(new Item("Item1")
-            {
-                Dimensions = new Dimensions(1, 1, 1),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item2")
-            {
-                Dimensions = new Dimensions(1, 1, 1),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item3")
-            {
-                Dimensions = new Dimensions(1, 1, 1),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item4")
-            {
-                Dimensions = new Dimensions(1, 1, 1),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
+            bundlesList.Add(
+                new ItemsBundle(
+                    new Item("Item5")
+                    {
+                        Dimensions = new Dimensions(2, 2, 2),
+                        Weight = 100,
+                        AllowedRotations = RotationFlags.AllRotations,
+                    }, 4));
 
-
-            itemsList.Add(new Item("Item5")
-            {
-                Dimensions = new Dimensions(2, 2, 2),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item6")
-            {
-                Dimensions = new Dimensions(2, 2, 2),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item7")
-            {
-                Dimensions = new Dimensions(2, 2, 2),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-            itemsList.Add(new Item("Item8")
-            {
-                Dimensions = new Dimensions(2, 2, 2),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
-
-
-            itemsList.Add(new Item("Item9")
-            {
-                Dimensions = new Dimensions(4, 4, 4),
-                Weight = 100,
-                AllowedRotations = RotationFlags.AllRotations,
-            });
+            bundlesList.Add(
+                new ItemsBundle(
+                    new Item("Item9")
+                    {
+                        Dimensions = new Dimensions(4, 4, 4),
+                        Weight = 100,
+                        AllowedRotations = RotationFlags.AllRotations,
+                    }, 1));
 
             var request = new BoxPackerRequest
             {
-                Boxes = boxList,
-                Items = itemsList
+                BoxTypes = boxList,
+                Bundles = bundlesList
             };
 
             var packer = new BoxPackerCloneStrategy();

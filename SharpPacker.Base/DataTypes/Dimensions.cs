@@ -6,16 +6,16 @@ namespace SharpPacker.Base.DataTypes
 {
     public struct Dimensions : IEquatable<Dimensions>
     {
-        public Dimensions(int sizeX, int sizeY, int sizeZ)
+        public Dimensions(uint sizeX, uint sizeY, uint sizeZ)
         {
             this.sizeX = sizeX;
             this.sizeY = sizeY;
             this.sizeZ = sizeZ;
         }
 
-        public int sizeX;
-        public int sizeY;
-        public int sizeZ;
+        public uint sizeX;
+        public uint sizeY;
+        public uint sizeZ;
 
         public bool Equals(Dimensions other) => (other.sizeX == this.sizeX && other.sizeY == this.sizeY && other.sizeZ == this.sizeZ);
 

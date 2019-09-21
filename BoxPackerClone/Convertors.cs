@@ -10,23 +10,25 @@ using SharpPacker.Base.Utils;
 namespace BoxPackerClone.Adapter
 {
     static class Convertors
-    {
+    { 
+        public static int UintToInt(uint u) => (u > int.MaxValue) ? int.MaxValue : (int)u;
+
         public static clone.Box BoxToBox(sharp.BoxType bt)
         {
             return new clone.Box
                 {
                     Reference = bt.Name,
 
-                    EmptyWeight = bt.EmptyWeight,
-                    MaxWeight = bt.MaxWeight,
+                    EmptyWeight = UintToInt(bt.EmptyWeight),
+                    MaxWeight = UintToInt(bt.MaxWeight),
 
-                    InnerWidth = bt.InnerDimensions.sizeX,
-                    InnerLength = bt.InnerDimensions.sizeY,
-                    InnerDepth = bt.InnerDimensions.sizeZ,
+                    InnerWidth = UintToInt(bt.InnerDimensions.sizeX),
+                    InnerLength = UintToInt(bt.InnerDimensions.sizeY),
+                    InnerDepth = UintToInt(bt.InnerDimensions.sizeZ),
 
-                    OuterWidth = bt.OuterDimensions.sizeX,
-                    OuterLength = bt.OuterDimensions.sizeY,
-                    OuterDepth = bt.OuterDimensions.sizeZ,
+                    OuterWidth = UintToInt(bt.OuterDimensions.sizeX),
+                    OuterLength = UintToInt(bt.OuterDimensions.sizeY),
+                    OuterDepth = UintToInt(bt.OuterDimensions.sizeZ),
                 };
         }
 
@@ -37,11 +39,11 @@ namespace BoxPackerClone.Adapter
                 MinItemsCount = uint.MinValue,
                 MaxItemsCount = uint.MaxValue,
 
-                InnerDimensions = new Dimensions(bt.InnerWidth, bt.InnerLength, bt.InnerDepth),
-                OuterDimensions = new Dimensions(bt.OuterWidth, bt.OuterLength, bt.OuterDepth),
+                InnerDimensions = new Dimensions((uint)bt.InnerWidth, (uint)bt.InnerLength, (uint)bt.InnerDepth),
+                OuterDimensions = new Dimensions((uint)bt.OuterWidth, (uint)bt.OuterLength, (uint)bt.OuterDepth),
 
-                EmptyWeight = bt.EmptyWeight,
-                MaxWeight = bt.MaxWeight,
+                EmptyWeight = (uint)bt.EmptyWeight,
+                MaxWeight = (uint)bt.MaxWeight,
             };
         }
 
@@ -52,11 +54,11 @@ namespace BoxPackerClone.Adapter
             {
                 Description = item.Name,
 
-                Width = item.Dimensions.sizeX,
-                Length = item.Dimensions.sizeY,
-                Depth = item.Dimensions.sizeZ,
+                Width = UintToInt(item.Dimensions.sizeX),
+                Length = UintToInt(item.Dimensions.sizeY),
+                Depth = UintToInt(item.Dimensions.sizeZ),
 
-                Weight = item.Weight,
+                Weight = UintToInt(item.Weight),
 
                 KeepFlat = (item.AllowedRotations == RotationFlags.DoNotTurnOver) || (item.AllowedRotations == RotationFlags.XYZ_to_XYZ),
             };
@@ -66,16 +68,16 @@ namespace BoxPackerClone.Adapter
         {
             return new sharp.Item(item.Description)
             {
-                Dimensions = new Dimensions(item.Width, item.Length, item.Depth),
-                Weight = item.Weight,
+                Dimensions = new Dimensions((uint)item.Width, (uint)item.Length, (uint)item.Depth),
+                Weight = (uint)item.Weight,
                 AllowedRotations = item.KeepFlat ? RotationFlags.DoNotTurnOver : RotationFlags.AllRotations
             };
         }
 
         public static sharp.PackedItem PackedItemToPackedItem(clone.PackedItem pItem)
         {
-            var originalDimensions = new Dimensions(pItem.Item.Width, pItem.Item.Length, pItem.Item.Depth);
-            var rotatedDimensions = new Dimensions(pItem.Width, pItem.Length, pItem.Depth);
+            var originalDimensions = new Dimensions((uint)pItem.Item.Width, (uint)pItem.Item.Length, (uint)pItem.Item.Depth);
+            var rotatedDimensions = new Dimensions((uint)pItem.Width, (uint)pItem.Length, (uint)pItem.Depth);
 
             return new sharp.PackedItem(ItemToItem(pItem.Item))
             {

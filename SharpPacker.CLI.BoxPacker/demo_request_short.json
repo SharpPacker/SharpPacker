@@ -1,130 +1,80 @@
 {
-    "Boxes": [
-        {
-            "Name": "box1",
-            "OuterDimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "InnerDimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "EmptyWeight": 0,
-            "MaxWeight": 1000,
-            "MinItemsCount": 1,
-            "MaxItemsCount": 2147483647
+  "BoxTypes": [
+    {
+      "Name": "box1",
+      "OuterDimensions": {
+        "sizeX": 2,
+        "sizeY": 2,
+        "sizeZ": 2
+      },
+      "InnerDimensions": {
+        "sizeX": 2,
+        "sizeY": 2,
+        "sizeZ": 2
+      },
+      "EmptyWeight": 0,
+      "MaxWeight": 1000,
+      "MinItemsCount": 1,
+      "MaxItemsCount": 2147483647
+    },
+    {
+      "Name": "box2",
+      "OuterDimensions": {
+        "sizeX": 4,
+        "sizeY": 4,
+        "sizeZ": 4
+      },
+      "InnerDimensions": {
+        "sizeX": 4,
+        "sizeY": 4,
+        "sizeZ": 4
+      },
+      "EmptyWeight": 0,
+      "MaxWeight": 1000,
+      "MinItemsCount": 1,
+      "MaxItemsCount": 2147483647
+    }
+  ],
+
+  "BundlesOfItems": [
+    {
+      "Item": {
+        "Name": "item1",
+        "Dimensions": {
+          "sizeX": 1,
+          "sizeY": 1,
+          "sizeZ": 1
         },
-        {
-            "Name": "box2",
-            "OuterDimensions": {
-                "sizeX": 4,
-                "sizeY": 4,
-                "sizeZ": 4
-            },
-            "InnerDimensions": {
-                "sizeX": 4,
-                "sizeY": 4,
-                "sizeZ": 4
-            },
-            "EmptyWeight": 0,
-            "MaxWeight": 1000,
-            "MinItemsCount": 1,
-            "MaxItemsCount": 2147483647
-        }
-    ],
-    "Items": [
-        {
-            "Name": "item1",
-            "Dimensions": {
-                "sizeX": 1,
-                "sizeY": 1,
-                "sizeZ": 1
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
+        "AllowedRotations": 31,
+        "Weight": 100
+      },
+      "Quantity": 4
+    },
+    {
+      "Item": {
+        "Name": "item2",
+        "Dimensions": {
+          "sizeX": 2,
+          "sizeY": 2,
+          "sizeZ": 2
         },
-        {
-            "Name": "item2",
-            "Dimensions": {
-                "sizeX": 1,
-                "sizeY": 1,
-                "sizeZ": 1
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
+        "AllowedRotations": 31,
+        "Weight": 100
+      },
+      "Quantity": 4
+    },
+    {
+      "Item": {
+        "Name": "item4",
+        "Dimensions": {
+          "sizeX": 4,
+          "sizeY": 4,
+          "sizeZ": 4
         },
-        {
-            "Name": "item3",
-            "Dimensions": {
-                "sizeX": 1,
-                "sizeY": 1,
-                "sizeZ": 1
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item4",
-            "Dimensions": {
-                "sizeX": 1,
-                "sizeY": 1,
-                "sizeZ": 1
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item5",
-            "Dimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item6",
-            "Dimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item7",
-            "Dimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item8",
-            "Dimensions": {
-                "sizeX": 2,
-                "sizeY": 2,
-                "sizeZ": 2
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        },
-        {
-            "Name": "item9",
-            "Dimensions": {
-                "sizeX": 4,
-                "sizeY": 4,
-                "sizeZ": 4
-            },
-            "AllowedRotations": 31,
-            "Weight": 100
-        }
-    ]
+        "AllowedRotations": 31,
+        "Weight": 100
+      },
+      "Quantity": 1
+    }
+  ]
 }

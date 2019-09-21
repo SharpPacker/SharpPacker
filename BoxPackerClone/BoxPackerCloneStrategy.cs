@@ -8,6 +8,7 @@ using sharp = SharpPacker.Base.Models;
 using clone = BoxPackerClone.Models;
 using SharpPacker.Base.Interfaces;
 using SharpPacker.Base.Abstract;
+using System.Linq;
 
 namespace BoxPackerClone.Adapter
 {
@@ -25,14 +26,17 @@ namespace BoxPackerClone.Adapter
                 MaxBoxesToBalanceWeight = options.MaxBoxesToBalanceWeight
             };
 
-            foreach (var box in request.Boxes)
+            foreach (var box in request.BoxTypes)
             {
                 packer.AddBox(Convertors.BoxToBox(box));
             }
 
-            foreach(var item in request.Items)
+            foreach(var set in request.Bundles)
             {
-                packer.AddItem(Convertors.ItemToItem(item));
+                for (var i = 0; i < set.Quantity; i++)
+                {
+                    packer.AddItem(Convertors.ItemToItem(set.Item));
+                }
             }
 
             clone.PackedBoxList pbl = packer.Pack();
@@ -68,10 +72,10 @@ namespace BoxPackerClone.Adapter
             }
 
             var result = new sharp.BoxPackerResult
-                {
-                    PackedBoxes = packedBoxes,
-                    UnpackedItems = unpackedItems
-                };
+            {
+                PackedBoxes = packedBoxes,
+                UnpackedItems = unpackedItems.GroupBy(item => item).Select(g => new sharp.ItemsBundle(g.Key, (uint)g.Count())),
+            };
 
             return result;
         }
