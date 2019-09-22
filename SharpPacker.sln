@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoxPackerClone", "BoxPackerClone\BoxPackerClone.csproj", "{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoxPackerClone.Tests", "BoxPackerClone.Tests\BoxPackerClone.Tests.csproj", "{42E16C92-FF3E-4C4C-8D94-518BBAED8262}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.Base", "SharpPacker.Base\SharpPacker.Base.csproj", "{B34B49D6-E555-467B-9576-4CD7CBC7343F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.CLI.BoxPacker", "SharpPacker.CLI.BoxPacker\SharpPacker.CLI.BoxPacker.csproj", "{9A6782F4-D3D8-4DAA-9336-1E225F0B2788}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.Strategy.BoxPackerClone", "SharpPacker.Strategy.BoxPackerClone\SharpPacker.Strategy.BoxPackerClone.csproj", "{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpPacker.Strategy.BoxPackerClone.Tests", "SharpPacker.Strategy.BoxPackerClone.Tests\SharpPacker.Strategy.BoxPackerClone.Tests.csproj", "{C5849B32-D62C-42AC-81BC-592C54E8D06C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,18 +18,6 @@ Global
 		Release-cli|Any CPU = Release-cli|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Release-cli|Any CPU.ActiveCfg = Release|Any CPU
-		{5D6B5A0E-B5CF-4FCB-B79A-237DAB4E6E65}.Release-cli|Any CPU.Build.0 = Release|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release-cli|Any CPU.ActiveCfg = Release|Any CPU
-		{42E16C92-FF3E-4C4C-8D94-518BBAED8262}.Release-cli|Any CPU.Build.0 = Release|Any CPU
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B34B49D6-E555-467B-9576-4CD7CBC7343F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,6 +30,18 @@ Global
 		{9A6782F4-D3D8-4DAA-9336-1E225F0B2788}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A6782F4-D3D8-4DAA-9336-1E225F0B2788}.Release-cli|Any CPU.ActiveCfg = Release-cli|Any CPU
 		{9A6782F4-D3D8-4DAA-9336-1E225F0B2788}.Release-cli|Any CPU.Build.0 = Release-cli|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Release-cli|Any CPU.ActiveCfg = Release|Any CPU
+		{338FC0E5-BB2F-4E44-B878-3F8D48CEB7FE}.Release-cli|Any CPU.Build.0 = Release|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Release-cli|Any CPU.ActiveCfg = Release|Any CPU
+		{C5849B32-D62C-42AC-81BC-592C54E8D06C}.Release-cli|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

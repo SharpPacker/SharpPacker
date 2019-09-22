@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using SharpPacker.Base.Models;
 using System;
 using System.IO;
-using BoxPackerClone.Adapter;
+using SharpPacker.Strategy.BoxPackerClone;
 
 namespace SharpPacker.CLI.BoxPacker
 {
