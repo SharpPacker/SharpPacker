@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SharpPacker.Base.Interfaces
 {
-    public interface IPalletPackerStrategy : IPackerStrategy<PalletPackerRequest, PalletPackerResult>
+    public interface IBoxPacker : IPacker<BoxPackerRequest, BoxPackerResult>
     {
     }
 }

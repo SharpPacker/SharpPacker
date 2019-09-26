@@ -6,14 +6,13 @@ using System.Text;
 
 namespace SharpPacker.Base
 {
-    public class BoxPacker : IBoxPackerStrategy
+    public class BoxPacker : IBoxPacker
     {
-        public IBoxPackerStrategy Strategy { get; set; }
+        private IBoxPacker Strategy { get; set; }
 
-        public BoxPacker() { }
-        public BoxPacker(IBoxPackerStrategy strategy)
+        public BoxPacker(IBoxPacker strategy)
         {
-            Strategy = strategy;
+            Strategy = strategy ?? throw new ArgumentNullException(nameof(strategy));
         }
 
         public BoxPackerResult Pack(BoxPackerRequest request)

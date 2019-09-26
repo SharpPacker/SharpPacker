@@ -17,8 +17,10 @@ namespace SharpPacker.Strategy.BoxPackerClone
         public int MaxBoxesToBalanceWeight = 12;
     }
 
-    public class BoxPackerCloneStrategy : ABoxPackerStrategy<Options>, IBoxPackerStrategy
+    public class BoxPackerCloneStrategy : ABoxPackerStrategy<Options>, IBoxPacker
     {
+        public override string StrategyName() => "BoxPackerCloneStrategy";
+
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {
             var packer = new InfalliblePacker

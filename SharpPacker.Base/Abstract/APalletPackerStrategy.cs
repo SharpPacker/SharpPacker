@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace SharpPacker.Base.Abstract
 {
-    public abstract class APalletPackerStrategy<TOptions> : APackerStrategy<PalletPackerRequest, PalletPackerResult, TOptions>, IPalletPackerStrategy
+    public abstract class APalletPackerStrategy<TOptions> : APackerStrategy<PalletPackerRequest, PalletPackerResult, TOptions>, IPalletPacker
                                                             where TOptions : class, new()
     {
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpPacker.Base.Interfaces
 {
-    public interface IPackerStrategy<TRequest, TResult> : IDisposable
+    public interface IPacker<TRequest, TResult> : IDisposable
     {
         TResult Pack(TRequest request);
     }
