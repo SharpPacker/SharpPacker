@@ -6,14 +6,14 @@ using System.Text;
 
 namespace SharpPacker.Base
 {
-    public class PalletPacker : IPalletPackerStrategy
-    {
-        public IPalletPackerStrategy Strategy { get; set; }
 
-        public PalletPacker() { }
-        public PalletPacker(IPalletPackerStrategy strategy)
+    public class PalletPacker : IPalletPacker
+    {
+        private IPalletPacker Strategy { get; set; }
+
+        public PalletPacker(IPalletPacker strategy)
         {
-            Strategy = strategy;
+            Strategy = strategy ?? throw new ArgumentNullException(nameof(strategy));
         }
 
         public PalletPackerResult Pack(PalletPackerRequest request)

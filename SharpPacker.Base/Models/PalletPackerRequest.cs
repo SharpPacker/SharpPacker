@@ -8,6 +8,5 @@ namespace SharpPacker.Base.Models
     {
         public PalletType Pallet { get; set; }
         public Item Item { get; set; }
-        public int MaxPackedItemsLimit { get; set; } = int.MaxValue;
     }
 }

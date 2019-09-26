@@ -16,7 +16,7 @@ namespace SharpPacker.Base.Models
 
         public Dimensions Dimensions { get; set; }
         public RotationFlags AllowedRotations { get; set; }
-        public int Weight { get; set; }
+        public uint Weight { get; set; }
 
         public bool PhysicallyEquals(Item other)
         {
@@ -39,7 +39,7 @@ namespace SharpPacker.Base.Models
                 hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
                 hashCode = hashCode * -1521134295 + EqualityComparer<Dimensions>.Default.GetHashCode(Dimensions);
                 hashCode = hashCode * -1521134295 + EqualityComparer<RotationFlags>.Default.GetHashCode(AllowedRotations);
-                hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(Weight);
+                hashCode = hashCode * -1521134295 + EqualityComparer<uint>.Default.GetHashCode(Weight);
             }
             return hashCode;
         }

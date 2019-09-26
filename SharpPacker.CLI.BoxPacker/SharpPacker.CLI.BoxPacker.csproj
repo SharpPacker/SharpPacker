@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BoxPackerClone\BoxPackerClone.csproj" />
     <ProjectReference Include="..\SharpPacker.Base\SharpPacker.Base.csproj" />
+    <ProjectReference Include="..\SharpPacker.Strategy.BoxPackerClone\SharpPacker.Strategy.BoxPackerClone.csproj" />
   </ItemGroup>
 
   <ItemGroup>

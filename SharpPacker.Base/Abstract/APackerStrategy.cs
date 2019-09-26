@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace SharpPacker.Base.Abstract
 {
-    public abstract class APackerStrategy<TRequest, TResult, TOptions> : IPackerStrategy<TRequest, TResult>, IDisposable
+    public abstract class APackerStrategy<TRequest, TResult, TOptions> : IPacker<TRequest, TResult>, IDisposable
                                                                         where TOptions : class, new()
     {
+        public abstract string StrategyName();
         public StepNotification<TResult> stepNotify;
         public readonly TOptions options;
 
