@@ -18,6 +18,10 @@ namespace SharpPacker.Strategy.BoxPackerClone
     }
     public class BoxPackerCloneStrategy : ABoxPackerStrategy<Options>, IBoxPacker
     {
+        public BoxPackerCloneStrategy(Options options) : base(options)
+        {
+        }
+
         public override string StrategyName() => "BoxPackerCloneStrategy";
         public override sharp.BoxPackerResult Pack(sharp.BoxPackerRequest request)
         {

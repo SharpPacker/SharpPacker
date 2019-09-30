@@ -113,7 +113,7 @@ namespace SharpPacker.CLI.BoxPacker
 
             BoxPackerResult result;
 
-            using (var strategy = new BoxPackerCloneStrategy())
+            using (var strategy = new BoxPackerCloneStrategy(new Options()))
             {
                 strategy.options.MaxBoxesToBalanceWeight = 15;
                 using(var packer = new SharpPacker.Base.BoxPacker(strategy))

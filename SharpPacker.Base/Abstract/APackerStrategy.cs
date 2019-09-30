@@ -15,11 +15,6 @@ namespace SharpPacker.Base.Abstract
         public StepNotification<TResult> stepNotify;
         public readonly TOptions options;
 
-        public APackerStrategy()
-        {
-            options = new TOptions();
-        }
-
         public APackerStrategy(TOptions options)
         {
             this.options = options;

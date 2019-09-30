@@ -9,5 +9,8 @@ namespace SharpPacker.Base.Abstract
     public abstract class ABoxPackerStrategy<TOptions> : APackerStrategy<BoxPackerRequest, BoxPackerResult, TOptions>, IBoxPacker
                                                         where TOptions : class, new()
     {
+        public ABoxPackerStrategy(TOptions options) : base(options)
+        {
+        }
     }
 }

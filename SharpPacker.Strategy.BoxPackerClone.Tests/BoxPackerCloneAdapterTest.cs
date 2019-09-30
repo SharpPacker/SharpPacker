@@ -69,7 +69,7 @@ namespace SharpPacker.Strategy.BoxPackerClone.Tests
                 Bundles = bundlesList
             };
 
-            var packer = new BoxPackerCloneStrategy();
+            var packer = new BoxPackerCloneStrategy(new Options());
             packer.options.MaxBoxesToBalanceWeight = 12;
             var result = packer.Pack(request);
 
